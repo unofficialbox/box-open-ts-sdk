@@ -1,0 +1,32 @@
+{
+  "name": "@unofficialbox/box-open-sdk",
+  "version": "0.1.0",
+  "description": "Generated TypeScript SDK for the Box API (community, unofficial).",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/unofficialbox/box-open-ts-sdk.git" },
+  "homepage": "https://github.com/unofficialbox/box-open-ts-sdk",
+  "type": "module",
+  "sideEffects": false,
+  "engines": { "node": ">=20" },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./jwt": {
+      "types": "./dist/types/jwt.d.ts",
+      "import": "./dist/esm/jwt.js",
+      "require": "./dist/cjs/jwt.js"
+    }
+  },
+  "files": ["dist", "docs", "README.md"],
+  "publishConfig": { "access": "public" },
+  "devDependencies": { "typescript": "^7.0.2" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs"
+  }
+}
