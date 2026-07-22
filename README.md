@@ -5,7 +5,7 @@
 
 [![npm](https://img.shields.io/npm/v/@unofficialbox/box-open-sdk.svg)](https://www.npmjs.com/package/@unofficialbox/box-open-sdk)
 
-A **community, unofficial** Box API client for TypeScript — fully typed models
+An **open source, community-built** Box API client for TypeScript — fully typed models
 for the whole Box surface, one manager per API area behind a single `Client`,
 and a `fetch`-based runtime with retry, backoff, and token refresh. Ships as a
 **dual ESM/CJS** package with bundled `.d.ts` declarations; no runtime
