@@ -9,6 +9,12 @@ Reach these methods through the `classifications` field on `Client`.
 
 **Returns:** `ClassificationTemplate`
 
+**Example**
+
+```ts
+const result = await client.classifications.get();
+```
+
 ## updateAdd
 
 `PUT /metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema`
@@ -16,6 +22,12 @@ Reach these methods through the `classifications` field on `Client`.
 **Request body** (`application/json`): `Array<ClassificationUpdateRequest>`
 
 **Returns:** `ClassificationTemplate`
+
+**Example**
+
+```ts
+const result = await client.classifications.updateAdd([]);
+```
 
 ## updateUpdate
 
@@ -25,6 +37,12 @@ Reach these methods through the `classifications` field on `Client`.
 
 **Returns:** `ClassificationTemplate`
 
+**Example**
+
+```ts
+const result = await client.classifications.updateUpdate([]);
+```
+
 ## createMetadataTemplateSchemaClassifications
 
 `POST /metadata_templates/schema`
@@ -32,4 +50,10 @@ Reach these methods through the `classifications` field on `Client`.
 **Request body** (`application/json`): `MetadataTemplateSchemaCreateRequest`
 
 **Returns:** `ClassificationTemplate`
+
+**Example**
+
+```ts
+const result = await client.classifications.createMetadataTemplateSchemaClassifications({ /* … */ });
+```
 

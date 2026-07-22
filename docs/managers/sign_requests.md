@@ -15,6 +15,12 @@ Reach these methods through the `signRequests` field on `Client`.
 
 **Returns:** `SignRequest`
 
+**Example**
+
+```ts
+const result = await client.signRequests.cancel("SIGN_REQUEST_ID", { /* … */ });
+```
+
 ## resend
 
 `POST /sign_requests/{sign_request_id}/resend`
@@ -25,6 +31,12 @@ Reach these methods through the `signRequests` field on `Client`.
 
 **Returns:** `void`
 
+**Example**
+
+```ts
+await client.signRequests.resend("SIGN_REQUEST_ID");
+```
+
 ## get
 
 `GET /sign_requests/{sign_request_id}`
@@ -34,6 +46,12 @@ Reach these methods through the `signRequests` field on `Client`.
 | `sign_request_id` | path | `string` | yes |
 
 **Returns:** `SignRequest`
+
+**Example**
+
+```ts
+const result = await client.signRequests.get("SIGN_REQUEST_ID");
+```
 
 ## list
 
@@ -48,6 +66,14 @@ Reach these methods through the `signRequests` field on `Client`.
 
 **Returns:** `SignRequests`
 
+**Example**
+
+```ts
+for await (const item of client.signRequests.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -57,4 +83,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `SignRequestCreateRequest`
 
 **Returns:** `SignRequest`
+
+**Example**
+
+```ts
+const result = await client.signRequests.create({ /* … */ });
+```
 

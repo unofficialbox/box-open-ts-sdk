@@ -13,6 +13,12 @@ Reach these methods through the `termsOfServices` field on `Client`.
 
 **Returns:** `TermsOfServices`
 
+**Example**
+
+```ts
+const result = await client.termsOfServices.list();
+```
+
 ## create
 
 `POST /terms_of_services`
@@ -20,6 +26,12 @@ Reach these methods through the `termsOfServices` field on `Client`.
 **Request body** (`application/json`): `TermsOfServiceCreateRequest`
 
 **Returns:** `TermsOfService`
+
+**Example**
+
+```ts
+const result = await client.termsOfServices.create({ /* … */ });
+```
 
 ## get
 
@@ -30,6 +42,12 @@ Reach these methods through the `termsOfServices` field on `Client`.
 | `terms_of_service_id` | path | `string` | yes |
 
 **Returns:** `TermsOfService`
+
+**Example**
+
+```ts
+const result = await client.termsOfServices.get("TERMS_OF_SERVICE_ID");
+```
 
 ## update
 
@@ -42,4 +60,10 @@ Reach these methods through the `termsOfServices` field on `Client`.
 **Request body** (`application/json`): `TermsOfServiceUpdateRequest`
 
 **Returns:** `TermsOfService`
+
+**Example**
+
+```ts
+const result = await client.termsOfServices.update("TERMS_OF_SERVICE_ID", { /* … */ });
+```
 

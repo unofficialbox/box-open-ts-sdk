@@ -13,6 +13,12 @@ Reach these methods through the `devicePinners` field on `Client`.
 
 **Returns:** `DevicePinner`
 
+**Example**
+
+```ts
+const result = await client.devicePinners.get("DEVICE_PINNER_ID");
+```
+
 ## delete_
 
 `DELETE /device_pinners/{device_pinner_id}`
@@ -22,6 +28,12 @@ Reach these methods through the `devicePinners` field on `Client`.
 | `device_pinner_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.devicePinners.delete_("DEVICE_PINNER_ID");
+```
 
 ## listEnterprise
 
@@ -35,6 +47,14 @@ Reach these methods through the `devicePinners` field on `Client`.
 | `direction` | query | `OrderDirection` | no |
 
 **Returns:** `DevicePinners`
+
+**Example**
+
+```ts
+for await (const item of client.devicePinners.listEnterprise("ENTERPRISE_ID")) {
+  // use item
+}
+```
 
 Paginated — `listEnterprise(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

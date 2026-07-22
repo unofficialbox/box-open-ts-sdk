@@ -15,6 +15,12 @@ Reach these methods through the `invites` field on `Client`.
 
 **Returns:** `Invite`
 
+**Example**
+
+```ts
+const result = await client.invites.create({ /* … */ });
+```
+
 ## get
 
 `GET /invites/{invite_id}`
@@ -25,4 +31,10 @@ Reach these methods through the `invites` field on `Client`.
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `Invite`
+
+**Example**
+
+```ts
+const result = await client.invites.get("INVITE_ID");
+```
 

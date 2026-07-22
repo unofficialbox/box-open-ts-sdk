@@ -15,5 +15,13 @@ Reach these methods through the `recentItems` field on `Client`.
 
 **Returns:** `RecentItems`
 
+**Example**
+
+```ts
+for await (const item of client.recentItems.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

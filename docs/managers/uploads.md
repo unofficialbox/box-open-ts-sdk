@@ -3,7 +3,7 @@
 
 Reach these methods through the `uploads` field on `Client`.
 
-## createFileContent
+## uploadFileVersion
 
 `POST /files/{file_id}/content`
 
@@ -18,7 +18,13 @@ Reach these methods through the `uploads` field on `Client`.
 
 **Returns:** `Files`
 
-## createFileContent2
+**Example**
+
+```ts
+const result = await client.uploads.uploadFileVersion("FILE_ID", { /* … */ });
+```
+
+## uploadFile
 
 `POST /files/content`
 
@@ -31,6 +37,12 @@ Reach these methods through the `uploads` field on `Client`.
 
 **Returns:** `Files`
 
+**Example**
+
+```ts
+const result = await client.uploads.uploadFile({ /* … */ });
+```
+
 ## optionFileContent
 
 `OPTIONS /files/content`
@@ -38,4 +50,10 @@ Reach these methods through the `uploads` field on `Client`.
 **Request body** (`application/json`): `OptionFileContentRequest`
 
 **Returns:** `UploadUrl`
+
+**Example**
+
+```ts
+const result = await client.uploads.optionFileContent({ /* … */ });
+```
 

@@ -16,6 +16,14 @@ Reach these methods through the `listCollaborations` field on `Client`.
 
 **Returns:** `Collaborations`
 
+**Example**
+
+```ts
+for await (const item of client.listCollaborations.listFileCollaborations("FILE_ID")) {
+  // use item
+}
+```
+
 Paginated — `listFileCollaborations(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## listFolderCollaborations
@@ -30,6 +38,14 @@ Paginated — `listFileCollaborations(...)` is an async iterable that yields eac
 | `marker` | query | `string` | no |
 
 **Returns:** `Collaborations`
+
+**Example**
+
+```ts
+for await (const item of client.listCollaborations.listFolderCollaborations("FOLDER_ID")) {
+  // use item
+}
+```
 
 Paginated — `listFolderCollaborations(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -46,6 +62,14 @@ Paginated — `listFolderCollaborations(...)` is an async iterable that yields e
 
 **Returns:** `CollaborationsOffsetPaginated`
 
+**Example**
+
+```ts
+for await (const item of client.listCollaborations.listCollaborations("...")) {
+  // use item
+}
+```
+
 Paginated — `listCollaborations(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## listGroupCollaborations
@@ -59,6 +83,14 @@ Paginated — `listCollaborations(...)` is an async iterable that yields each en
 | `offset` | query | `number` | no |
 
 **Returns:** `CollaborationsOffsetPaginated`
+
+**Example**
+
+```ts
+for await (const item of client.listCollaborations.listGroupCollaborations("GROUP_ID")) {
+  // use item
+}
+```
 
 Paginated — `listGroupCollaborations(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

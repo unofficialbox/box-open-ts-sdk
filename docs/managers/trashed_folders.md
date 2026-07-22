@@ -16,6 +16,12 @@ Reach these methods through the `trashedFolders` field on `Client`.
 
 **Returns:** `TrashFolderRestored`
 
+**Example**
+
+```ts
+const result = await client.trashedFolders.createFolder("FOLDER_ID", { /* … */ });
+```
+
 ## getFolderTrash
 
 `GET /folders/{folder_id}/trash`
@@ -27,6 +33,12 @@ Reach these methods through the `trashedFolders` field on `Client`.
 
 **Returns:** `TrashFolder`
 
+**Example**
+
+```ts
+const result = await client.trashedFolders.getFolderTrash("FOLDER_ID");
+```
+
 ## deleteFolderTrash
 
 `DELETE /folders/{folder_id}/trash`
@@ -36,4 +48,10 @@ Reach these methods through the `trashedFolders` field on `Client`.
 | `folder_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.trashedFolders.deleteFolderTrash("FOLDER_ID");
+```
 

@@ -13,6 +13,12 @@ Reach these methods through the `folderWatermarks` field on `Client`.
 
 **Returns:** `Watermark`
 
+**Example**
+
+```ts
+const result = await client.folderWatermarks.getFolderWatermark("FOLDER_ID");
+```
+
 ## updateFolderWatermark
 
 `PUT /folders/{folder_id}/watermark`
@@ -25,6 +31,12 @@ Reach these methods through the `folderWatermarks` field on `Client`.
 
 **Returns:** `Watermark`
 
+**Example**
+
+```ts
+const result = await client.folderWatermarks.updateFolderWatermark("FOLDER_ID", { /* … */ });
+```
+
 ## deleteFolderWatermark
 
 `DELETE /folders/{folder_id}/watermark`
@@ -34,4 +46,10 @@ Reach these methods through the `folderWatermarks` field on `Client`.
 | `folder_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.folderWatermarks.deleteFolderWatermark("FOLDER_ID");
+```
 

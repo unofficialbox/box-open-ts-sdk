@@ -15,6 +15,12 @@ Reach these methods through the `sharedLinksFolders` field on `Client`.
 
 **Returns:** `FolderFull`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksFolders.getSharedItemsFolders("BOXAPI");
+```
+
 ## getFolderGetSharedLink
 
 `GET /folders/{folder_id}`
@@ -25,6 +31,12 @@ Reach these methods through the `sharedLinksFolders` field on `Client`.
 | `fields` | query | `string` | yes |
 
 **Returns:** `FolderFull`
+
+**Example**
+
+```ts
+const result = await client.sharedLinksFolders.getFolderGetSharedLink("FOLDER_ID", "FIELDS");
+```
 
 ## updateFolderAddSharedLink
 
@@ -39,6 +51,12 @@ Reach these methods through the `sharedLinksFolders` field on `Client`.
 
 **Returns:** `FolderFull`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksFolders.updateFolderAddSharedLink("FOLDER_ID", "FIELDS", { /* … */ });
+```
+
 ## updateFolderUpdateSharedLink
 
 `PUT /folders/{folder_id}`
@@ -52,6 +70,12 @@ Reach these methods through the `sharedLinksFolders` field on `Client`.
 
 **Returns:** `FolderFull`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksFolders.updateFolderUpdateSharedLink("FOLDER_ID", "FIELDS", { /* … */ });
+```
+
 ## updateFolderRemoveSharedLink
 
 `PUT /folders/{folder_id}`
@@ -64,4 +88,10 @@ Reach these methods through the `sharedLinksFolders` field on `Client`.
 **Request body** (`application/json`): `FileUpdateRequest3`
 
 **Returns:** `FolderFull`
+
+**Example**
+
+```ts
+const result = await client.sharedLinksFolders.updateFolderRemoveSharedLink("FOLDER_ID", "FIELDS", { /* … */ });
+```
 

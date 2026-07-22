@@ -16,6 +16,14 @@ Reach these methods through the `metadataCascadePolicies` field on `Client`.
 
 **Returns:** `MetadataCascadePolicies`
 
+**Example**
+
+```ts
+for await (const item of client.metadataCascadePolicies.list("FOLDER_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -25,6 +33,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `MetadataCascadePolicyCreateRequest`
 
 **Returns:** `MetadataCascadePolicy`
+
+**Example**
+
+```ts
+const result = await client.metadataCascadePolicies.create({ /* … */ });
+```
 
 ## get
 
@@ -36,6 +50,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `MetadataCascadePolicy`
 
+**Example**
+
+```ts
+const result = await client.metadataCascadePolicies.get("METADATA_CASCADE_POLICY_ID");
+```
+
 ## delete_
 
 `DELETE /metadata_cascade_policies/{metadata_cascade_policy_id}`
@@ -45,6 +65,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `metadata_cascade_policy_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.metadataCascadePolicies.delete_("METADATA_CASCADE_POLICY_ID");
+```
 
 ## apply
 
@@ -57,4 +83,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `MetadataCascadePolicyApplyRequest`
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.metadataCascadePolicies.apply("METADATA_CASCADE_POLICY_ID", { /* … */ });
+```
 

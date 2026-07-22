@@ -11,6 +11,12 @@ Reach these methods through the `sessionTermination` field on `Client`.
 
 **Returns:** `SessionTerminationMessage`
 
+**Example**
+
+```ts
+const result = await client.sessionTermination.createUserTerminateSessions({ /* … */ });
+```
+
 ## createGroupTerminateSessions
 
 `POST /groups/terminate_sessions`
@@ -18,4 +24,10 @@ Reach these methods through the `sessionTermination` field on `Client`.
 **Request body** (`application/json`): `GroupTerminateSessionsCreateRequest`
 
 **Returns:** `SessionTerminationMessage`
+
+**Example**
+
+```ts
+const result = await client.sessionTermination.createGroupTerminateSessions({ /* … */ });
+```
 

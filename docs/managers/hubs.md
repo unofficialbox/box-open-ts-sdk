@@ -18,6 +18,14 @@ Reach these methods through the `hubs` field on `Client`.
 
 **Returns:** `Hubs`
 
+**Example**
+
+```ts
+for await (const item of client.hubs.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -27,6 +35,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `HubCreateRequest`
 
 **Returns:** `Hub`
+
+**Example**
+
+```ts
+const result = await client.hubs.create({ /* … */ });
+```
 
 ## listEnterprise
 
@@ -42,6 +56,14 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `Hubs`
 
+**Example**
+
+```ts
+for await (const item of client.hubs.listEnterprise()) {
+  // use item
+}
+```
+
 Paginated — `listEnterprise(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## get
@@ -53,6 +75,12 @@ Paginated — `listEnterprise(...)` is an async iterable that yields each entry 
 | `hub_id` | path | `string` | yes |
 
 **Returns:** `Hub`
+
+**Example**
+
+```ts
+const result = await client.hubs.get("HUB_ID");
+```
 
 ## update
 
@@ -66,6 +94,12 @@ Paginated — `listEnterprise(...)` is an async iterable that yields each entry 
 
 **Returns:** `Hub`
 
+**Example**
+
+```ts
+const result = await client.hubs.update("HUB_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /hubs/{hub_id}`
@@ -75,6 +109,12 @@ Paginated — `listEnterprise(...)` is an async iterable that yields each entry 
 | `hub_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.hubs.delete_("HUB_ID");
+```
 
 ## copy
 
@@ -87,4 +127,10 @@ Paginated — `listEnterprise(...)` is an async iterable that yields each entry 
 **Request body** (`application/json`): `HubCopyRequest`
 
 **Returns:** `Hub`
+
+**Example**
+
+```ts
+const result = await client.hubs.copy("HUB_ID", { /* … */ });
+```
 

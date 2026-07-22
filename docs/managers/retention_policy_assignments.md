@@ -17,6 +17,14 @@ Reach these methods through the `retentionPolicyAssignments` field on `Client`.
 
 **Returns:** `RetentionPolicyAssignments`
 
+**Example**
+
+```ts
+for await (const item of client.retentionPolicyAssignments.listRetentionPolicyAssignments("RETENTION_POLICY_ID")) {
+  // use item
+}
+```
+
 Paginated — `listRetentionPolicyAssignments(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -26,6 +34,12 @@ Paginated — `listRetentionPolicyAssignments(...)` is an async iterable that yi
 **Request body** (`application/json`): `RetentionPolicyAssignmentCreateRequest`
 
 **Returns:** `RetentionPolicyAssignment`
+
+**Example**
+
+```ts
+const result = await client.retentionPolicyAssignments.create({ /* … */ });
+```
 
 ## get
 
@@ -38,6 +52,12 @@ Paginated — `listRetentionPolicyAssignments(...)` is an async iterable that yi
 
 **Returns:** `RetentionPolicyAssignment`
 
+**Example**
+
+```ts
+const result = await client.retentionPolicyAssignments.get("RETENTION_POLICY_ASSIGNMENT_ID");
+```
+
 ## delete_
 
 `DELETE /retention_policy_assignments/{retention_policy_assignment_id}`
@@ -47,6 +67,12 @@ Paginated — `listRetentionPolicyAssignments(...)` is an async iterable that yi
 | `retention_policy_assignment_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.retentionPolicyAssignments.delete_("RETENTION_POLICY_ASSIGNMENT_ID");
+```
 
 ## listFileUnderRetention
 
@@ -59,6 +85,14 @@ Paginated — `listRetentionPolicyAssignments(...)` is an async iterable that yi
 | `limit` | query | `number` | no |
 
 **Returns:** `FilesUnderRetention`
+
+**Example**
+
+```ts
+for await (const item of client.retentionPolicyAssignments.listFileUnderRetention("RETENTION_POLICY_ASSIGNMENT_ID")) {
+  // use item
+}
+```
 
 Paginated — `listFileUnderRetention(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -73,6 +107,14 @@ Paginated — `listFileUnderRetention(...)` is an async iterable that yields eac
 | `limit` | query | `number` | no |
 
 **Returns:** `FilesUnderRetention`
+
+**Example**
+
+```ts
+for await (const item of client.retentionPolicyAssignments.listFileVersionUnderRetention("RETENTION_POLICY_ASSIGNMENT_ID")) {
+  // use item
+}
+```
 
 Paginated — `listFileVersionUnderRetention(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

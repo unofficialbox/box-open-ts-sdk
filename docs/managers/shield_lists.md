@@ -9,6 +9,12 @@ Reach these methods through the `shieldLists` field on `Client`.
 
 **Returns:** `ShieldLists`
 
+**Example**
+
+```ts
+const result = await client.shieldLists.list();
+```
+
 ## create
 
 `POST /shield_lists`
@@ -16,6 +22,12 @@ Reach these methods through the `shieldLists` field on `Client`.
 **Request body** (`application/json`): `ShieldListsCreate`
 
 **Returns:** `ShieldList`
+
+**Example**
+
+```ts
+const result = await client.shieldLists.create({ /* … */ });
+```
 
 ## get
 
@@ -26,6 +38,12 @@ Reach these methods through the `shieldLists` field on `Client`.
 | `shield_list_id` | path | `string` | yes |
 
 **Returns:** `ShieldList`
+
+**Example**
+
+```ts
+const result = await client.shieldLists.get("SHIELD_LIST_ID");
+```
 
 ## update
 
@@ -39,6 +57,12 @@ Reach these methods through the `shieldLists` field on `Client`.
 
 **Returns:** `ShieldList`
 
+**Example**
+
+```ts
+const result = await client.shieldLists.update("SHIELD_LIST_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /shield_lists/{shield_list_id}`
@@ -48,4 +72,10 @@ Reach these methods through the `shieldLists` field on `Client`.
 | `shield_list_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.shieldLists.delete_("SHIELD_LIST_ID");
+```
 

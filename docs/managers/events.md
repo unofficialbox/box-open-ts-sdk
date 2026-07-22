@@ -18,9 +18,21 @@ Reach these methods through the `events` field on `Client`.
 
 **Returns:** `Events`
 
+**Example**
+
+```ts
+const result = await client.events.list();
+```
+
 ## options
 
 `OPTIONS /events`
 
 **Returns:** `RealtimeServers`
+
+**Example**
+
+```ts
+const result = await client.events.options();
+```
 

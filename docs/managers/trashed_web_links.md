@@ -16,6 +16,12 @@ Reach these methods through the `trashedWebLinks` field on `Client`.
 
 **Returns:** `TrashWebLinkRestored`
 
+**Example**
+
+```ts
+const result = await client.trashedWebLinks.createWebLink("WEB_LINK_ID", { /* … */ });
+```
+
 ## getWebLinkTrash
 
 `GET /web_links/{web_link_id}/trash`
@@ -27,6 +33,12 @@ Reach these methods through the `trashedWebLinks` field on `Client`.
 
 **Returns:** `TrashWebLink`
 
+**Example**
+
+```ts
+const result = await client.trashedWebLinks.getWebLinkTrash("WEB_LINK_ID");
+```
+
 ## deleteWebLinkTrash
 
 `DELETE /web_links/{web_link_id}/trash`
@@ -36,4 +48,10 @@ Reach these methods through the `trashedWebLinks` field on `Client`.
 | `web_link_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.trashedWebLinks.deleteWebLinkTrash("WEB_LINK_ID");
+```
 

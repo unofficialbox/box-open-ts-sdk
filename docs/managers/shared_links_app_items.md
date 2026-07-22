@@ -13,3 +13,9 @@ Reach these methods through the `sharedLinksAppItems` field on `Client`.
 
 **Returns:** `AppItem`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksAppItems.getSharedItemsAppItems("BOXAPI");
+```
+

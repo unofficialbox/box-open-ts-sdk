@@ -18,6 +18,14 @@ Reach these methods through the `aiStudio` field on `Client`.
 
 **Returns:** `AiMultipleAgentResponse`
 
+**Example**
+
+```ts
+for await (const item of client.aiStudio.listAiAgents()) {
+  // use item
+}
+```
+
 Paginated — `listAiAgents(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createAiAgents
@@ -27,6 +35,12 @@ Paginated — `listAiAgents(...)` is an async iterable that yields each entry ac
 **Request body** (`application/json`): `CreateAiAgent`
 
 **Returns:** `AiSingleAgentResponseFull`
+
+**Example**
+
+```ts
+const result = await client.aiStudio.createAiAgents({ /* … */ });
+```
 
 ## getAiAgent
 
@@ -38,6 +52,12 @@ Paginated — `listAiAgents(...)` is an async iterable that yields each entry ac
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `AiSingleAgentResponseFull`
+
+**Example**
+
+```ts
+const result = await client.aiStudio.getAiAgent("AGENT_ID");
+```
 
 ## updateAiAgent
 
@@ -51,6 +71,12 @@ Paginated — `listAiAgents(...)` is an async iterable that yields each entry ac
 
 **Returns:** `AiSingleAgentResponseFull`
 
+**Example**
+
+```ts
+const result = await client.aiStudio.updateAiAgent("AGENT_ID", { /* … */ });
+```
+
 ## deleteAiAgent
 
 `DELETE /ai_agents/{agent_id}`
@@ -60,4 +86,10 @@ Paginated — `listAiAgents(...)` is an async iterable that yields each entry ac
 | `agent_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.aiStudio.deleteAiAgent("AGENT_ID");
+```
 

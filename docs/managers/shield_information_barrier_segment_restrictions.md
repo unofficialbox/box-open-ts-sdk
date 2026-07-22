@@ -13,6 +13,12 @@ Reach these methods through the `shieldInformationBarrierSegmentRestrictions` fi
 
 **Returns:** `ShieldInformationBarrierSegmentRestriction`
 
+**Example**
+
+```ts
+const result = await client.shieldInformationBarrierSegmentRestrictions.get("SHIELD_INFORMATION_BARRIER_SEGMENT_RESTRICTION_ID");
+```
+
 ## delete_
 
 `DELETE /shield_information_barrier_segment_restrictions/{shield_information_barrier_segment_restriction_id}`
@@ -22,6 +28,12 @@ Reach these methods through the `shieldInformationBarrierSegmentRestrictions` fi
 | `shield_information_barrier_segment_restriction_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.shieldInformationBarrierSegmentRestrictions.delete_("SHIELD_INFORMATION_BARRIER_SEGMENT_RESTRICTION_ID");
+```
 
 ## list
 
@@ -35,6 +47,14 @@ Reach these methods through the `shieldInformationBarrierSegmentRestrictions` fi
 
 **Returns:** `ShieldInformationBarrierSegmentRestrictions`
 
+**Example**
+
+```ts
+for await (const item of client.shieldInformationBarrierSegmentRestrictions.list("SHIELD_INFORMATION_BARRIER_SEGMENT_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -44,4 +64,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `ShieldInformationBarrierSegmentRestrictionCreateRequest`
 
 **Returns:** `ShieldInformationBarrierSegmentRestriction`
+
+**Example**
+
+```ts
+const result = await client.shieldInformationBarrierSegmentRestrictions.create({ /* … */ });
+```
 

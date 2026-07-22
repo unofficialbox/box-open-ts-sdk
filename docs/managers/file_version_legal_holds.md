@@ -13,6 +13,12 @@ Reach these methods through the `fileVersionLegalHolds` field on `Client`.
 
 **Returns:** `FileVersionLegalHold`
 
+**Example**
+
+```ts
+const result = await client.fileVersionLegalHolds.get("FILE_VERSION_LEGAL_HOLD_ID");
+```
+
 ## list
 
 `GET /file_version_legal_holds`
@@ -24,6 +30,14 @@ Reach these methods through the `fileVersionLegalHolds` field on `Client`.
 | `limit` | query | `number` | no |
 
 **Returns:** `FileVersionLegalHolds`
+
+**Example**
+
+```ts
+for await (const item of client.fileVersionLegalHolds.list("POLICY_ID")) {
+  // use item
+}
+```
 
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

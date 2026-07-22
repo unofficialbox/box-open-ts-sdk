@@ -3,13 +3,19 @@
 
 Reach these methods through the `search` field on `Client`.
 
-## createMetadataQueryExecuteRead
+## queryByMetadata
 
 `POST /metadata_queries/execute_read`
 
 **Request body** (`application/json`): `MetadataQuery`
 
 **Returns:** `MetadataQueryResults`
+
+**Example**
+
+```ts
+const result = await client.search.queryByMetadata({ /* … */ });
+```
 
 ## get
 
@@ -40,4 +46,10 @@ Reach these methods through the `search` field on `Client`.
 | `deleted_at_range` | query | `Array<string>` | no |
 
 **Returns:** `SearchResultsResponse`
+
+**Example**
+
+```ts
+const result = await client.search.get();
+```
 

@@ -15,6 +15,14 @@ Reach these methods through the `shieldInformationBarrierReports` field on `Clie
 
 **Returns:** `ShieldInformationBarrierReports`
 
+**Example**
+
+```ts
+for await (const item of client.shieldInformationBarrierReports.list("SHIELD_INFORMATION_BARRIER_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -25,6 +33,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `ShieldInformationBarrierReport`
 
+**Example**
+
+```ts
+const result = await client.shieldInformationBarrierReports.create({ /* … */ });
+```
+
 ## get
 
 `GET /shield_information_barrier_reports/{shield_information_barrier_report_id}`
@@ -34,4 +48,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `shield_information_barrier_report_id` | path | `string` | yes |
 
 **Returns:** `ShieldInformationBarrierReport`
+
+**Example**
+
+```ts
+const result = await client.shieldInformationBarrierReports.get("SHIELD_INFORMATION_BARRIER_REPORT_ID");
+```
 

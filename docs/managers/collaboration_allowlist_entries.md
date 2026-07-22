@@ -14,6 +14,14 @@ Reach these methods through the `collaborationAllowlistEntries` field on `Client
 
 **Returns:** `CollaborationAllowlistEntries`
 
+**Example**
+
+```ts
+for await (const item of client.collaborationAllowlistEntries.listCollaborationWhitelistEntries()) {
+  // use item
+}
+```
+
 Paginated — `listCollaborationWhitelistEntries(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createCollaborationWhitelistEntries
@@ -23,6 +31,12 @@ Paginated — `listCollaborationWhitelistEntries(...)` is an async iterable that
 **Request body** (`application/json`): `CollaborationWhitelistEntriesCreateRequest`
 
 **Returns:** `CollaborationAllowlistEntry`
+
+**Example**
+
+```ts
+const result = await client.collaborationAllowlistEntries.createCollaborationWhitelistEntries({ /* … */ });
+```
 
 ## getCollaborationWhitelistEntry
 
@@ -34,6 +48,12 @@ Paginated — `listCollaborationWhitelistEntries(...)` is an async iterable that
 
 **Returns:** `CollaborationAllowlistEntry`
 
+**Example**
+
+```ts
+const result = await client.collaborationAllowlistEntries.getCollaborationWhitelistEntry("COLLABORATION_WHITELIST_ENTRY_ID");
+```
+
 ## deleteCollaborationWhitelistEntry
 
 `DELETE /collaboration_whitelist_entries/{collaboration_whitelist_entry_id}`
@@ -43,4 +63,10 @@ Paginated — `listCollaborationWhitelistEntries(...)` is an async iterable that
 | `collaboration_whitelist_entry_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.collaborationAllowlistEntries.deleteCollaborationWhitelistEntry("COLLABORATION_WHITELIST_ENTRY_ID");
+```
 

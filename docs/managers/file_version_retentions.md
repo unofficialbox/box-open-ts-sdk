@@ -20,6 +20,14 @@ Reach these methods through the `fileVersionRetentions` field on `Client`.
 
 **Returns:** `FileVersionRetentions`
 
+**Example**
+
+```ts
+for await (const item of client.fileVersionRetentions.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## get
@@ -31,4 +39,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `file_version_retention_id` | path | `string` | yes |
 
 **Returns:** `FileVersionRetention`
+
+**Example**
+
+```ts
+const result = await client.fileVersionRetentions.get("FILE_VERSION_RETENTION_ID");
+```
 

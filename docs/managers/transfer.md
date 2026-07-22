@@ -3,7 +3,7 @@
 
 Reach these methods through the `transfer` field on `Client`.
 
-## updateUserFolder0
+## transferFolders
 
 `PUT /users/{user_id}/folders/0`
 
@@ -16,4 +16,10 @@ Reach these methods through the `transfer` field on `Client`.
 **Request body** (`application/json`): `UserFolder0UpdateRequest`
 
 **Returns:** `FolderFull`
+
+**Example**
+
+```ts
+const result = await client.transfer.transferFolders("USER_ID", { /* … */ });
+```
 

@@ -16,6 +16,14 @@ Reach these methods through the `hubItems` field on `Client`.
 
 **Returns:** `HubItems`
 
+**Example**
+
+```ts
+for await (const item of client.hubItems.list("HUB_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createHubManageItems
@@ -29,4 +37,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `HubItemsManageRequest`
 
 **Returns:** `HubItemsManageResponse`
+
+**Example**
+
+```ts
+const result = await client.hubItems.createHubManageItems("HUB_ID", { /* … */ });
+```
 

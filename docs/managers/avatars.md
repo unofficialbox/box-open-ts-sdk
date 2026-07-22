@@ -13,6 +13,12 @@ Reach these methods through the `avatars` field on `Client`.
 
 **Returns:** a binary stream (`runtime.Stream`)
 
+**Example**
+
+```ts
+const result = await client.avatars.getUserAvatar("USER_ID");
+```
+
 ## createUserAvatar
 
 `POST /users/{user_id}/avatar`
@@ -25,6 +31,12 @@ Reach these methods through the `avatars` field on `Client`.
 
 **Returns:** `UserAvatar`
 
+**Example**
+
+```ts
+const result = await client.avatars.createUserAvatar("USER_ID", { /* … */ });
+```
+
 ## deleteUserAvatar
 
 `DELETE /users/{user_id}/avatar`
@@ -34,4 +46,10 @@ Reach these methods through the `avatars` field on `Client`.
 | `user_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.avatars.deleteUserAvatar("USER_ID");
+```
 

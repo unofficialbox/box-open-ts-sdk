@@ -17,3 +17,9 @@ Reach these methods through the `downloads` field on `Client`.
 
 **Returns:** a binary stream (`runtime.Stream`)
 
+**Example**
+
+```ts
+const result = await client.downloads.getFileContent("FILE_ID");
+```
+

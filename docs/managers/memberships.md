@@ -15,6 +15,14 @@ Reach these methods through the `memberships` field on `Client`.
 
 **Returns:** `GroupMemberships`
 
+**Example**
+
+```ts
+for await (const item of client.memberships.listUser("USER_ID")) {
+  // use item
+}
+```
+
 Paginated — `listUser(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## listGroup
@@ -28,6 +36,14 @@ Paginated — `listUser(...)` is an async iterable that yields each entry across
 | `offset` | query | `number` | no |
 
 **Returns:** `GroupMemberships`
+
+**Example**
+
+```ts
+for await (const item of client.memberships.listGroup("GROUP_ID")) {
+  // use item
+}
+```
 
 Paginated — `listGroup(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -43,6 +59,12 @@ Paginated — `listGroup(...)` is an async iterable that yields each entry acros
 
 **Returns:** `GroupMembership`
 
+**Example**
+
+```ts
+const result = await client.memberships.createGroup({ /* … */ });
+```
+
 ## getGroup
 
 `GET /group_memberships/{group_membership_id}`
@@ -53,6 +75,12 @@ Paginated — `listGroup(...)` is an async iterable that yields each entry acros
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `GroupMembership`
+
+**Example**
+
+```ts
+const result = await client.memberships.getGroup("GROUP_MEMBERSHIP_ID");
+```
 
 ## updateGroup
 
@@ -67,6 +95,12 @@ Paginated — `listGroup(...)` is an async iterable that yields each entry acros
 
 **Returns:** `GroupMembership`
 
+**Example**
+
+```ts
+const result = await client.memberships.updateGroup("GROUP_MEMBERSHIP_ID", { /* … */ });
+```
+
 ## deleteGroup
 
 `DELETE /group_memberships/{group_membership_id}`
@@ -76,4 +110,10 @@ Paginated — `listGroup(...)` is an async iterable that yields each entry acros
 | `group_membership_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.memberships.deleteGroup("GROUP_MEMBERSHIP_ID");
+```
 

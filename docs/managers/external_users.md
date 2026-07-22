@@ -11,3 +11,9 @@ Reach these methods through the `externalUsers` field on `Client`.
 
 **Returns:** `ExternalUsersSubmitDeleteJobResponse`
 
+**Example**
+
+```ts
+const result = await client.externalUsers.createSubmitDeleteJob({ /* … */ });
+```
+

@@ -14,6 +14,14 @@ Reach these methods through the `docgenTemplate` field on `Client`.
 
 **Returns:** `DocGenTemplates`
 
+**Example**
+
+```ts
+for await (const item of client.docgenTemplate.listDocgenTemplates()) {
+  // use item
+}
+```
+
 Paginated — `listDocgenTemplates(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createDocgenTemplates
@@ -23,6 +31,12 @@ Paginated — `listDocgenTemplates(...)` is an async iterable that yields each e
 **Request body** (`application/json`): `DocGenTemplateCreateRequest`
 
 **Returns:** `DocGenTemplateBase`
+
+**Example**
+
+```ts
+const result = await client.docgenTemplate.createDocgenTemplates({ /* … */ });
+```
 
 ## getDocgenTemplate
 
@@ -34,6 +48,12 @@ Paginated — `listDocgenTemplates(...)` is an async iterable that yields each e
 
 **Returns:** `DocGenTemplate`
 
+**Example**
+
+```ts
+const result = await client.docgenTemplate.getDocgenTemplate("TEMPLATE_ID");
+```
+
 ## deleteDocgenTemplate
 
 `DELETE /docgen_templates/{template_id}`
@@ -43,6 +63,12 @@ Paginated — `listDocgenTemplates(...)` is an async iterable that yields each e
 | `template_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.docgenTemplate.deleteDocgenTemplate("TEMPLATE_ID");
+```
 
 ## listDocgenTemplateTags
 
@@ -57,6 +83,14 @@ Paginated — `listDocgenTemplates(...)` is an async iterable that yields each e
 
 **Returns:** `DocGenTags`
 
+**Example**
+
+```ts
+for await (const item of client.docgenTemplate.listDocgenTemplateTags("TEMPLATE_ID")) {
+  // use item
+}
+```
+
 Paginated — `listDocgenTemplateTags(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## listJob
@@ -70,6 +104,14 @@ Paginated — `listDocgenTemplateTags(...)` is an async iterable that yields eac
 | `limit` | query | `number` | no |
 
 **Returns:** `DocGenJobs`
+
+**Example**
+
+```ts
+for await (const item of client.docgenTemplate.listJob("TEMPLATE_ID")) {
+  // use item
+}
+```
 
 Paginated — `listJob(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

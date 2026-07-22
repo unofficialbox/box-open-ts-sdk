@@ -11,6 +11,12 @@ Reach these methods through the `chunkedUploads` field on `Client`.
 
 **Returns:** `UploadSession`
 
+**Example**
+
+```ts
+const result = await client.chunkedUploads.createFileUploadSessions({ /* … */ });
+```
+
 ## createFileByIdUploadSessions
 
 `POST /files/{file_id}/upload_sessions`
@@ -23,6 +29,12 @@ Reach these methods through the `chunkedUploads` field on `Client`.
 
 **Returns:** `UploadSession`
 
+**Example**
+
+```ts
+const result = await client.chunkedUploads.createFileByIdUploadSessions("FILE_ID", { /* … */ });
+```
+
 ## getFileUploadSession
 
 `GET /files/upload_sessions/{upload_session_id}`
@@ -32,6 +44,12 @@ Reach these methods through the `chunkedUploads` field on `Client`.
 | `upload_session_id` | path | `string` | yes |
 
 **Returns:** `UploadSession`
+
+**Example**
+
+```ts
+const result = await client.chunkedUploads.getFileUploadSession("UPLOAD_SESSION_ID");
+```
 
 ## updateFileUploadSession
 
@@ -47,6 +65,12 @@ Reach these methods through the `chunkedUploads` field on `Client`.
 
 **Returns:** `UploadedPart`
 
+**Example**
+
+```ts
+const result = await client.chunkedUploads.updateFileUploadSession("UPLOAD_SESSION_ID", "DIGEST", "CONTENT-RANGE", { /* … */ });
+```
+
 ## deleteFileUploadSession
 
 `DELETE /files/upload_sessions/{upload_session_id}`
@@ -56,6 +80,12 @@ Reach these methods through the `chunkedUploads` field on `Client`.
 | `upload_session_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.chunkedUploads.deleteFileUploadSession("UPLOAD_SESSION_ID");
+```
 
 ## listFileUploadSessionParts
 
@@ -68,6 +98,14 @@ Reach these methods through the `chunkedUploads` field on `Client`.
 | `limit` | query | `number` | no |
 
 **Returns:** `UploadParts`
+
+**Example**
+
+```ts
+for await (const item of client.chunkedUploads.listFileUploadSessionParts("UPLOAD_SESSION_ID")) {
+  // use item
+}
+```
 
 Paginated — `listFileUploadSessionParts(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -85,4 +123,10 @@ Paginated — `listFileUploadSessionParts(...)` is an async iterable that yields
 **Request body** (`application/json`): `FileUploadSessionCommitRequest`
 
 **Returns:** `Files`
+
+**Example**
+
+```ts
+const result = await client.chunkedUploads.commitFileUploadSession("UPLOAD_SESSION_ID", "DIGEST", { /* … */ });
+```
 

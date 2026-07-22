@@ -14,6 +14,14 @@ Reach these methods through the `collaborationAllowlistExemptTargets` field on `
 
 **Returns:** `CollaborationAllowlistExemptTargets`
 
+**Example**
+
+```ts
+for await (const item of client.collaborationAllowlistExemptTargets.listCollaborationWhitelistExemptTargets()) {
+  // use item
+}
+```
+
 Paginated — `listCollaborationWhitelistExemptTargets(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createCollaborationWhitelistExemptTargets
@@ -23,6 +31,12 @@ Paginated — `listCollaborationWhitelistExemptTargets(...)` is an async iterabl
 **Request body** (`application/json`): `CollaborationWhitelistExemptTargetsCreateRequest`
 
 **Returns:** `CollaborationAllowlistExemptTarget`
+
+**Example**
+
+```ts
+const result = await client.collaborationAllowlistExemptTargets.createCollaborationWhitelistExemptTargets({ /* … */ });
+```
 
 ## getCollaborationWhitelistExemptTarget
 
@@ -34,6 +48,12 @@ Paginated — `listCollaborationWhitelistExemptTargets(...)` is an async iterabl
 
 **Returns:** `CollaborationAllowlistExemptTarget`
 
+**Example**
+
+```ts
+const result = await client.collaborationAllowlistExemptTargets.getCollaborationWhitelistExemptTarget("COLLABORATION_WHITELIST_EXEMPT_TARGET_ID");
+```
+
 ## deleteCollaborationWhitelistExemptTarget
 
 `DELETE /collaboration_whitelist_exempt_targets/{collaboration_whitelist_exempt_target_id}`
@@ -43,4 +63,10 @@ Paginated — `listCollaborationWhitelistExemptTargets(...)` is an async iterabl
 | `collaboration_whitelist_exempt_target_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.collaborationAllowlistExemptTargets.deleteCollaborationWhitelistExemptTarget("COLLABORATION_WHITELIST_EXEMPT_TARGET_ID");
+```
 

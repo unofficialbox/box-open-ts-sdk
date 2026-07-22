@@ -15,6 +15,12 @@ Reach these methods through the `sharedLinksWebLinks` field on `Client`.
 
 **Returns:** `WebLink`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksWebLinks.getSharedItemsWebLinks("BOXAPI");
+```
+
 ## getWebLinkGetSharedLink
 
 `GET /web_links/{web_link_id}`
@@ -25,6 +31,12 @@ Reach these methods through the `sharedLinksWebLinks` field on `Client`.
 | `fields` | query | `string` | yes |
 
 **Returns:** `WebLink`
+
+**Example**
+
+```ts
+const result = await client.sharedLinksWebLinks.getWebLinkGetSharedLink("WEB_LINK_ID", "FIELDS");
+```
 
 ## updateWebLinkAddSharedLink
 
@@ -39,6 +51,12 @@ Reach these methods through the `sharedLinksWebLinks` field on `Client`.
 
 **Returns:** `WebLink`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksWebLinks.updateWebLinkAddSharedLink("WEB_LINK_ID", "FIELDS", { /* … */ });
+```
+
 ## updateWebLinkUpdateSharedLink
 
 `PUT /web_links/{web_link_id}`
@@ -52,6 +70,12 @@ Reach these methods through the `sharedLinksWebLinks` field on `Client`.
 
 **Returns:** `WebLink`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksWebLinks.updateWebLinkUpdateSharedLink("WEB_LINK_ID", "FIELDS", { /* … */ });
+```
+
 ## updateWebLinkRemoveSharedLink
 
 `PUT /web_links/{web_link_id}`
@@ -64,4 +88,10 @@ Reach these methods through the `sharedLinksWebLinks` field on `Client`.
 **Request body** (`application/json`): `FileUpdateRequest3`
 
 **Returns:** `WebLink`
+
+**Example**
+
+```ts
+const result = await client.sharedLinksWebLinks.updateWebLinkRemoveSharedLink("WEB_LINK_ID", "FIELDS", { /* … */ });
+```
 

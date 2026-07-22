@@ -14,6 +14,12 @@ Reach these methods through the `fileMetadata` field on `Client`.
 
 **Returns:** `Metadatas`
 
+**Example**
+
+```ts
+const result = await client.fileMetadata.listFileMetadata("FILE_ID");
+```
+
 ## getFileMetadata
 
 `GET /files/{file_id}/metadata/{scope}/{template_key}`
@@ -26,6 +32,12 @@ Reach these methods through the `fileMetadata` field on `Client`.
 | `view` | query | `string` | no |
 
 **Returns:** `MetadataFull`
+
+**Example**
+
+```ts
+const result = await client.fileMetadata.getFileMetadata("FILE_ID", "...", "TEMPLATE_KEY");
+```
 
 ## updateFileMetadata
 
@@ -41,6 +53,12 @@ Reach these methods through the `fileMetadata` field on `Client`.
 
 **Returns:** `MetadataFull`
 
+**Example**
+
+```ts
+const result = await client.fileMetadata.updateFileMetadata("FILE_ID", "...", "TEMPLATE_KEY", []);
+```
+
 ## createFileMetadata
 
 `POST /files/{file_id}/metadata/{scope}/{template_key}`
@@ -55,6 +73,12 @@ Reach these methods through the `fileMetadata` field on `Client`.
 
 **Returns:** `MetadataFull`
 
+**Example**
+
+```ts
+const result = await client.fileMetadata.createFileMetadata("FILE_ID", "...", "TEMPLATE_KEY", { /* … */ });
+```
+
 ## deleteFileMetadata
 
 `DELETE /files/{file_id}/metadata/{scope}/{template_key}`
@@ -66,4 +90,10 @@ Reach these methods through the `fileMetadata` field on `Client`.
 | `template_key` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.fileMetadata.deleteFileMetadata("FILE_ID", "...", "TEMPLATE_KEY");
+```
 

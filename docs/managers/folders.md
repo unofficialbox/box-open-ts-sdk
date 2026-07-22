@@ -20,6 +20,12 @@ Reach these methods through the `folders` field on `Client`.
 
 **Returns:** `FolderFull`
 
+**Example**
+
+```ts
+const result = await client.folders.get("FOLDER_ID");
+```
+
 ## update
 
 `PUT /folders/{folder_id}`
@@ -34,6 +40,12 @@ Reach these methods through the `folders` field on `Client`.
 
 **Returns:** `FolderFull`
 
+**Example**
+
+```ts
+const result = await client.folders.update("FOLDER_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /folders/{folder_id}`
@@ -45,6 +57,12 @@ Reach these methods through the `folders` field on `Client`.
 | `recursive` | query | `boolean` | no |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.folders.delete_("FOLDER_ID");
+```
 
 ## listItems
 
@@ -64,6 +82,14 @@ Reach these methods through the `folders` field on `Client`.
 
 **Returns:** `Items`
 
+**Example**
+
+```ts
+for await (const item of client.folders.listItems("FOLDER_ID")) {
+  // use item
+}
+```
+
 Paginated — `listItems(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -78,6 +104,12 @@ Paginated — `listItems(...)` is an async iterable that yields each entry acros
 
 **Returns:** `FolderFull`
 
+**Example**
+
+```ts
+const result = await client.folders.create({ /* … */ });
+```
+
 ## copy
 
 `POST /folders/{folder_id}/copy`
@@ -90,4 +122,10 @@ Paginated — `listItems(...)` is an async iterable that yields each entry acros
 **Request body** (`application/json`): `FolderCopyRequest`
 
 **Returns:** `FolderFull`
+
+**Example**
+
+```ts
+const result = await client.folders.copy("FOLDER_ID", { /* … */ });
+```
 

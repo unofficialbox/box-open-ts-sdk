@@ -13,6 +13,12 @@ Reach these methods through the `fileWatermarks` field on `Client`.
 
 **Returns:** `Watermark`
 
+**Example**
+
+```ts
+const result = await client.fileWatermarks.getFileWatermark("FILE_ID");
+```
+
 ## updateFileWatermark
 
 `PUT /files/{file_id}/watermark`
@@ -25,6 +31,12 @@ Reach these methods through the `fileWatermarks` field on `Client`.
 
 **Returns:** `Watermark`
 
+**Example**
+
+```ts
+const result = await client.fileWatermarks.updateFileWatermark("FILE_ID", { /* … */ });
+```
+
 ## deleteFileWatermark
 
 `DELETE /files/{file_id}/watermark`
@@ -34,4 +46,10 @@ Reach these methods through the `fileWatermarks` field on `Client`.
 | `file_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.fileWatermarks.deleteFileWatermark("FILE_ID");
+```
 

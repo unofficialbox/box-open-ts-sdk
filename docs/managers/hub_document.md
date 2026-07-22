@@ -15,6 +15,14 @@ Reach these methods through the `hubDocument` field on `Client`.
 
 **Returns:** `HubDocumentPages`
 
+**Example**
+
+```ts
+for await (const item of client.hubDocument.listPages("HUB_ID")) {
+  // use item
+}
+```
+
 Paginated — `listPages(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## listBlocks
@@ -29,6 +37,14 @@ Paginated — `listPages(...)` is an async iterable that yields each entry acros
 | `limit` | query | `number` | no |
 
 **Returns:** `HubDocumentBlocks`
+
+**Example**
+
+```ts
+for await (const item of client.hubDocument.listBlocks("HUB_ID", "PAGE_ID")) {
+  // use item
+}
+```
 
 Paginated — `listBlocks(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

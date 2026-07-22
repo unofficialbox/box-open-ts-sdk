@@ -15,6 +15,14 @@ Reach these methods through the `storagePolicyAssignments` field on `Client`.
 
 **Returns:** `StoragePolicyAssignments`
 
+**Example**
+
+```ts
+for await (const item of client.storagePolicyAssignments.list("...", "RESOLVED_FOR_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -25,6 +33,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `StoragePolicyAssignment`
 
+**Example**
+
+```ts
+const result = await client.storagePolicyAssignments.create({ /* … */ });
+```
+
 ## get
 
 `GET /storage_policy_assignments/{storage_policy_assignment_id}`
@@ -34,6 +48,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `storage_policy_assignment_id` | path | `string` | yes |
 
 **Returns:** `StoragePolicyAssignment`
+
+**Example**
+
+```ts
+const result = await client.storagePolicyAssignments.get("STORAGE_POLICY_ASSIGNMENT_ID");
+```
 
 ## update
 
@@ -47,6 +67,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `StoragePolicyAssignment`
 
+**Example**
+
+```ts
+const result = await client.storagePolicyAssignments.update("STORAGE_POLICY_ASSIGNMENT_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /storage_policy_assignments/{storage_policy_assignment_id}`
@@ -56,4 +82,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `storage_policy_assignment_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.storagePolicyAssignments.delete_("STORAGE_POLICY_ASSIGNMENT_ID");
+```
 

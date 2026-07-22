@@ -11,6 +11,12 @@ Reach these methods through the `zipDownloads` field on `Client`.
 
 **Returns:** `ZipDownload`
 
+**Example**
+
+```ts
+const result = await client.zipDownloads.create({ /* … */ });
+```
+
 ## getContent
 
 `GET /zip_downloads/{zip_download_id}/content`
@@ -21,6 +27,12 @@ Reach these methods through the `zipDownloads` field on `Client`.
 
 **Returns:** a binary stream (`runtime.Stream`)
 
+**Example**
+
+```ts
+const result = await client.zipDownloads.getContent("ZIP_DOWNLOAD_ID");
+```
+
 ## getStatus
 
 `GET /zip_downloads/{zip_download_id}/status`
@@ -30,4 +42,10 @@ Reach these methods through the `zipDownloads` field on `Client`.
 | `zip_download_id` | path | `string` | yes |
 
 **Returns:** `ZipDownloadStatus`
+
+**Example**
+
+```ts
+const result = await client.zipDownloads.getStatus("ZIP_DOWNLOAD_ID");
+```
 

@@ -13,6 +13,12 @@ Reach these methods through the `shieldInformationBarriers` field on `Client`.
 
 **Returns:** `ShieldInformationBarrier`
 
+**Example**
+
+```ts
+const result = await client.shieldInformationBarriers.get("SHIELD_INFORMATION_BARRIER_ID");
+```
+
 ## createChangeStatus
 
 `POST /shield_information_barriers/change_status`
@@ -20,6 +26,12 @@ Reach these methods through the `shieldInformationBarriers` field on `Client`.
 **Request body** (`application/json`): `ChangeStatusCreateRequest`
 
 **Returns:** `ShieldInformationBarrier`
+
+**Example**
+
+```ts
+const result = await client.shieldInformationBarriers.createChangeStatus({ /* … */ });
+```
 
 ## list
 
@@ -32,6 +44,14 @@ Reach these methods through the `shieldInformationBarriers` field on `Client`.
 
 **Returns:** `ShieldInformationBarriers`
 
+**Example**
+
+```ts
+for await (const item of client.shieldInformationBarriers.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -41,4 +61,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `ShieldInformationBarrierCreateRequest`
 
 **Returns:** `ShieldInformationBarrier`
+
+**Example**
+
+```ts
+const result = await client.shieldInformationBarriers.create({ /* … */ });
+```
 

@@ -9,11 +9,11 @@ when the failure came with a response, and the underlying `cause` for
 transport or decode failures:
 
 ```ts
-import { BoxApiError } from 'box-gantry-runtime';
+import { runtime } from '@unofficialbox/box-open-sdk';
 try {
 await client.files.getFileById(fileId);
 } catch (err) {
-if (err instanceof BoxApiError) {
+if (err instanceof runtime.BoxApiError) {
 // err.status (number | undefined), err.cause
 }
 }

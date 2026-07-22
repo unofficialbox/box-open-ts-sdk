@@ -3,16 +3,16 @@
 
 Build a `Client` from one of the four Box auth flows. Each flow is an `Auth`
 the runtime uses to fetch a bearer token; the network layer refreshes on a
-`401` and retries once. The flow builders live in the runtime package and are
-passed straight to `new Client(...)`.
+`401` and retries once. The flow builders live in the `auth` namespace (JWT on
+the Node-only `./jwt` subpath) and are passed straight to `new Client(...)`.
 
 ## Developer Token
 
 A fixed token from the Developer Console, for quick local testing:
 
 ```ts
-import { developerToken } from 'box-gantry-runtime';
-const client = new Client(developerToken('DEVELOPER_TOKEN'));
+import { auth } from '@unofficialbox/box-open-sdk';
+const client = new Client(auth.developerToken('DEVELOPER_TOKEN'));
 ```
 
 ## Client Credentials Grant (server auth, no key)
@@ -21,8 +21,8 @@ Set exactly one subject — `enterpriseId` for the service account, or `userId`
 to act as a managed user:
 
 ```ts
-import { clientCredentials } from 'box-gantry-runtime';
-const client = new Client(clientCredentials({
+import { auth } from '@unofficialbox/box-open-sdk';
+const client = new Client(auth.clientCredentials({
 clientId: 'CLIENT_ID',
 clientSecret: 'CLIENT_SECRET',
 enterpriseId: 'ENTERPRISE_ID',
@@ -36,7 +36,7 @@ loudly at construction. It reaches `node:crypto`, so it is a Node-only leaf
 imported from the runtime's `./jwt` entry point and returns a promise:
 
 ```ts
-import { jwtAuth } from 'box-gantry-runtime/jwt';
+import { jwtAuth } from '@unofficialbox/box-open-sdk/jwt';
 const auth = await jwtAuth({
 clientId: 'CLIENT_ID',
 clientSecret: 'CLIENT_SECRET',
@@ -53,8 +53,8 @@ Redirect the user to the authorize URL, exchange the returned code, then reuse
 the rotated refresh token on later runs (persist it via `onRefresh`):
 
 ```ts
-import { oauth } from 'box-gantry-runtime';
+import { auth } from '@unofficialbox/box-open-sdk';
 // later runs: resume from the stored refresh token.
-const auth = oauth({ clientId: 'CLIENT_ID', clientSecret: 'CLIENT_SECRET' }, storedRefreshToken);
-const client = new Client(auth);
+const source = auth.oauth({ clientId: 'CLIENT_ID', clientSecret: 'CLIENT_SECRET' }, storedRefreshToken);
+const client = new Client(source);
 ```

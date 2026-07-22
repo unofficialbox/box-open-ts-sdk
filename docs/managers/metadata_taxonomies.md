@@ -11,6 +11,12 @@ Reach these methods through the `metadataTaxonomies` field on `Client`.
 
 **Returns:** `MetadataTaxonomy`
 
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.create({ /* … */ });
+```
+
 ## list
 
 `GET /metadata_taxonomies/{namespace}`
@@ -22,6 +28,14 @@ Reach these methods through the `metadataTaxonomies` field on `Client`.
 | `limit` | query | `number` | no |
 
 **Returns:** `MetadataTaxonomies`
+
+**Example**
+
+```ts
+for await (const item of client.metadataTaxonomies.list("NAMESPACE")) {
+  // use item
+}
+```
 
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -36,6 +50,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `MetadataTaxonomy`
 
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.get("NAMESPACE", "TAXONOMY_KEY");
+```
+
 ## delete_
 
 `DELETE /metadata_taxonomies/{namespace}/{taxonomy_key}`
@@ -46,6 +66,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `taxonomy_key` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.metadataTaxonomies.delete_("NAMESPACE", "TAXONOMY_KEY");
+```
 
 ## update
 
@@ -60,6 +86,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `MetadataTaxonomy`
 
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.update("NAMESPACE", "TAXONOMY_KEY", { /* … */ });
+```
+
 ## createLevels
 
 `POST /metadata_taxonomies/{namespace}/{taxonomy_key}/levels`
@@ -72,6 +104,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `Array<MetadataTaxonomyLevel>`
 
 **Returns:** `MetadataTaxonomyLevels`
+
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.createLevels("NAMESPACE", "TAXONOMY_KEY", []);
+```
 
 ## updateLevel
 
@@ -87,6 +125,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `MetadataTaxonomyLevel`
 
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.updateLevel("NAMESPACE", "TAXONOMY_KEY", 0, { /* … */ });
+```
+
 ## appendLevels
 
 `POST /metadata_taxonomies/{namespace}/{taxonomy_key}/levels:append`
@@ -100,6 +144,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `MetadataTaxonomyLevels`
 
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.appendLevels("NAMESPACE", "TAXONOMY_KEY", { /* … */ });
+```
+
 ## trimLevels
 
 `POST /metadata_taxonomies/{namespace}/{taxonomy_key}/levels:trim`
@@ -110,6 +160,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `taxonomy_key` | path | `string` | yes |
 
 **Returns:** `MetadataTaxonomyLevels`
+
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.trimLevels("NAMESPACE", "TAXONOMY_KEY");
+```
 
 ## listNodes
 
@@ -129,6 +185,14 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `MetadataTaxonomyNodes`
 
+**Example**
+
+```ts
+for await (const item of client.metadataTaxonomies.listNodes("NAMESPACE", "TAXONOMY_KEY")) {
+  // use item
+}
+```
+
 Paginated — `listNodes(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createNodes
@@ -144,6 +208,12 @@ Paginated — `listNodes(...)` is an async iterable that yields each entry acros
 
 **Returns:** `MetadataTaxonomyNode`
 
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.createNodes("NAMESPACE", "TAXONOMY_KEY", { /* … */ });
+```
+
 ## getNode
 
 `GET /metadata_taxonomies/{namespace}/{taxonomy_key}/nodes/{node_id}`
@@ -156,6 +226,12 @@ Paginated — `listNodes(...)` is an async iterable that yields each entry acros
 
 **Returns:** `MetadataTaxonomyNode`
 
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.getNode("NAMESPACE", "TAXONOMY_KEY", "NODE_ID");
+```
+
 ## deleteNode
 
 `DELETE /metadata_taxonomies/{namespace}/{taxonomy_key}/nodes/{node_id}`
@@ -167,6 +243,12 @@ Paginated — `listNodes(...)` is an async iterable that yields each entry acros
 | `node_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.metadataTaxonomies.deleteNode("NAMESPACE", "TAXONOMY_KEY", "NODE_ID");
+```
 
 ## updateNode
 
@@ -181,6 +263,12 @@ Paginated — `listNodes(...)` is an async iterable that yields each entry acros
 **Request body** (`application/json`): `NodeUpdateRequest`
 
 **Returns:** `MetadataTaxonomyNode`
+
+**Example**
+
+```ts
+const result = await client.metadataTaxonomies.updateNode("NAMESPACE", "TAXONOMY_KEY", "NODE_ID", { /* … */ });
+```
 
 ## listMetadataTemplateFieldOptions
 
@@ -201,6 +289,14 @@ Paginated — `listNodes(...)` is an async iterable that yields each entry acros
 | `limit` | query | `number` | no |
 
 **Returns:** `MetadataTaxonomyNodes`
+
+**Example**
+
+```ts
+for await (const item of client.metadataTaxonomies.listMetadataTemplateFieldOptions("NAMESPACE", "TEMPLATE_KEY", "FIELD_KEY")) {
+  // use item
+}
+```
 
 Paginated — `listMetadataTemplateFieldOptions(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

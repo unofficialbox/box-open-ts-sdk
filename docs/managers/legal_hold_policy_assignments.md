@@ -18,6 +18,14 @@ Reach these methods through the `legalHoldPolicyAssignments` field on `Client`.
 
 **Returns:** `LegalHoldPolicyAssignments`
 
+**Example**
+
+```ts
+for await (const item of client.legalHoldPolicyAssignments.list("POLICY_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -27,6 +35,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `LegalHoldPolicyAssignmentCreateRequest`
 
 **Returns:** `LegalHoldPolicyAssignment`
+
+**Example**
+
+```ts
+const result = await client.legalHoldPolicyAssignments.create({ /* … */ });
+```
 
 ## get
 
@@ -38,6 +52,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `LegalHoldPolicyAssignment`
 
+**Example**
+
+```ts
+const result = await client.legalHoldPolicyAssignments.get("LEGAL_HOLD_POLICY_ASSIGNMENT_ID");
+```
+
 ## delete_
 
 `DELETE /legal_hold_policy_assignments/{legal_hold_policy_assignment_id}`
@@ -47,6 +67,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `legal_hold_policy_assignment_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.legalHoldPolicyAssignments.delete_("LEGAL_HOLD_POLICY_ASSIGNMENT_ID");
+```
 
 ## listFileOnHold
 
@@ -60,6 +86,14 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `FilesOnHold`
+
+**Example**
+
+```ts
+for await (const item of client.legalHoldPolicyAssignments.listFileOnHold("LEGAL_HOLD_POLICY_ASSIGNMENT_ID")) {
+  // use item
+}
+```
 
 Paginated — `listFileOnHold(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -75,6 +109,14 @@ Paginated — `listFileOnHold(...)` is an async iterable that yields each entry 
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `FileVersionsOnHold`
+
+**Example**
+
+```ts
+for await (const item of client.legalHoldPolicyAssignments.listFileVersionOnHold("LEGAL_HOLD_POLICY_ASSIGNMENT_ID")) {
+  // use item
+}
+```
 
 Paginated — `listFileVersionOnHold(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

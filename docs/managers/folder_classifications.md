@@ -13,6 +13,12 @@ Reach these methods through the `folderClassifications` field on `Client`.
 
 **Returns:** `Classification`
 
+**Example**
+
+```ts
+const result = await client.folderClassifications.get("FOLDER_ID");
+```
+
 ## update
 
 `PUT /folders/{folder_id}/metadata/enterprise/securityClassification-6VMVochwUWo`
@@ -24,6 +30,12 @@ Reach these methods through the `folderClassifications` field on `Client`.
 **Request body** (`application/json-patch+json`): `Array<FileClassificationUpdateRequest>`
 
 **Returns:** `Classification`
+
+**Example**
+
+```ts
+const result = await client.folderClassifications.update("FOLDER_ID", []);
+```
 
 ## create
 
@@ -37,6 +49,12 @@ Reach these methods through the `folderClassifications` field on `Client`.
 
 **Returns:** `Classification`
 
+**Example**
+
+```ts
+const result = await client.folderClassifications.create("FOLDER_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /folders/{folder_id}/metadata/enterprise/securityClassification-6VMVochwUWo`
@@ -46,4 +64,10 @@ Reach these methods through the `folderClassifications` field on `Client`.
 | `folder_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.folderClassifications.delete_("FOLDER_ID");
+```
 

@@ -16,6 +16,14 @@ Reach these methods through the `fileVersions` field on `Client`.
 
 **Returns:** `FileVersions`
 
+**Example**
+
+```ts
+for await (const item of client.fileVersions.listFileVersions("FILE_ID")) {
+  // use item
+}
+```
+
 Paginated — `listFileVersions(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## getFileVersion
@@ -30,6 +38,12 @@ Paginated — `listFileVersions(...)` is an async iterable that yields each entr
 
 **Returns:** `FileVersionFull`
 
+**Example**
+
+```ts
+const result = await client.fileVersions.getFileVersion("FILE_ID", "FILE_VERSION_ID");
+```
+
 ## updateFileVersion
 
 `PUT /files/{file_id}/versions/{file_version_id}`
@@ -43,6 +57,12 @@ Paginated — `listFileVersions(...)` is an async iterable that yields each entr
 
 **Returns:** `FileVersionFull`
 
+**Example**
+
+```ts
+const result = await client.fileVersions.updateFileVersion("FILE_ID", "FILE_VERSION_ID", { /* … */ });
+```
+
 ## deleteFileVersion
 
 `DELETE /files/{file_id}/versions/{file_version_id}`
@@ -54,6 +74,12 @@ Paginated — `listFileVersions(...)` is an async iterable that yields each entr
 | `if-match` | header | `string` | no |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.fileVersions.deleteFileVersion("FILE_ID", "FILE_VERSION_ID");
+```
 
 ## createFileVersionCurrent
 
@@ -67,4 +93,10 @@ Paginated — `listFileVersions(...)` is an async iterable that yields each entr
 **Request body** (`application/json`): `FileVersionCurrentCreateRequest`
 
 **Returns:** `FileVersionFull`
+
+**Example**
+
+```ts
+const result = await client.fileVersions.createFileVersionCurrent("FILE_ID", { /* … */ });
+```
 

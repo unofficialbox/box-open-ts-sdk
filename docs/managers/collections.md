@@ -15,6 +15,14 @@ Reach these methods through the `collections` field on `Client`.
 
 **Returns:** `Collections`
 
+**Example**
+
+```ts
+for await (const item of client.collections.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## listItems
@@ -30,6 +38,14 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `ItemsOffsetPaginated`
 
+**Example**
+
+```ts
+for await (const item of client.collections.listItems("COLLECTION_ID")) {
+  // use item
+}
+```
+
 Paginated — `listItems(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## get
@@ -41,4 +57,10 @@ Paginated — `listItems(...)` is an async iterable that yields each entry acros
 | `collection_id` | path | `string` | yes |
 
 **Returns:** `Collection`
+
+**Example**
+
+```ts
+const result = await client.collections.get("COLLECTION_ID");
+```
 

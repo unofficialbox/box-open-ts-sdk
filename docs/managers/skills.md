@@ -13,6 +13,12 @@ Reach these methods through the `skills` field on `Client`.
 
 **Returns:** `SkillCardsMetadata`
 
+**Example**
+
+```ts
+const result = await client.skills.get("FILE_ID");
+```
+
 ## update
 
 `PUT /files/{file_id}/metadata/global/boxSkillsCards`
@@ -24,6 +30,12 @@ Reach these methods through the `skills` field on `Client`.
 **Request body** (`application/json-patch+json`): `Array<SkillUpdateRequest>`
 
 **Returns:** `SkillCardsMetadata`
+
+**Example**
+
+```ts
+const result = await client.skills.update("FILE_ID", []);
+```
 
 ## create
 
@@ -37,6 +49,12 @@ Reach these methods through the `skills` field on `Client`.
 
 **Returns:** `SkillCardsMetadata`
 
+**Example**
+
+```ts
+const result = await client.skills.create("FILE_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /files/{file_id}/metadata/global/boxSkillsCards`
@@ -46,6 +64,12 @@ Reach these methods through the `skills` field on `Client`.
 | `file_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.skills.delete_("FILE_ID");
+```
 
 ## updateSkillInvocation
 
@@ -58,4 +82,10 @@ Reach these methods through the `skills` field on `Client`.
 **Request body** (`application/json`): `SkillInvocationUpdateRequest`
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.skills.updateSkillInvocation("SKILL_ID", { /* … */ });
+```
 

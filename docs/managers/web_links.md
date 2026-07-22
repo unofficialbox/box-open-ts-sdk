@@ -11,6 +11,12 @@ Reach these methods through the `webLinks` field on `Client`.
 
 **Returns:** `WebLink`
 
+**Example**
+
+```ts
+const result = await client.webLinks.create({ /* … */ });
+```
+
 ## get
 
 `GET /web_links/{web_link_id}`
@@ -21,6 +27,12 @@ Reach these methods through the `webLinks` field on `Client`.
 | `boxapi` | header | `string` | no |
 
 **Returns:** `WebLink`
+
+**Example**
+
+```ts
+const result = await client.webLinks.get("WEB_LINK_ID");
+```
 
 ## update
 
@@ -34,6 +46,12 @@ Reach these methods through the `webLinks` field on `Client`.
 
 **Returns:** `WebLink`
 
+**Example**
+
+```ts
+const result = await client.webLinks.update("WEB_LINK_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /web_links/{web_link_id}`
@@ -43,4 +61,10 @@ Reach these methods through the `webLinks` field on `Client`.
 | `web_link_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.webLinks.delete_("WEB_LINK_ID");
+```
 

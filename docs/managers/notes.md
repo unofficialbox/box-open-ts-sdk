@@ -11,3 +11,9 @@ Reach these methods through the `notes` field on `Client`.
 
 **Returns:** `NotesConvertResponse`
 
+**Example**
+
+```ts
+const result = await client.notes.convert({ /* … */ });
+```
+

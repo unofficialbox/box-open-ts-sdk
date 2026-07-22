@@ -18,6 +18,14 @@ Reach these methods through the `retentionPolicies` field on `Client`.
 
 **Returns:** `RetentionPolicies`
 
+**Example**
+
+```ts
+for await (const item of client.retentionPolicies.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -27,6 +35,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `RetentionPolicyCreateRequest`
 
 **Returns:** `RetentionPolicy`
+
+**Example**
+
+```ts
+const result = await client.retentionPolicies.create({ /* … */ });
+```
 
 ## get
 
@@ -38,6 +52,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `RetentionPolicy`
+
+**Example**
+
+```ts
+const result = await client.retentionPolicies.get("RETENTION_POLICY_ID");
+```
 
 ## update
 
@@ -51,6 +71,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `RetentionPolicy`
 
+**Example**
+
+```ts
+const result = await client.retentionPolicies.update("RETENTION_POLICY_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /retention_policies/{retention_policy_id}`
@@ -60,4 +86,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `retention_policy_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.retentionPolicies.delete_("RETENTION_POLICY_ID");
+```
 

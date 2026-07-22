@@ -16,6 +16,14 @@ Reach these methods through the `comments` field on `Client`.
 
 **Returns:** `Comments`
 
+**Example**
+
+```ts
+for await (const item of client.comments.listFile("FILE_ID")) {
+  // use item
+}
+```
+
 Paginated — `listFile(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## get
@@ -28,6 +36,12 @@ Paginated — `listFile(...)` is an async iterable that yields each entry across
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `CommentFull`
+
+**Example**
+
+```ts
+const result = await client.comments.get("COMMENT_ID");
+```
 
 ## update
 
@@ -42,6 +56,12 @@ Paginated — `listFile(...)` is an async iterable that yields each entry across
 
 **Returns:** `CommentFull`
 
+**Example**
+
+```ts
+const result = await client.comments.update("COMMENT_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /comments/{comment_id}`
@@ -51,6 +71,12 @@ Paginated — `listFile(...)` is an async iterable that yields each entry across
 | `comment_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.comments.delete_("COMMENT_ID");
+```
 
 ## create
 
@@ -63,4 +89,10 @@ Paginated — `listFile(...)` is an async iterable that yields each entry across
 **Request body** (`application/json`): `CommentCreateRequest`
 
 **Returns:** `CommentFull`
+
+**Example**
+
+```ts
+const result = await client.comments.create({ /* … */ });
+```
 

@@ -16,6 +16,14 @@ Reach these methods through the `appItemAssociations` field on `Client`.
 
 **Returns:** `AppItemAssociations`
 
+**Example**
+
+```ts
+for await (const item of client.appItemAssociations.listFile("FILE_ID")) {
+  // use item
+}
+```
+
 Paginated — `listFile(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## listFolder
@@ -30,6 +38,14 @@ Paginated — `listFile(...)` is an async iterable that yields each entry across
 | `application_type` | query | `string` | no |
 
 **Returns:** `AppItemAssociations`
+
+**Example**
+
+```ts
+for await (const item of client.appItemAssociations.listFolder("FOLDER_ID")) {
+  // use item
+}
+```
 
 Paginated — `listFolder(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

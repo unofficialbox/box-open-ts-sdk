@@ -15,6 +15,14 @@ Reach these methods through the `hubCollaborations` field on `Client`.
 
 **Returns:** `HubCollaborations`
 
+**Example**
+
+```ts
+for await (const item of client.hubCollaborations.list("HUB_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -25,6 +33,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `HubCollaboration`
 
+**Example**
+
+```ts
+const result = await client.hubCollaborations.create({ /* … */ });
+```
+
 ## get
 
 `GET /hub_collaborations/{hub_collaboration_id}`
@@ -34,6 +48,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `hub_collaboration_id` | path | `string` | yes |
 
 **Returns:** `HubCollaboration`
+
+**Example**
+
+```ts
+const result = await client.hubCollaborations.get("HUB_COLLABORATION_ID");
+```
 
 ## update
 
@@ -47,6 +67,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `HubCollaboration`
 
+**Example**
+
+```ts
+const result = await client.hubCollaborations.update("HUB_COLLABORATION_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /hub_collaborations/{hub_collaboration_id}`
@@ -56,4 +82,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `hub_collaboration_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.hubCollaborations.delete_("HUB_COLLABORATION_ID");
+```
 

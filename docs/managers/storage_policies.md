@@ -15,6 +15,14 @@ Reach these methods through the `storagePolicies` field on `Client`.
 
 **Returns:** `StoragePolicies`
 
+**Example**
+
+```ts
+for await (const item of client.storagePolicies.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## get
@@ -26,4 +34,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `storage_policy_id` | path | `string` | yes |
 
 **Returns:** `StoragePolicy`
+
+**Example**
+
+```ts
+const result = await client.storagePolicies.get("STORAGE_POLICY_ID");
+```
 

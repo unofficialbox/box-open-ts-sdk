@@ -15,6 +15,12 @@ Reach these methods through the `sharedLinksFiles` field on `Client`.
 
 **Returns:** `FileFull`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksFiles.getSharedItems("BOXAPI");
+```
+
 ## getFileGetSharedLink
 
 `GET /files/{file_id}`
@@ -25,6 +31,12 @@ Reach these methods through the `sharedLinksFiles` field on `Client`.
 | `fields` | query | `string` | yes |
 
 **Returns:** `FileFull`
+
+**Example**
+
+```ts
+const result = await client.sharedLinksFiles.getFileGetSharedLink("FILE_ID", "FIELDS");
+```
 
 ## updateFileAddSharedLink
 
@@ -39,6 +51,12 @@ Reach these methods through the `sharedLinksFiles` field on `Client`.
 
 **Returns:** `FileFull`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksFiles.updateFileAddSharedLink("FILE_ID", "FIELDS", { /* … */ });
+```
+
 ## updateFileUpdateSharedLink
 
 `PUT /files/{file_id}`
@@ -52,6 +70,12 @@ Reach these methods through the `sharedLinksFiles` field on `Client`.
 
 **Returns:** `FileFull`
 
+**Example**
+
+```ts
+const result = await client.sharedLinksFiles.updateFileUpdateSharedLink("FILE_ID", "FIELDS", { /* … */ });
+```
+
 ## updateFileRemoveSharedLink
 
 `PUT /files/{file_id}`
@@ -64,4 +88,10 @@ Reach these methods through the `sharedLinksFiles` field on `Client`.
 **Request body** (`application/json`): `FileUpdateRequest3`
 
 **Returns:** `FileFull`
+
+**Example**
+
+```ts
+const result = await client.sharedLinksFiles.updateFileRemoveSharedLink("FILE_ID", "FIELDS", { /* … */ });
+```
 

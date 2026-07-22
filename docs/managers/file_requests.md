@@ -13,6 +13,12 @@ Reach these methods through the `fileRequests` field on `Client`.
 
 **Returns:** `FileRequest`
 
+**Example**
+
+```ts
+const result = await client.fileRequests.get("FILE_REQUEST_ID");
+```
+
 ## update
 
 `PUT /file_requests/{file_request_id}`
@@ -26,6 +32,12 @@ Reach these methods through the `fileRequests` field on `Client`.
 
 **Returns:** `FileRequest`
 
+**Example**
+
+```ts
+const result = await client.fileRequests.update("FILE_REQUEST_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /file_requests/{file_request_id}`
@@ -35,6 +47,12 @@ Reach these methods through the `fileRequests` field on `Client`.
 | `file_request_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.fileRequests.delete_("FILE_REQUEST_ID");
+```
 
 ## copy
 
@@ -47,4 +65,10 @@ Reach these methods through the `fileRequests` field on `Client`.
 **Request body** (`application/json`): `FileRequestCopyRequest`
 
 **Returns:** `FileRequest`
+
+**Example**
+
+```ts
+const result = await client.fileRequests.copy("FILE_REQUEST_ID", { /* … */ });
+```
 

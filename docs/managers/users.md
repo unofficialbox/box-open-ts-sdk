@@ -20,6 +20,14 @@ Reach these methods through the `users` field on `Client`.
 
 **Returns:** `Users`
 
+**Example**
+
+```ts
+for await (const item of client.users.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -34,6 +42,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `UserFull`
 
+**Example**
+
+```ts
+const result = await client.users.create({ /* … */ });
+```
+
 ## getMe
 
 `GET /users/me`
@@ -43,6 +57,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `UserFull`
+
+**Example**
+
+```ts
+const result = await client.users.getMe();
+```
 
 ## get
 
@@ -54,6 +74,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `UserFull`
+
+**Example**
+
+```ts
+const result = await client.users.get("USER_ID");
+```
 
 ## update
 
@@ -68,6 +94,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `UserFull`
 
+**Example**
+
+```ts
+const result = await client.users.update("USER_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /users/{user_id}`
@@ -79,4 +111,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `force` | query | `boolean` | no |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.users.delete_("USER_ID");
+```
 

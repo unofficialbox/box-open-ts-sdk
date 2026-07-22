@@ -13,6 +13,12 @@ Reach these methods through the `taskAssignments` field on `Client`.
 
 **Returns:** `TaskAssignments`
 
+**Example**
+
+```ts
+const result = await client.taskAssignments.listTaskAssignments("TASK_ID");
+```
+
 ## create
 
 `POST /task_assignments`
@@ -20,6 +26,12 @@ Reach these methods through the `taskAssignments` field on `Client`.
 **Request body** (`application/json`): `TaskAssignmentCreateRequest`
 
 **Returns:** `TaskAssignment`
+
+**Example**
+
+```ts
+const result = await client.taskAssignments.create({ /* … */ });
+```
 
 ## get
 
@@ -30,6 +42,12 @@ Reach these methods through the `taskAssignments` field on `Client`.
 | `task_assignment_id` | path | `string` | yes |
 
 **Returns:** `TaskAssignment`
+
+**Example**
+
+```ts
+const result = await client.taskAssignments.get("TASK_ASSIGNMENT_ID");
+```
 
 ## update
 
@@ -43,6 +61,12 @@ Reach these methods through the `taskAssignments` field on `Client`.
 
 **Returns:** `TaskAssignment`
 
+**Example**
+
+```ts
+const result = await client.taskAssignments.update("TASK_ASSIGNMENT_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /task_assignments/{task_assignment_id}`
@@ -52,4 +76,10 @@ Reach these methods through the `taskAssignments` field on `Client`.
 | `task_assignment_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.taskAssignments.delete_("TASK_ASSIGNMENT_ID");
+```
 

@@ -11,6 +11,12 @@ Reach these methods through the `ai` field on `Client`.
 
 **Returns:** `AiResponseFull`
 
+**Example**
+
+```ts
+const result = await client.ai.ask({ /* … */ });
+```
+
 ## createTextGen
 
 `POST /ai/text_gen`
@@ -18,6 +24,12 @@ Reach these methods through the `ai` field on `Client`.
 **Request body** (`application/json`): `AiTextGen`
 
 **Returns:** `AiResponse`
+
+**Example**
+
+```ts
+const result = await client.ai.createTextGen({ /* … */ });
+```
 
 ## getAgentDefault
 
@@ -31,6 +43,12 @@ Reach these methods through the `ai` field on `Client`.
 
 **Returns:** `AiAgent`
 
+**Example**
+
+```ts
+const result = await client.ai.getAgentDefault("...");
+```
+
 ## extract
 
 `POST /ai/extract`
@@ -39,6 +57,12 @@ Reach these methods through the `ai` field on `Client`.
 
 **Returns:** `AiResponse`
 
+**Example**
+
+```ts
+const result = await client.ai.extract({ /* … */ });
+```
+
 ## createExtractStructured
 
 `POST /ai/extract_structured`
@@ -46,4 +70,10 @@ Reach these methods through the `ai` field on `Client`.
 **Request body** (`application/json`): `AiExtractStructured`
 
 **Returns:** `AiExtractStructuredResponse`
+
+**Example**
+
+```ts
+const result = await client.ai.createExtractStructured({ /* … */ });
+```
 

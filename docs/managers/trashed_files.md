@@ -16,6 +16,12 @@ Reach these methods through the `trashedFiles` field on `Client`.
 
 **Returns:** `TrashFileRestored`
 
+**Example**
+
+```ts
+const result = await client.trashedFiles.createFile("FILE_ID", { /* … */ });
+```
+
 ## getFileTrash
 
 `GET /files/{file_id}/trash`
@@ -27,6 +33,12 @@ Reach these methods through the `trashedFiles` field on `Client`.
 
 **Returns:** `TrashFile`
 
+**Example**
+
+```ts
+const result = await client.trashedFiles.getFileTrash("FILE_ID");
+```
+
 ## deleteFileTrash
 
 `DELETE /files/{file_id}/trash`
@@ -36,4 +48,10 @@ Reach these methods through the `trashedFiles` field on `Client`.
 | `file_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.trashedFiles.deleteFileTrash("FILE_ID");
+```
 

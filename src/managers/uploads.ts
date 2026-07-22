@@ -4,15 +4,15 @@ import * as runtime from '../runtime.js';
 import type * as models from '../models/index.js';
 import { pathEscape } from '../internal.js';
 
-/** Optional parameters for UploadsManager.createFileContent. */
-export interface UploadsManagerCreateFileContentOptions {
+/** Optional parameters for UploadsManager.uploadFileVersion. */
+export interface UploadsManagerUploadFileVersionOptions {
   "if-match"?: string;
   fields?: Array<string>;
   "content-md5"?: string;
 }
 
-/** Optional parameters for UploadsManager.createFileContent2. */
-export interface UploadsManagerCreateFileContent2Options {
+/** Optional parameters for UploadsManager.uploadFile. */
+export interface UploadsManagerUploadFileOptions {
   fields?: Array<string>;
   "content-md5"?: string;
 }
@@ -21,7 +21,7 @@ export interface UploadsManagerCreateFileContent2Options {
 export class UploadsManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createFileContent(fileId: string, body: models.schemas.FileIdContentCreateRequest, opts?: UploadsManagerCreateFileContentOptions): Promise<models.schemas.Files> {
+  async uploadFileVersion(fileId: string, body: models.schemas.FileIdContentCreateRequest, opts?: UploadsManagerUploadFileVersionOptions): Promise<models.schemas.Files> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -44,7 +44,7 @@ export class UploadsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Files;
   }
 
-  async createFileContent2(body: models.schemas.FileContentCreateRequest, opts?: UploadsManagerCreateFileContent2Options): Promise<models.schemas.Files> {
+  async uploadFile(body: models.schemas.FileContentCreateRequest, opts?: UploadsManagerUploadFileOptions): Promise<models.schemas.Files> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += "/content";

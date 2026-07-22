@@ -17,6 +17,12 @@ Reach these methods through the `files` field on `Client`.
 
 **Returns:** `FileFull`
 
+**Example**
+
+```ts
+const result = await client.files.get("FILE_ID");
+```
+
 ## update
 
 `PUT /files/{file_id}`
@@ -31,6 +37,12 @@ Reach these methods through the `files` field on `Client`.
 
 **Returns:** `FileFull`
 
+**Example**
+
+```ts
+const result = await client.files.update("FILE_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /files/{file_id}`
@@ -41,6 +53,12 @@ Reach these methods through the `files` field on `Client`.
 | `if-match` | header | `string` | no |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.files.delete_("FILE_ID");
+```
 
 ## copy
 
@@ -54,6 +72,12 @@ Reach these methods through the `files` field on `Client`.
 **Request body** (`application/json`): `FileCopyRequest`
 
 **Returns:** `FileFull`
+
+**Example**
+
+```ts
+const result = await client.files.copy("FILE_ID", { /* … */ });
+```
 
 ## getThumbnail
 
@@ -69,4 +93,10 @@ Reach these methods through the `files` field on `Client`.
 | `max_width` | query | `number` | no |
 
 **Returns:** a binary stream (`runtime.Stream`)
+
+**Example**
+
+```ts
+const result = await client.files.getThumbnail("FILE_ID", "...");
+```
 

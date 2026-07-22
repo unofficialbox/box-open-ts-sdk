@@ -13,6 +13,12 @@ Reach these methods through the `shieldInformationBarrierSegments` field on `Cli
 
 **Returns:** `ShieldInformationBarrierSegment`
 
+**Example**
+
+```ts
+const result = await client.shieldInformationBarrierSegments.get("SHIELD_INFORMATION_BARRIER_SEGMENT_ID");
+```
+
 ## update
 
 `PUT /shield_information_barrier_segments/{shield_information_barrier_segment_id}`
@@ -25,6 +31,12 @@ Reach these methods through the `shieldInformationBarrierSegments` field on `Cli
 
 **Returns:** `ShieldInformationBarrierSegment`
 
+**Example**
+
+```ts
+const result = await client.shieldInformationBarrierSegments.update("SHIELD_INFORMATION_BARRIER_SEGMENT_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /shield_information_barrier_segments/{shield_information_barrier_segment_id}`
@@ -34,6 +46,12 @@ Reach these methods through the `shieldInformationBarrierSegments` field on `Cli
 | `shield_information_barrier_segment_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.shieldInformationBarrierSegments.delete_("SHIELD_INFORMATION_BARRIER_SEGMENT_ID");
+```
 
 ## list
 
@@ -47,6 +65,14 @@ Reach these methods through the `shieldInformationBarrierSegments` field on `Cli
 
 **Returns:** `ShieldInformationBarrierSegments`
 
+**Example**
+
+```ts
+for await (const item of client.shieldInformationBarrierSegments.list("SHIELD_INFORMATION_BARRIER_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -56,4 +82,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `ShieldInformationBarrierSegmentCreateRequest`
 
 **Returns:** `ShieldInformationBarrierSegment`
+
+**Example**
+
+```ts
+const result = await client.shieldInformationBarrierSegments.create({ /* … */ });
+```
 

@@ -19,5 +19,13 @@ Reach these methods through the `trashedItems` field on `Client`.
 
 **Returns:** `Items`
 
+**Example**
+
+```ts
+for await (const item of client.trashedItems.listFolderTrashItems()) {
+  // use item
+}
+```
+
 Paginated — `listFolderTrashItems(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 

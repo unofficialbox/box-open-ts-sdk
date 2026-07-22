@@ -17,6 +17,12 @@ Reach these methods through the `authorization` field on `Client`.
 
 **Returns:** text (`string`)
 
+**Example**
+
+```ts
+const result = await client.authorization.authorize("...", "CLIENT_ID");
+```
+
 ## createOauth2Token
 
 `POST /oauth2/token`
@@ -24,6 +30,12 @@ Reach these methods through the `authorization` field on `Client`.
 **Request body** (`application/x-www-form-urlencoded`): `PostOAuth2Token`
 
 **Returns:** `AccessToken`
+
+**Example**
+
+```ts
+const result = await client.authorization.createOauth2Token({ /* … */ });
+```
 
 ## createOauth2TokenRefresh
 
@@ -33,6 +45,12 @@ Reach these methods through the `authorization` field on `Client`.
 
 **Returns:** `AccessToken`
 
+**Example**
+
+```ts
+const result = await client.authorization.createOauth2TokenRefresh({ /* … */ });
+```
+
 ## revokeOauth2
 
 `POST /oauth2/revoke`
@@ -40,4 +58,10 @@ Reach these methods through the `authorization` field on `Client`.
 **Request body** (`application/x-www-form-urlencoded`): `PostOAuth2Revoke`
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.authorization.revokeOauth2({ /* … */ });
+```
 

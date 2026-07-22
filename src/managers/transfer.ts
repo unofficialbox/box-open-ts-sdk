@@ -4,8 +4,8 @@ import * as runtime from '../runtime.js';
 import type * as models from '../models/index.js';
 import { pathEscape } from '../internal.js';
 
-/** Optional parameters for TransferManager.updateUserFolder0. */
-export interface TransferManagerUpdateUserFolder0Options {
+/** Optional parameters for TransferManager.transferFolders. */
+export interface TransferManagerTransferFoldersOptions {
   fields?: Array<string>;
   notify?: boolean;
 }
@@ -14,7 +14,7 @@ export interface TransferManagerUpdateUserFolder0Options {
 export class TransferManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async updateUserFolder0(userId: string, body: models.schemas.UserFolder0UpdateRequest, opts?: TransferManagerUpdateUserFolder0Options): Promise<models.schemas.FolderFull> {
+  async transferFolders(userId: string, body: models.schemas.UserFolder0UpdateRequest, opts?: TransferManagerTransferFoldersOptions): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/users";
     url += '/' + pathEscape(userId);

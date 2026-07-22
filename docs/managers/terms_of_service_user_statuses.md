@@ -14,6 +14,12 @@ Reach these methods through the `termsOfServiceUserStatuses` field on `Client`.
 
 **Returns:** `TermsOfServiceUserStatuses`
 
+**Example**
+
+```ts
+const result = await client.termsOfServiceUserStatuses.list("TOS_ID");
+```
+
 ## create
 
 `POST /terms_of_service_user_statuses`
@@ -21,6 +27,12 @@ Reach these methods through the `termsOfServiceUserStatuses` field on `Client`.
 **Request body** (`application/json`): `TermsOfServiceUserStatuseCreateRequest`
 
 **Returns:** `TermsOfServiceUserStatus`
+
+**Example**
+
+```ts
+const result = await client.termsOfServiceUserStatuses.create({ /* … */ });
+```
 
 ## update
 
@@ -33,4 +45,10 @@ Reach these methods through the `termsOfServiceUserStatuses` field on `Client`.
 **Request body** (`application/json`): `TermsOfServiceUserStatuseUpdateRequest`
 
 **Returns:** `TermsOfServiceUserStatus`
+
+**Example**
+
+```ts
+const result = await client.termsOfServiceUserStatuses.update("TERMS_OF_SERVICE_USER_STATUS_ID", { /* … */ });
+```
 

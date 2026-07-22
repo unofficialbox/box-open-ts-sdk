@@ -13,6 +13,12 @@ Reach these methods through the `tasks` field on `Client`.
 
 **Returns:** `Tasks`
 
+**Example**
+
+```ts
+const result = await client.tasks.listFile("FILE_ID");
+```
+
 ## create
 
 `POST /tasks`
@@ -20,6 +26,12 @@ Reach these methods through the `tasks` field on `Client`.
 **Request body** (`application/json`): `TaskCreateRequest`
 
 **Returns:** `Task`
+
+**Example**
+
+```ts
+const result = await client.tasks.create({ /* … */ });
+```
 
 ## get
 
@@ -30,6 +42,12 @@ Reach these methods through the `tasks` field on `Client`.
 | `task_id` | path | `string` | yes |
 
 **Returns:** `Task`
+
+**Example**
+
+```ts
+const result = await client.tasks.get("TASK_ID");
+```
 
 ## update
 
@@ -43,6 +61,12 @@ Reach these methods through the `tasks` field on `Client`.
 
 **Returns:** `Task`
 
+**Example**
+
+```ts
+const result = await client.tasks.update("TASK_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /tasks/{task_id}`
@@ -52,4 +76,10 @@ Reach these methods through the `tasks` field on `Client`.
 | `task_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.tasks.delete_("TASK_ID");
+```
 

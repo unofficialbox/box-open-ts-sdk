@@ -14,3 +14,9 @@ Reach these methods through the `enterpriseConfigurations` field on `Client`.
 
 **Returns:** `EnterpriseConfiguration`
 
+**Example**
+
+```ts
+const result = await client.enterpriseConfigurations.get("ENTERPRISE_ID", []);
+```
+

@@ -14,6 +14,12 @@ Reach these methods through the `folderMetadata` field on `Client`.
 
 **Returns:** `Metadatas`
 
+**Example**
+
+```ts
+const result = await client.folderMetadata.listFolderMetadata("FOLDER_ID");
+```
+
 ## getFolderMetadata
 
 `GET /folders/{folder_id}/metadata/{scope}/{template_key}`
@@ -25,6 +31,12 @@ Reach these methods through the `folderMetadata` field on `Client`.
 | `template_key` | path | `string` | yes |
 
 **Returns:** `MetadataFull`
+
+**Example**
+
+```ts
+const result = await client.folderMetadata.getFolderMetadata("FOLDER_ID", "...", "TEMPLATE_KEY");
+```
 
 ## updateFolderMetadata
 
@@ -40,6 +52,12 @@ Reach these methods through the `folderMetadata` field on `Client`.
 
 **Returns:** `MetadataFull`
 
+**Example**
+
+```ts
+const result = await client.folderMetadata.updateFolderMetadata("FOLDER_ID", "...", "TEMPLATE_KEY", []);
+```
+
 ## createFolderMetadata
 
 `POST /folders/{folder_id}/metadata/{scope}/{template_key}`
@@ -54,6 +72,12 @@ Reach these methods through the `folderMetadata` field on `Client`.
 
 **Returns:** `MetadataFull`
 
+**Example**
+
+```ts
+const result = await client.folderMetadata.createFolderMetadata("FOLDER_ID", "...", "TEMPLATE_KEY", { /* … */ });
+```
+
 ## deleteFolderMetadata
 
 `DELETE /folders/{folder_id}/metadata/{scope}/{template_key}`
@@ -65,4 +89,10 @@ Reach these methods through the `folderMetadata` field on `Client`.
 | `template_key` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.folderMetadata.deleteFolderMetadata("FOLDER_ID", "...", "TEMPLATE_KEY");
+```
 

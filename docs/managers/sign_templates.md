@@ -14,6 +14,14 @@ Reach these methods through the `signTemplates` field on `Client`.
 
 **Returns:** `SignTemplates`
 
+**Example**
+
+```ts
+for await (const item of client.signTemplates.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## get
@@ -25,4 +33,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `template_id` | path | `string` | yes |
 
 **Returns:** `SignTemplate`
+
+**Example**
+
+```ts
+const result = await client.signTemplates.get("TEMPLATE_ID");
+```
 

@@ -15,6 +15,14 @@ Reach these methods through the `metadataTemplates` field on `Client`.
 
 **Returns:** `MetadataTemplates`
 
+**Example**
+
+```ts
+for await (const item of client.metadataTemplates.list("METADATA_INSTANCE_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## getSchema
@@ -27,6 +35,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `template_key` | path | `string` | yes |
 
 **Returns:** `MetadataTemplate`
+
+**Example**
+
+```ts
+const result = await client.metadataTemplates.getSchema("...", "TEMPLATE_KEY");
+```
 
 ## updateSchema
 
@@ -41,6 +55,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `MetadataTemplate`
 
+**Example**
+
+```ts
+const result = await client.metadataTemplates.updateSchema("...", "TEMPLATE_KEY", []);
+```
+
 ## deleteSchema
 
 `DELETE /metadata_templates/{scope}/{template_key}/schema`
@@ -52,6 +72,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `void`
 
+**Example**
+
+```ts
+await client.metadataTemplates.deleteSchema("...", "TEMPLATE_KEY");
+```
+
 ## get
 
 `GET /metadata_templates/{template_id}`
@@ -61,6 +87,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `template_id` | path | `string` | yes |
 
 **Returns:** `MetadataTemplate`
+
+**Example**
+
+```ts
+const result = await client.metadataTemplates.get("TEMPLATE_ID");
+```
 
 ## listGlobal
 
@@ -72,6 +104,14 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `limit` | query | `number` | no |
 
 **Returns:** `MetadataTemplates`
+
+**Example**
+
+```ts
+for await (const item of client.metadataTemplates.listGlobal()) {
+  // use item
+}
+```
 
 Paginated — `listGlobal(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -86,6 +126,14 @@ Paginated — `listGlobal(...)` is an async iterable that yields each entry acro
 
 **Returns:** `MetadataTemplates`
 
+**Example**
+
+```ts
+for await (const item of client.metadataTemplates.listEnterprise()) {
+  // use item
+}
+```
+
 Paginated — `listEnterprise(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createSchema
@@ -95,4 +143,10 @@ Paginated — `listEnterprise(...)` is an async iterable that yields each entry 
 **Request body** (`application/json`): `SchemaCreateRequest`
 
 **Returns:** `MetadataTemplate`
+
+**Example**
+
+```ts
+const result = await client.metadataTemplates.createSchema({ /* … */ });
+```
 

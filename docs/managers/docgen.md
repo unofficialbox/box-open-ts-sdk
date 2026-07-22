@@ -13,6 +13,12 @@ Reach these methods through the `docgen` field on `Client`.
 
 **Returns:** `DocGenJob`
 
+**Example**
+
+```ts
+const result = await client.docgen.getJob("JOB_ID");
+```
+
 ## listJobs
 
 `GET /docgen_jobs`
@@ -23,6 +29,14 @@ Reach these methods through the `docgen` field on `Client`.
 | `limit` | query | `number` | no |
 
 **Returns:** `DocGenJobsFull`
+
+**Example**
+
+```ts
+for await (const item of client.docgen.listJobs()) {
+  // use item
+}
+```
 
 Paginated — `listJobs(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
@@ -38,6 +52,14 @@ Paginated — `listJobs(...)` is an async iterable that yields each entry across
 
 **Returns:** `DocGenJobs`
 
+**Example**
+
+```ts
+for await (const item of client.docgen.listBatchJob("BATCH_ID")) {
+  // use item
+}
+```
+
 Paginated — `listBatchJob(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createBatches
@@ -47,4 +69,10 @@ Paginated — `listBatchJob(...)` is an async iterable that yields each entry ac
 **Request body** (`application/json`): `DocGenBatchCreateRequest`
 
 **Returns:** `DocGenBatchBase`
+
+**Example**
+
+```ts
+const result = await client.docgen.createBatches({ /* … */ });
+```
 

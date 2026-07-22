@@ -16,6 +16,14 @@ Reach these methods through the `groups` field on `Client`.
 
 **Returns:** `Groups`
 
+**Example**
+
+```ts
+for await (const item of client.groups.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -30,6 +38,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `GroupFull`
 
+**Example**
+
+```ts
+const result = await client.groups.create({ /* … */ });
+```
+
 ## get
 
 `GET /groups/{group_id}`
@@ -40,6 +54,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `fields` | query | `Array<string>` | no |
 
 **Returns:** `GroupFull`
+
+**Example**
+
+```ts
+const result = await client.groups.get("GROUP_ID");
+```
 
 ## update
 
@@ -54,6 +74,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `GroupFull`
 
+**Example**
+
+```ts
+const result = await client.groups.update("GROUP_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /groups/{group_id}`
@@ -63,4 +89,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `group_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.groups.delete_("GROUP_ID");
+```
 

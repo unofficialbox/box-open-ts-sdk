@@ -13,6 +13,12 @@ Reach these methods through the `emailAliases` field on `Client`.
 
 **Returns:** `EmailAliases`
 
+**Example**
+
+```ts
+const result = await client.emailAliases.listUser("USER_ID");
+```
+
 ## createUser
 
 `POST /users/{user_id}/email_aliases`
@@ -25,6 +31,12 @@ Reach these methods through the `emailAliases` field on `Client`.
 
 **Returns:** `EmailAlias`
 
+**Example**
+
+```ts
+const result = await client.emailAliases.createUser("USER_ID", { /* … */ });
+```
+
 ## deleteUser
 
 `DELETE /users/{user_id}/email_aliases/{email_alias_id}`
@@ -35,4 +47,10 @@ Reach these methods through the `emailAliases` field on `Client`.
 | `email_alias_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.emailAliases.deleteUser("USER_ID", "EMAIL_ALIAS_ID");
+```
 

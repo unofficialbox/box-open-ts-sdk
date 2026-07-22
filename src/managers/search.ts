@@ -33,7 +33,7 @@ export interface SearchManagerGetOptions {
 export class SearchManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createMetadataQueryExecuteRead(body: models.schemas.MetadataQuery): Promise<models.schemas.MetadataQueryResults> {
+  async queryByMetadata(body: models.schemas.MetadataQuery): Promise<models.schemas.MetadataQueryResults> {
     let url = this.session.baseUrl("api");
     url += "/metadata_queries";
     url += "/execute_read";

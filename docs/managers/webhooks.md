@@ -14,6 +14,14 @@ Reach these methods through the `webhooks` field on `Client`.
 
 **Returns:** `Webhooks`
 
+**Example**
+
+```ts
+for await (const item of client.webhooks.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -24,6 +32,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `Webhook`
 
+**Example**
+
+```ts
+const result = await client.webhooks.create({ /* … */ });
+```
+
 ## get
 
 `GET /webhooks/{webhook_id}`
@@ -33,6 +47,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `webhook_id` | path | `string` | yes |
 
 **Returns:** `Webhook`
+
+**Example**
+
+```ts
+const result = await client.webhooks.get("WEBHOOK_ID");
+```
 
 ## update
 
@@ -46,6 +66,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `Webhook`
 
+**Example**
+
+```ts
+const result = await client.webhooks.update("WEBHOOK_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /webhooks/{webhook_id}`
@@ -55,4 +81,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `webhook_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.webhooks.delete_("WEBHOOK_ID");
+```
 

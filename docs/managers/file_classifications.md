@@ -13,6 +13,12 @@ Reach these methods through the `fileClassifications` field on `Client`.
 
 **Returns:** `Classification`
 
+**Example**
+
+```ts
+const result = await client.fileClassifications.get("FILE_ID");
+```
+
 ## update
 
 `PUT /files/{file_id}/metadata/enterprise/securityClassification-6VMVochwUWo`
@@ -24,6 +30,12 @@ Reach these methods through the `fileClassifications` field on `Client`.
 **Request body** (`application/json-patch+json`): `Array<FileClassificationUpdateRequest>`
 
 **Returns:** `Classification`
+
+**Example**
+
+```ts
+const result = await client.fileClassifications.update("FILE_ID", []);
+```
 
 ## create
 
@@ -37,6 +49,12 @@ Reach these methods through the `fileClassifications` field on `Client`.
 
 **Returns:** `Classification`
 
+**Example**
+
+```ts
+const result = await client.fileClassifications.create("FILE_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /files/{file_id}/metadata/enterprise/securityClassification-6VMVochwUWo`
@@ -46,4 +64,10 @@ Reach these methods through the `fileClassifications` field on `Client`.
 | `file_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.fileClassifications.delete_("FILE_ID");
+```
 

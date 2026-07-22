@@ -13,6 +13,12 @@ Reach these methods through the `folderLocks` field on `Client`.
 
 **Returns:** `FolderLocks`
 
+**Example**
+
+```ts
+const result = await client.folderLocks.list("FOLDER_ID");
+```
+
 ## create
 
 `POST /folder_locks`
@@ -20,6 +26,12 @@ Reach these methods through the `folderLocks` field on `Client`.
 **Request body** (`application/json`): `FolderLockCreateRequest`
 
 **Returns:** `FolderLock`
+
+**Example**
+
+```ts
+const result = await client.folderLocks.create({ /* … */ });
+```
 
 ## delete_
 
@@ -30,4 +42,10 @@ Reach these methods through the `folderLocks` field on `Client`.
 | `folder_lock_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.folderLocks.delete_("FOLDER_LOCK_ID");
+```
 

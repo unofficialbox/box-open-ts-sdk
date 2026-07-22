@@ -19,6 +19,14 @@ Reach these methods through the `integrationMappings` field on `Client`.
 
 **Returns:** `IntegrationMappings`
 
+**Example**
+
+```ts
+for await (const item of client.integrationMappings.listSlack()) {
+  // use item
+}
+```
+
 Paginated — `listSlack(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## createSlack
@@ -28,6 +36,12 @@ Paginated — `listSlack(...)` is an async iterable that yields each entry acros
 **Request body** (`application/json`): `IntegrationMappingSlackCreateRequest`
 
 **Returns:** `IntegrationMapping`
+
+**Example**
+
+```ts
+const result = await client.integrationMappings.createSlack({ /* … */ });
+```
 
 ## updateSlack
 
@@ -41,6 +55,12 @@ Paginated — `listSlack(...)` is an async iterable that yields each entry acros
 
 **Returns:** `IntegrationMapping`
 
+**Example**
+
+```ts
+const result = await client.integrationMappings.updateSlack("INTEGRATION_MAPPING_ID", { /* … */ });
+```
+
 ## deleteSlack
 
 `DELETE /integration_mappings/slack/{integration_mapping_id}`
@@ -50,6 +70,12 @@ Paginated — `listSlack(...)` is an async iterable that yields each entry acros
 | `integration_mapping_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.integrationMappings.deleteSlack("INTEGRATION_MAPPING_ID");
+```
 
 ## listTeams
 
@@ -64,6 +90,12 @@ Paginated — `listSlack(...)` is an async iterable that yields each entry acros
 
 **Returns:** `IntegrationMappingsTeams`
 
+**Example**
+
+```ts
+const result = await client.integrationMappings.listTeams();
+```
+
 ## createTeams
 
 `POST /integration_mappings/teams`
@@ -71,6 +103,12 @@ Paginated — `listSlack(...)` is an async iterable that yields each entry acros
 **Request body** (`application/json`): `IntegrationMappingTeamsCreateRequest`
 
 **Returns:** `IntegrationMappingTeams`
+
+**Example**
+
+```ts
+const result = await client.integrationMappings.createTeams({ /* … */ });
+```
 
 ## updateTeam
 
@@ -84,6 +122,12 @@ Paginated — `listSlack(...)` is an async iterable that yields each entry acros
 
 **Returns:** `IntegrationMappingTeams`
 
+**Example**
+
+```ts
+const result = await client.integrationMappings.updateTeam("INTEGRATION_MAPPING_ID", { /* … */ });
+```
+
 ## deleteTeam
 
 `DELETE /integration_mappings/teams/{integration_mapping_id}`
@@ -93,4 +137,10 @@ Paginated — `listSlack(...)` is an async iterable that yields each entry acros
 | `integration_mapping_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.integrationMappings.deleteTeam("INTEGRATION_MAPPING_ID");
+```
 

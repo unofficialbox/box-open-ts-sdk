@@ -16,6 +16,14 @@ Reach these methods through the `legalHoldPolicies` field on `Client`.
 
 **Returns:** `LegalHoldPolicies`
 
+**Example**
+
+```ts
+for await (const item of client.legalHoldPolicies.list()) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## create
@@ -26,6 +34,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `LegalHoldPolicy`
 
+**Example**
+
+```ts
+const result = await client.legalHoldPolicies.create({ /* … */ });
+```
+
 ## get
 
 `GET /legal_hold_policies/{legal_hold_policy_id}`
@@ -35,6 +49,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `legal_hold_policy_id` | path | `string` | yes |
 
 **Returns:** `LegalHoldPolicy`
+
+**Example**
+
+```ts
+const result = await client.legalHoldPolicies.get("LEGAL_HOLD_POLICY_ID");
+```
 
 ## update
 
@@ -48,6 +68,12 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 **Returns:** `LegalHoldPolicy`
 
+**Example**
+
+```ts
+const result = await client.legalHoldPolicies.update("LEGAL_HOLD_POLICY_ID", { /* … */ });
+```
+
 ## delete_
 
 `DELETE /legal_hold_policies/{legal_hold_policy_id}`
@@ -57,4 +83,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 | `legal_hold_policy_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.legalHoldPolicies.delete_("LEGAL_HOLD_POLICY_ID");
+```
 

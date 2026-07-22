@@ -14,6 +14,12 @@ Reach these methods through the `userCollaborations` field on `Client`.
 
 **Returns:** `Collaboration`
 
+**Example**
+
+```ts
+const result = await client.userCollaborations.getCollaboration("COLLABORATION_ID");
+```
+
 ## updateCollaboration
 
 `PUT /collaborations/{collaboration_id}`
@@ -26,6 +32,12 @@ Reach these methods through the `userCollaborations` field on `Client`.
 
 **Returns:** `Collaboration`
 
+**Example**
+
+```ts
+const result = await client.userCollaborations.updateCollaboration("COLLABORATION_ID", { /* … */ });
+```
+
 ## deleteCollaboration
 
 `DELETE /collaborations/{collaboration_id}`
@@ -35,6 +47,12 @@ Reach these methods through the `userCollaborations` field on `Client`.
 | `collaboration_id` | path | `string` | yes |
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.userCollaborations.deleteCollaboration("COLLABORATION_ID");
+```
 
 ## createCollaborations
 
@@ -48,4 +66,10 @@ Reach these methods through the `userCollaborations` field on `Client`.
 **Request body** (`application/json`): `CollaborationsCreateRequest`
 
 **Returns:** `Collaboration`
+
+**Example**
+
+```ts
+const result = await client.userCollaborations.createCollaborations({ /* … */ });
+```
 

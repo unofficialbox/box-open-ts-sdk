@@ -15,6 +15,14 @@ Reach these methods through the `automateWorkflows` field on `Client`.
 
 **Returns:** `AutomateWorkflows`
 
+**Example**
+
+```ts
+for await (const item of client.automateWorkflows.list("FOLDER_ID")) {
+  // use item
+}
+```
+
 Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
 ## start
@@ -28,4 +36,10 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 **Request body** (`application/json`): `AutomateWorkflowStartRequest`
 
 **Returns:** `void`
+
+**Example**
+
+```ts
+await client.automateWorkflows.start("WORKFLOW_ID", { /* … */ });
+```
 

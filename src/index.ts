@@ -4,4 +4,5 @@ export { Client } from './client.js';
 export * as models from './models/index.js';
 export * as managers from './managers/index.js';
 export * as runtime from './runtime.js';
+export * as auth from './auth.js';
 export * as buildinfo from './buildinfo.js';
