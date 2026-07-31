@@ -20,7 +20,7 @@ export interface ChunkedUploadsManagerCommitFileUploadSessionOptions {
 export class ChunkedUploadsManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createFileUploadSessions(body: models.schemas.FileUploadSessionsCreateRequest): Promise<models.schemas.UploadSession> {
+  async createFileUploadSession(body: models.schemas.FileUploadSessionCreateRequest): Promise<models.schemas.UploadSession> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += "/upload_sessions";
@@ -32,7 +32,7 @@ export class ChunkedUploadsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UploadSession;
   }
 
-  async createFileByIdUploadSessions(fileId: string, body: models.schemas.FileIdUploadSessionsCreateRequest): Promise<models.schemas.UploadSession> {
+  async createFileVersionUploadSession(fileId: string, body: models.schemas.FileVersionUploadSessionCreateRequest): Promise<models.schemas.UploadSession> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -64,8 +64,8 @@ export class ChunkedUploadsManager {
     let req = this.session.newRequest("PUT", url);
     req = runtime.withHeader(req, "digest", digest);
     req = runtime.withHeader(req, "content-range", contentRange);
-    void body;
-    req = runtime.withStreamBody(req, runtime.Stream.empty(), 'application/octet-stream');
+    const fileBytes = new Uint8Array(await body.arrayBuffer());
+    req = runtime.withStreamBody(req, new runtime.Stream(fileBytes), 'application/octet-stream');
     const resp = await this.session.fetch(req);
     const data = runtime.responseBytes(resp);
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UploadedPart;

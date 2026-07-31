@@ -94,6 +94,7 @@ package.json
 scripts/postbuild.mjs
 src/auth.ts
 src/buildinfo.ts
+src/chunked_upload.ts
 src/client.ts
 src/errors.ts
 src/index.ts

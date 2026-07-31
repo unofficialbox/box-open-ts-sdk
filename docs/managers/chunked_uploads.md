@@ -3,21 +3,21 @@
 
 Reach these methods through the `chunkedUploads` field on `Client`.
 
-## createFileUploadSessions
+## createFileUploadSession
 
 `POST /files/upload_sessions`
 
-**Request body** (`application/json`): `FileUploadSessionsCreateRequest`
+**Request body** (`application/json`): `FileUploadSessionCreateRequest`
 
 **Returns:** `UploadSession`
 
 **Example**
 
 ```ts
-const result = await client.chunkedUploads.createFileUploadSessions({ /* … */ });
+const result = await client.chunkedUploads.createFileUploadSession({ /* … */ });
 ```
 
-## createFileByIdUploadSessions
+## createFileVersionUploadSession
 
 `POST /files/{file_id}/upload_sessions`
 
@@ -25,14 +25,14 @@ const result = await client.chunkedUploads.createFileUploadSessions({ /* … */ 
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `FileIdUploadSessionsCreateRequest`
+**Request body** (`application/json`): `FileVersionUploadSessionCreateRequest`
 
 **Returns:** `UploadSession`
 
 **Example**
 
 ```ts
-const result = await client.chunkedUploads.createFileByIdUploadSessions("FILE_ID", { /* … */ });
+const result = await client.chunkedUploads.createFileVersionUploadSession("FILE_ID", { /* … */ });
 ```
 
 ## getFileUploadSession

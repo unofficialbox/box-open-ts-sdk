@@ -6,3 +6,4 @@ export * as managers from './managers/index.js';
 export * as runtime from './runtime.js';
 export * as auth from './auth.js';
 export * as buildinfo from './buildinfo.js';
+export { ChunkedUpload } from './chunked_upload.js';

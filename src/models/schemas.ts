@@ -3484,13 +3484,13 @@ export interface OptionFileContentRequest {
   parent?: PostFileIdParent;
 }
 
-export interface FileUploadSessionsCreateRequest {
+export interface FileUploadSessionCreateRequest {
   folder_id: string;
   file_size: number;
   file_name: string;
 }
 
-export interface FileIdUploadSessionsCreateRequest {
+export interface FileVersionUploadSessionCreateRequest {
   file_size: number;
   file_name?: string;
 }
