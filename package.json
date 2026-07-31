@@ -1,10 +1,10 @@
 {
   "name": "@unofficialbox/box-open-sdk",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Box API client for TypeScript (open source, community, punk rock) — typed models, async managers, and a fetch runtime with retry, backoff, and token refresh.",
   "keywords": ["box", "box-api", "sdk", "api-client", "typescript", "unofficial"],
   "license": "MIT",
-  "repository": { "type": "git", "url": "git+https://github.com/unofficialbox/box-open-ts-sdk.git" },
+  "repository": { "type": "git", "url": "git+https://github.com/unofficialbox/box-gantry.git" },
   "homepage": "https://github.com/unofficialbox/box-open-ts-sdk",
   "type": "module",
   "sideEffects": false,
