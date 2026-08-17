@@ -21,7 +21,7 @@ export class FolderClassificationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Classification;
   }
 
-  async update(folderId: string, body: Array<models.schemas.FileClassificationUpdateRequest>): Promise<models.schemas.Classification> {
+  async update(folderId: string, body: Array<models.schemas.UpdateFileClassificationRequest>): Promise<models.schemas.Classification> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);
@@ -36,7 +36,7 @@ export class FolderClassificationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Classification;
   }
 
-  async create(folderId: string, body: models.schemas.FileClassificationCreateRequest): Promise<models.schemas.Classification> {
+  async create(folderId: string, body: models.schemas.CreateFileClassificationRequest): Promise<models.schemas.Classification> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);

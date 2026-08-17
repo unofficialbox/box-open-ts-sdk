@@ -21,7 +21,7 @@ export class FileClassificationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Classification;
   }
 
-  async update(fileId: string, body: Array<models.schemas.FileClassificationUpdateRequest>): Promise<models.schemas.Classification> {
+  async update(fileId: string, body: Array<models.schemas.UpdateFileClassificationRequest>): Promise<models.schemas.Classification> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -36,7 +36,7 @@ export class FileClassificationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Classification;
   }
 
-  async create(fileId: string, body: models.schemas.FileClassificationCreateRequest): Promise<models.schemas.Classification> {
+  async create(fileId: string, body: models.schemas.CreateFileClassificationRequest): Promise<models.schemas.Classification> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);

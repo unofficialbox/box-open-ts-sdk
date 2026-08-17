@@ -26,7 +26,7 @@ export class TermsOfServicesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.TermsOfServices;
   }
 
-  async create(body: models.schemas.TermsOfServiceCreateRequest): Promise<models.schemas.TermsOfService> {
+  async create(body: models.schemas.CreateTermsOfServiceRequest): Promise<models.schemas.TermsOfService> {
     let url = this.session.baseUrl("api");
     url += "/terms_of_services";
     let req = this.session.newRequest("POST", url);
@@ -47,7 +47,7 @@ export class TermsOfServicesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.TermsOfService;
   }
 
-  async update(termsOfServiceId: string, body: models.schemas.TermsOfServiceUpdateRequest): Promise<models.schemas.TermsOfService> {
+  async update(termsOfServiceId: string, body: models.schemas.UpdateTermsOfServiceRequest): Promise<models.schemas.TermsOfService> {
     let url = this.session.baseUrl("api");
     url += "/terms_of_services";
     url += '/' + pathEscape(termsOfServiceId);

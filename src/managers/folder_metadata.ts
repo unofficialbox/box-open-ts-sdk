@@ -28,7 +28,7 @@ export class FolderMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Metadatas;
   }
 
-  async getFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string): Promise<models.schemas.MetadataFull> {
+  async getFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string): Promise<models.schemas.MetadataFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);
@@ -41,7 +41,7 @@ export class FolderMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataFull;
   }
 
-  async updateFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string, body: Array<models.schemas.FileMetadataUpdateRequest>): Promise<models.schemas.MetadataFull> {
+  async updateFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string, body: Array<models.schemas.UpdateFileMetadataRequest>): Promise<models.schemas.MetadataFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);
@@ -56,7 +56,7 @@ export class FolderMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataFull;
   }
 
-  async createFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string, body: Record<string, unknown>): Promise<models.schemas.MetadataFull> {
+  async createFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string, body: Record<string, unknown>): Promise<models.schemas.MetadataFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);
@@ -71,7 +71,7 @@ export class FolderMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataFull;
   }
 
-  async deleteFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string): Promise<void> {
+  async deleteFolderMetadata(folderId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);

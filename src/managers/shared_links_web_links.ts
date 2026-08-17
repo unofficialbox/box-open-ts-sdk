@@ -42,7 +42,7 @@ export class SharedLinksWebLinksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.WebLink;
   }
 
-  async updateWebLinkAddSharedLink(webLinkId: string, fields: string, body: models.schemas.FileUpdateRequest2): Promise<models.schemas.WebLink> {
+  async updateWebLinkAddSharedLink(webLinkId: string, fields: string, body: models.schemas.UpdateFileAddSharedLinkRequest): Promise<models.schemas.WebLink> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     url += '/' + pathEscape(webLinkId);
@@ -55,7 +55,7 @@ export class SharedLinksWebLinksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.WebLink;
   }
 
-  async updateWebLinkUpdateSharedLink(webLinkId: string, fields: string, body: models.schemas.FileUpdateRequest2): Promise<models.schemas.WebLink> {
+  async updateWebLinkUpdateSharedLink(webLinkId: string, fields: string, body: models.schemas.UpdateFileAddSharedLinkRequest): Promise<models.schemas.WebLink> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     url += '/' + pathEscape(webLinkId);
@@ -68,7 +68,7 @@ export class SharedLinksWebLinksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.WebLink;
   }
 
-  async updateWebLinkRemoveSharedLink(webLinkId: string, fields: string, body: models.schemas.FileUpdateRequest3): Promise<models.schemas.WebLink> {
+  async updateWebLinkRemoveSharedLink(webLinkId: string, fields: string, body: models.schemas.UpdateFileRemoveSharedLinkRequest): Promise<models.schemas.WebLink> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     url += '/' + pathEscape(webLinkId);

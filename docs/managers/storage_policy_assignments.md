@@ -29,7 +29,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 `POST /storage_policy_assignments`
 
-**Request body** (`application/json`): `StoragePolicyAssignmentCreateRequest`
+**Request body** (`application/json`): `CreateStoragePolicyAssignmentRequest`
 
 **Returns:** `StoragePolicyAssignment`
 
@@ -63,7 +63,7 @@ const result = await client.storagePolicyAssignments.get("STORAGE_POLICY_ASSIGNM
 |---|---|---|---|
 | `storage_policy_assignment_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `StoragePolicyAssignmentUpdateRequest`
+**Request body** (`application/json`): `UpdateStoragePolicyAssignmentRequest`
 
 **Returns:** `StoragePolicyAssignment`
 

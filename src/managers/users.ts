@@ -97,7 +97,7 @@ export class UsersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Users;
   }
 
-  async create(body: models.schemas.UserCreateRequest, opts?: UsersManagerCreateOptions): Promise<models.schemas.UserFull> {
+  async create(body: models.schemas.CreateUserRequest, opts?: UsersManagerCreateOptions): Promise<models.schemas.UserFull> {
     let url = this.session.baseUrl("api");
     url += "/users";
     let req = this.session.newRequest("POST", url);
@@ -140,7 +140,7 @@ export class UsersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UserFull;
   }
 
-  async update(userId: string, body: models.schemas.UserUpdateRequest, opts?: UsersManagerUpdateOptions): Promise<models.schemas.UserFull> {
+  async update(userId: string, body: models.schemas.UpdateUserRequest, opts?: UsersManagerUpdateOptions): Promise<models.schemas.UserFull> {
     let url = this.session.baseUrl("api");
     url += "/users";
     url += '/' + pathEscape(userId);

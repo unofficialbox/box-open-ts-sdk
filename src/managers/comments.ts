@@ -81,7 +81,7 @@ export class CommentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.CommentFull;
   }
 
-  async update(commentId: string, body: models.schemas.CommentUpdateRequest, opts?: CommentsManagerUpdateOptions): Promise<models.schemas.CommentFull> {
+  async update(commentId: string, body: models.schemas.UpdateCommentRequest, opts?: CommentsManagerUpdateOptions): Promise<models.schemas.CommentFull> {
     let url = this.session.baseUrl("api");
     url += "/comments";
     url += '/' + pathEscape(commentId);
@@ -105,7 +105,7 @@ export class CommentsManager {
     await this.session.fetch(req);
   }
 
-  async create(body: models.schemas.CommentCreateRequest, opts?: CommentsManagerCreateOptions): Promise<models.schemas.CommentFull> {
+  async create(body: models.schemas.CreateCommentRequest, opts?: CommentsManagerCreateOptions): Promise<models.schemas.CommentFull> {
     let url = this.session.baseUrl("api");
     url += "/comments";
     let req = this.session.newRequest("POST", url);

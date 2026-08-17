@@ -49,6 +49,7 @@ export * from './metadata_cascade_policies.js';
 export * from './metadata_taxonomies.js';
 export * from './metadata_templates.js';
 export * from './notes.js';
+export * from './query.js';
 export * from './recent_items.js';
 export * from './retention_policies.js';
 export * from './retention_policy_assignments.js';

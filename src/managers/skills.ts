@@ -21,7 +21,7 @@ export class SkillsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.SkillCardsMetadata;
   }
 
-  async update(fileId: string, body: Array<models.schemas.SkillUpdateRequest>): Promise<models.schemas.SkillCardsMetadata> {
+  async update(fileId: string, body: Array<models.schemas.UpdateSkillRequest>): Promise<models.schemas.SkillCardsMetadata> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -36,7 +36,7 @@ export class SkillsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.SkillCardsMetadata;
   }
 
-  async create(fileId: string, body: models.schemas.SkillCreateRequest): Promise<models.schemas.SkillCardsMetadata> {
+  async create(fileId: string, body: models.schemas.CreateSkillRequest): Promise<models.schemas.SkillCardsMetadata> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -62,7 +62,7 @@ export class SkillsManager {
     await this.session.fetch(req);
   }
 
-  async updateSkillInvocation(skillId: string, body: models.schemas.SkillInvocationUpdateRequest): Promise<void> {
+  async updateSkillInvocation(skillId: string, body: models.schemas.UpdateSkillInvocationRequest): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/skill_invocations";
     url += '/' + pathEscape(skillId);

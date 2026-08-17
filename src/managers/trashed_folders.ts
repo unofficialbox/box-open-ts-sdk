@@ -18,7 +18,7 @@ export interface TrashedFoldersManagerGetFolderTrashOptions {
 export class TrashedFoldersManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createFolder(folderId: string, body: models.schemas.FileCreateRequest, opts?: TrashedFoldersManagerCreateFolderOptions): Promise<models.schemas.TrashFolderRestored> {
+  async createFolder(folderId: string, body: models.schemas.CreateFileRequest, opts?: TrashedFoldersManagerCreateFolderOptions): Promise<models.schemas.TrashFolderRestored> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);

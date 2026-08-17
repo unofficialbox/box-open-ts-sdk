@@ -74,7 +74,7 @@ export class LegalHoldPolicyAssignmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.LegalHoldPolicyAssignments;
   }
 
-  async create(body: models.schemas.LegalHoldPolicyAssignmentCreateRequest): Promise<models.schemas.LegalHoldPolicyAssignment> {
+  async create(body: models.schemas.CreateLegalHoldPolicyAssignmentRequest): Promise<models.schemas.LegalHoldPolicyAssignment> {
     let url = this.session.baseUrl("api");
     url += "/legal_hold_policy_assignments";
     let req = this.session.newRequest("POST", url);

@@ -19,7 +19,7 @@ export class EmailAliasesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.EmailAliases;
   }
 
-  async createUser(userId: string, body: models.schemas.UserIdCreateRequest): Promise<models.schemas.EmailAlias> {
+  async createUser(userId: string, body: models.schemas.CreateUserIdRequest): Promise<models.schemas.EmailAlias> {
     let url = this.session.baseUrl("api");
     url += "/users";
     url += '/' + pathEscape(userId);

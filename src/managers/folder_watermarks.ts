@@ -19,7 +19,7 @@ export class FolderWatermarksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Watermark;
   }
 
-  async updateFolderWatermark(folderId: string, body: models.schemas.FileWatermarkUpdateRequest): Promise<models.schemas.Watermark> {
+  async updateFolderWatermark(folderId: string, body: models.schemas.UpdateFileWatermarkRequest): Promise<models.schemas.Watermark> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);

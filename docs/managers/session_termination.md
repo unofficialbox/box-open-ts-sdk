@@ -7,7 +7,7 @@ Reach these methods through the `sessionTermination` field on `Client`.
 
 `POST /users/terminate_sessions`
 
-**Request body** (`application/json`): `UserTerminateSessionsCreateRequest`
+**Request body** (`application/json`): `CreateUserTerminateSessionsRequest`
 
 **Returns:** `SessionTerminationMessage`
 
@@ -21,7 +21,7 @@ const result = await client.sessionTermination.createUserTerminateSessions({ /* 
 
 `POST /groups/terminate_sessions`
 
-**Request body** (`application/json`): `GroupTerminateSessionsCreateRequest`
+**Request body** (`application/json`): `CreateGroupTerminateSessionsRequest`
 
 **Returns:** `SessionTerminationMessage`
 

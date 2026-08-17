@@ -19,7 +19,7 @@ export class TaskAssignmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.TaskAssignments;
   }
 
-  async create(body: models.schemas.TaskAssignmentCreateRequest): Promise<models.schemas.TaskAssignment> {
+  async create(body: models.schemas.CreateTaskAssignmentRequest): Promise<models.schemas.TaskAssignment> {
     let url = this.session.baseUrl("api");
     url += "/task_assignments";
     let req = this.session.newRequest("POST", url);
@@ -40,7 +40,7 @@ export class TaskAssignmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.TaskAssignment;
   }
 
-  async update(taskAssignmentId: string, body: models.schemas.TaskAssignmentUpdateRequest): Promise<models.schemas.TaskAssignment> {
+  async update(taskAssignmentId: string, body: models.schemas.UpdateTaskAssignmentRequest): Promise<models.schemas.TaskAssignment> {
     let url = this.session.baseUrl("api");
     url += "/task_assignments";
     url += '/' + pathEscape(taskAssignmentId);

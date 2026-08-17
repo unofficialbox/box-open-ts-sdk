@@ -12,7 +12,7 @@ Reach these methods through the `trashedFolders` field on `Client`.
 | `folder_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `FileCreateRequest`
+**Request body** (`application/json`): `CreateFileRequest`
 
 **Returns:** `TrashFolderRestored`
 

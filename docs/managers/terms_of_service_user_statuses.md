@@ -24,7 +24,7 @@ const result = await client.termsOfServiceUserStatuses.list("TOS_ID");
 
 `POST /terms_of_service_user_statuses`
 
-**Request body** (`application/json`): `TermsOfServiceUserStatuseCreateRequest`
+**Request body** (`application/json`): `CreateTermsOfServiceUserStatusRequest`
 
 **Returns:** `TermsOfServiceUserStatus`
 
@@ -42,7 +42,7 @@ const result = await client.termsOfServiceUserStatuses.create({ /* … */ });
 |---|---|---|---|
 | `terms_of_service_user_status_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `TermsOfServiceUserStatuseUpdateRequest`
+**Request body** (`application/json`): `UpdateTermsOfServiceUserStatusRequest`
 
 **Returns:** `TermsOfServiceUserStatus`
 

@@ -69,7 +69,7 @@ export class GroupsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Groups;
   }
 
-  async create(body: models.schemas.GroupCreateRequest, opts?: GroupsManagerCreateOptions): Promise<models.schemas.GroupFull> {
+  async create(body: models.schemas.CreateGroupRequest, opts?: GroupsManagerCreateOptions): Promise<models.schemas.GroupFull> {
     let url = this.session.baseUrl("api");
     url += "/groups";
     let req = this.session.newRequest("POST", url);
@@ -98,7 +98,7 @@ export class GroupsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.GroupFull;
   }
 
-  async update(groupId: string, body: models.schemas.GroupUpdateRequest, opts?: GroupsManagerUpdateOptions): Promise<models.schemas.GroupFull> {
+  async update(groupId: string, body: models.schemas.UpdateGroupRequest, opts?: GroupsManagerUpdateOptions): Promise<models.schemas.GroupFull> {
     let url = this.session.baseUrl("api");
     url += "/groups";
     url += '/' + pathEscape(groupId);

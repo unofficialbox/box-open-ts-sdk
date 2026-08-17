@@ -74,7 +74,7 @@ export class RetentionPolicyAssignmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.RetentionPolicyAssignments;
   }
 
-  async create(body: models.schemas.RetentionPolicyAssignmentCreateRequest): Promise<models.schemas.RetentionPolicyAssignment> {
+  async create(body: models.schemas.CreateRetentionPolicyAssignmentRequest): Promise<models.schemas.RetentionPolicyAssignment> {
     let url = this.session.baseUrl("api");
     url += "/retention_policy_assignments";
     let req = this.session.newRequest("POST", url);

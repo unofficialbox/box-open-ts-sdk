@@ -27,7 +27,7 @@ const result = await client.fileMetadata.listFileMetadata("FILE_ID");
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 | `view` | query | `string` | no |
 
@@ -46,10 +46,10 @@ const result = await client.fileMetadata.getFileMetadata("FILE_ID", "...", "TEMP
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
-**Request body** (`application/json-patch+json`): `Array<FileMetadataUpdateRequest>`
+**Request body** (`application/json-patch+json`): `Array<UpdateFileMetadataRequest>`
 
 **Returns:** `MetadataFull`
 
@@ -66,7 +66,7 @@ const result = await client.fileMetadata.updateFileMetadata("FILE_ID", "...", "T
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
 **Request body** (`application/json`): `Record<string, unknown>`
@@ -86,7 +86,7 @@ const result = await client.fileMetadata.createFileMetadata("FILE_ID", "...", "T
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
 **Returns:** `void`

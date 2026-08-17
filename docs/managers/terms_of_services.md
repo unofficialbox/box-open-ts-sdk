@@ -23,7 +23,7 @@ const result = await client.termsOfServices.list();
 
 `POST /terms_of_services`
 
-**Request body** (`application/json`): `TermsOfServiceCreateRequest`
+**Request body** (`application/json`): `CreateTermsOfServiceRequest`
 
 **Returns:** `TermsOfService`
 
@@ -57,7 +57,7 @@ const result = await client.termsOfServices.get("TERMS_OF_SERVICE_ID");
 |---|---|---|---|
 | `terms_of_service_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `TermsOfServiceUpdateRequest`
+**Request body** (`application/json`): `UpdateTermsOfServiceRequest`
 
 **Returns:** `TermsOfService`
 

@@ -24,7 +24,7 @@ export class ShieldInformationBarriersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ShieldInformationBarrier;
   }
 
-  async createChangeStatus(body: models.schemas.ChangeStatusCreateRequest): Promise<models.schemas.ShieldInformationBarrier> {
+  async createChangeStatus(body: models.schemas.CreateChangeStatusRequest): Promise<models.schemas.ShieldInformationBarrier> {
     let url = this.session.baseUrl("api");
     url += "/shield_information_barriers";
     url += "/change_status";
@@ -69,7 +69,7 @@ export class ShieldInformationBarriersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ShieldInformationBarriers;
   }
 
-  async create(body: models.schemas.ShieldInformationBarrierCreateRequest): Promise<models.schemas.ShieldInformationBarrier> {
+  async create(body: models.schemas.CreateShieldInformationBarrierRequest): Promise<models.schemas.ShieldInformationBarrier> {
     let url = this.session.baseUrl("api");
     url += "/shield_information_barriers";
     let req = this.session.newRequest("POST", url);

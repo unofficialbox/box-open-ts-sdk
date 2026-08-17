@@ -47,7 +47,7 @@ export class WebhooksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Webhooks;
   }
 
-  async create(body: models.schemas.WebhookCreateRequest): Promise<models.schemas.Webhook> {
+  async create(body: models.schemas.CreateWebhookRequest): Promise<models.schemas.Webhook> {
     let url = this.session.baseUrl("api");
     url += "/webhooks";
     let req = this.session.newRequest("POST", url);
@@ -68,7 +68,7 @@ export class WebhooksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Webhook;
   }
 
-  async update(webhookId: string, body: models.schemas.WebhookUpdateRequest): Promise<models.schemas.Webhook> {
+  async update(webhookId: string, body: models.schemas.UpdateWebhookRequest): Promise<models.schemas.Webhook> {
     let url = this.session.baseUrl("api");
     url += "/webhooks";
     url += '/' + pathEscape(webhookId);

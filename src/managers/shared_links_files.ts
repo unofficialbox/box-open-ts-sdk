@@ -42,7 +42,7 @@ export class SharedLinksFilesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FileFull;
   }
 
-  async updateFileAddSharedLink(fileId: string, fields: string, body: models.schemas.FileUpdateRequest2): Promise<models.schemas.FileFull> {
+  async updateFileAddSharedLink(fileId: string, fields: string, body: models.schemas.UpdateFileAddSharedLinkRequest): Promise<models.schemas.FileFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -55,7 +55,7 @@ export class SharedLinksFilesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FileFull;
   }
 
-  async updateFileUpdateSharedLink(fileId: string, fields: string, body: models.schemas.FileUpdateRequest2): Promise<models.schemas.FileFull> {
+  async updateFileUpdateSharedLink(fileId: string, fields: string, body: models.schemas.UpdateFileAddSharedLinkRequest): Promise<models.schemas.FileFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -68,7 +68,7 @@ export class SharedLinksFilesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FileFull;
   }
 
-  async updateFileRemoveSharedLink(fileId: string, fields: string, body: models.schemas.FileUpdateRequest3): Promise<models.schemas.FileFull> {
+  async updateFileRemoveSharedLink(fileId: string, fields: string, body: models.schemas.UpdateFileRemoveSharedLinkRequest): Promise<models.schemas.FileFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);

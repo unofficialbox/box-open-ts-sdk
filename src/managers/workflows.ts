@@ -52,7 +52,7 @@ export class WorkflowsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Workflows;
   }
 
-  async start(workflowId: string, body: models.schemas.WorkflowStartRequest): Promise<void> {
+  async start(workflowId: string, body: models.schemas.StartWorkflowRequest): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/workflows";
     url += '/' + pathEscape(workflowId);

@@ -52,7 +52,7 @@ export class MetadataCascadePoliciesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataCascadePolicies;
   }
 
-  async create(body: models.schemas.MetadataCascadePolicyCreateRequest): Promise<models.schemas.MetadataCascadePolicy> {
+  async create(body: models.schemas.CreateMetadataCascadePolicyRequest): Promise<models.schemas.MetadataCascadePolicy> {
     let url = this.session.baseUrl("api");
     url += "/metadata_cascade_policies";
     let req = this.session.newRequest("POST", url);
@@ -81,7 +81,7 @@ export class MetadataCascadePoliciesManager {
     await this.session.fetch(req);
   }
 
-  async apply(metadataCascadePolicyId: string, body: models.schemas.MetadataCascadePolicyApplyRequest): Promise<void> {
+  async apply(metadataCascadePolicyId: string, body: models.schemas.ApplyMetadataCascadePolicyRequest): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/metadata_cascade_policies";
     url += '/' + pathEscape(metadataCascadePolicyId);

@@ -18,7 +18,7 @@ export interface InvitesManagerGetOptions {
 export class InvitesManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async create(body: models.schemas.InviteCreateRequest, opts?: InvitesManagerCreateOptions): Promise<models.schemas.Invite> {
+  async create(body: models.schemas.CreateInviteRequest, opts?: InvitesManagerCreateOptions): Promise<models.schemas.Invite> {
     let url = this.session.baseUrl("api");
     url += "/invites";
     let req = this.session.newRequest("POST", url);

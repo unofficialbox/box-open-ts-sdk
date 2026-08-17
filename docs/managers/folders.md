@@ -36,7 +36,7 @@ const result = await client.folders.get("FOLDER_ID");
 | `fields` | query | `Array<string>` | no |
 | `if-match` | header | `string` | no |
 
-**Request body** (`application/json`): `FolderUpdateRequest`
+**Request body** (`application/json`): `UpdateFolderRequest`
 
 **Returns:** `FolderFull`
 
@@ -100,7 +100,7 @@ Paginated — `listItems(...)` is an async iterable that yields each entry acros
 |---|---|---|---|
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `FolderCreateRequest`
+**Request body** (`application/json`): `CreateFolderRequest`
 
 **Returns:** `FolderFull`
 
@@ -119,7 +119,7 @@ const result = await client.folders.create({ /* … */ });
 | `folder_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `FolderCopyRequest`
+**Request body** (`application/json`): `CopyFolderRequest`
 
 **Returns:** `FolderFull`
 

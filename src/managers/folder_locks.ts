@@ -18,7 +18,7 @@ export class FolderLocksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderLocks;
   }
 
-  async create(body: models.schemas.FolderLockCreateRequest): Promise<models.schemas.FolderLock> {
+  async create(body: models.schemas.CreateFolderLockRequest): Promise<models.schemas.FolderLock> {
     let url = this.session.baseUrl("api");
     url += "/folder_locks";
     let req = this.session.newRequest("POST", url);

@@ -37,7 +37,7 @@ export interface MetadataTaxonomiesManagerListMetadataTemplateFieldOptionsOption
 export class MetadataTaxonomiesManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async create(body: models.schemas.MetadataTaxonomyCreateRequest): Promise<models.schemas.MetadataTaxonomy> {
+  async create(body: models.schemas.CreateMetadataTaxonomyRequest): Promise<models.schemas.MetadataTaxonomy> {
     let url = this.session.baseUrl("api");
     url += "/metadata_taxonomies";
     let req = this.session.newRequest("POST", url);
@@ -102,7 +102,7 @@ export class MetadataTaxonomiesManager {
     await this.session.fetch(req);
   }
 
-  async update(namespace: string, taxonomyKey: string, body: models.schemas.MetadataTaxonomyUpdateRequest): Promise<models.schemas.MetadataTaxonomy> {
+  async update(namespace: string, taxonomyKey: string, body: models.schemas.UpdateMetadataTaxonomyRequest): Promise<models.schemas.MetadataTaxonomy> {
     let url = this.session.baseUrl("api");
     url += "/metadata_taxonomies";
     url += '/' + pathEscape(namespace);
@@ -129,7 +129,7 @@ export class MetadataTaxonomiesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataTaxonomyLevels;
   }
 
-  async updateLevel(namespace: string, taxonomyKey: string, levelIndex: number, body: models.schemas.LevelUpdateRequest): Promise<models.schemas.MetadataTaxonomyLevel> {
+  async updateLevel(namespace: string, taxonomyKey: string, levelIndex: number, body: models.schemas.UpdateLevelRequest): Promise<models.schemas.MetadataTaxonomyLevel> {
     let url = this.session.baseUrl("api");
     url += "/metadata_taxonomies";
     url += '/' + pathEscape(namespace);
@@ -144,7 +144,7 @@ export class MetadataTaxonomiesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataTaxonomyLevel;
   }
 
-  async appendLevels(namespace: string, taxonomyKey: string, body: models.schemas.LevelUpdateRequest): Promise<models.schemas.MetadataTaxonomyLevels> {
+  async appendLevels(namespace: string, taxonomyKey: string, body: models.schemas.UpdateLevelRequest): Promise<models.schemas.MetadataTaxonomyLevels> {
     let url = this.session.baseUrl("api");
     url += "/metadata_taxonomies";
     url += '/' + pathEscape(namespace);
@@ -221,7 +221,7 @@ export class MetadataTaxonomiesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataTaxonomyNodes;
   }
 
-  async createNodes(namespace: string, taxonomyKey: string, body: models.schemas.NodesCreateRequest): Promise<models.schemas.MetadataTaxonomyNode> {
+  async createNodes(namespace: string, taxonomyKey: string, body: models.schemas.CreateNodesRequest): Promise<models.schemas.MetadataTaxonomyNode> {
     let url = this.session.baseUrl("api");
     url += "/metadata_taxonomies";
     url += '/' + pathEscape(namespace);
@@ -259,7 +259,7 @@ export class MetadataTaxonomiesManager {
     await this.session.fetch(req);
   }
 
-  async updateNode(namespace: string, taxonomyKey: string, nodeId: string, body: models.schemas.NodeUpdateRequest): Promise<models.schemas.MetadataTaxonomyNode> {
+  async updateNode(namespace: string, taxonomyKey: string, nodeId: string, body: models.schemas.UpdateNodeRequest): Promise<models.schemas.MetadataTaxonomyNode> {
     let url = this.session.baseUrl("api");
     url += "/metadata_taxonomies";
     url += '/' + pathEscape(namespace);

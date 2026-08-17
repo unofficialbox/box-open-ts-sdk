@@ -60,7 +60,7 @@ export class MetadataTemplatesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataTemplates;
   }
 
-  async getSchema(scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string): Promise<models.schemas.MetadataTemplate> {
+  async getSchema(scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string): Promise<models.schemas.MetadataTemplate> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += '/' + pathEscape(scope);
@@ -72,7 +72,7 @@ export class MetadataTemplatesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataTemplate;
   }
 
-  async updateSchema(scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string, body: Array<models.schemas.SchemaUpdateRequest>): Promise<models.schemas.MetadataTemplate> {
+  async updateSchema(scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string, body: Array<models.schemas.UpdateSchemaRequest>): Promise<models.schemas.MetadataTemplate> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += '/' + pathEscape(scope);
@@ -86,7 +86,7 @@ export class MetadataTemplatesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataTemplate;
   }
 
-  async deleteSchema(scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string): Promise<void> {
+  async deleteSchema(scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += '/' + pathEscape(scope);
@@ -174,7 +174,7 @@ export class MetadataTemplatesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataTemplates;
   }
 
-  async createSchema(body: models.schemas.SchemaCreateRequest): Promise<models.schemas.MetadataTemplate> {
+  async createSchema(body: models.schemas.CreateSchemaRequest): Promise<models.schemas.MetadataTemplate> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += "/schema";

@@ -4,8 +4,8 @@ import * as runtime from '../runtime.js';
 import type * as models from '../models/index.js';
 import { pathEscape } from '../internal.js';
 
-/** Optional parameters for CollaborationAllowlistEntriesManager.listCollaborationWhitelistEntries. */
-export interface CollaborationAllowlistEntriesManagerListCollaborationWhitelistEntriesOptions {
+/** Optional parameters for CollaborationAllowlistEntriesManager.list. */
+export interface CollaborationAllowlistEntriesManagerListOptions {
   marker?: string;
   limit?: number;
 }
@@ -15,10 +15,10 @@ export class CollaborationAllowlistEntriesManager {
   constructor(private readonly session: runtime.Client) {}
 
   /** Iterate every `models.schemas.CollaborationAllowlistEntry` across pages, threading the marker cursor. */
-  async *listCollaborationWhitelistEntries(opts?: CollaborationAllowlistEntriesManagerListCollaborationWhitelistEntriesOptions): AsyncIterableIterator<models.schemas.CollaborationAllowlistEntry> {
-    const options: CollaborationAllowlistEntriesManagerListCollaborationWhitelistEntriesOptions = { ...opts };
+  async *list(opts?: CollaborationAllowlistEntriesManagerListOptions): AsyncIterableIterator<models.schemas.CollaborationAllowlistEntry> {
+    const options: CollaborationAllowlistEntriesManagerListOptions = { ...opts };
     for (;;) {
-      const page = await this.listCollaborationWhitelistEntriesPage(options);
+      const page = await this.listPage(options);
       const items = page.entries ?? [];
       for (const item of items) {
         yield item;
@@ -31,7 +31,7 @@ export class CollaborationAllowlistEntriesManager {
     }
   }
 
-  private async listCollaborationWhitelistEntriesPage(opts?: CollaborationAllowlistEntriesManagerListCollaborationWhitelistEntriesOptions): Promise<models.schemas.CollaborationAllowlistEntries> {
+  private async listPage(opts?: CollaborationAllowlistEntriesManagerListOptions): Promise<models.schemas.CollaborationAllowlistEntries> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_entries";
     let req = this.session.newRequest("GET", url);
@@ -47,7 +47,7 @@ export class CollaborationAllowlistEntriesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.CollaborationAllowlistEntries;
   }
 
-  async createCollaborationWhitelistEntries(body: models.schemas.CollaborationWhitelistEntriesCreateRequest): Promise<models.schemas.CollaborationAllowlistEntry> {
+  async create(body: models.schemas.CreateCollaborationAllowlistEntryRequest): Promise<models.schemas.CollaborationAllowlistEntry> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_entries";
     let req = this.session.newRequest("POST", url);
@@ -58,7 +58,7 @@ export class CollaborationAllowlistEntriesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.CollaborationAllowlistEntry;
   }
 
-  async getCollaborationWhitelistEntry(collaborationWhitelistEntryId: string): Promise<models.schemas.CollaborationAllowlistEntry> {
+  async get(collaborationWhitelistEntryId: string): Promise<models.schemas.CollaborationAllowlistEntry> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_entries";
     url += '/' + pathEscape(collaborationWhitelistEntryId);
@@ -68,7 +68,7 @@ export class CollaborationAllowlistEntriesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.CollaborationAllowlistEntry;
   }
 
-  async deleteCollaborationWhitelistEntry(collaborationWhitelistEntryId: string): Promise<void> {
+  async delete_(collaborationWhitelistEntryId: string): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_entries";
     url += '/' + pathEscape(collaborationWhitelistEntryId);

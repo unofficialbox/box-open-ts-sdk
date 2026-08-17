@@ -68,7 +68,7 @@ export class RetentionPoliciesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.RetentionPolicies;
   }
 
-  async create(body: models.schemas.RetentionPolicyCreateRequest): Promise<models.schemas.RetentionPolicy> {
+  async create(body: models.schemas.CreateRetentionPolicyRequest): Promise<models.schemas.RetentionPolicy> {
     let url = this.session.baseUrl("api");
     url += "/retention_policies";
     let req = this.session.newRequest("POST", url);
@@ -93,7 +93,7 @@ export class RetentionPoliciesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.RetentionPolicy;
   }
 
-  async update(retentionPolicyId: string, body: models.schemas.RetentionPolicyUpdateRequest): Promise<models.schemas.RetentionPolicy> {
+  async update(retentionPolicyId: string, body: models.schemas.UpdateRetentionPolicyRequest): Promise<models.schemas.RetentionPolicy> {
     let url = this.session.baseUrl("api");
     url += "/retention_policies";
     url += '/' + pathEscape(retentionPolicyId);

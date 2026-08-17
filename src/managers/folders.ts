@@ -85,7 +85,7 @@ export class FoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderFull;
   }
 
-  async update(folderId: string, body: models.schemas.FolderUpdateRequest, opts?: FoldersManagerUpdateOptions): Promise<models.schemas.FolderFull> {
+  async update(folderId: string, body: models.schemas.UpdateFolderRequest, opts?: FoldersManagerUpdateOptions): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);
@@ -172,7 +172,7 @@ export class FoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Items;
   }
 
-  async create(body: models.schemas.FolderCreateRequest, opts?: FoldersManagerCreateOptions): Promise<models.schemas.FolderFull> {
+  async create(body: models.schemas.CreateFolderRequest, opts?: FoldersManagerCreateOptions): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     let req = this.session.newRequest("POST", url);
@@ -187,7 +187,7 @@ export class FoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderFull;
   }
 
-  async copy(folderId: string, body: models.schemas.FolderCopyRequest, opts?: FoldersManagerCopyOptions): Promise<models.schemas.FolderFull> {
+  async copy(folderId: string, body: models.schemas.CopyFolderRequest, opts?: FoldersManagerCopyOptions): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);

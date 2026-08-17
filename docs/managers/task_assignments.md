@@ -23,7 +23,7 @@ const result = await client.taskAssignments.listTaskAssignments("TASK_ID");
 
 `POST /task_assignments`
 
-**Request body** (`application/json`): `TaskAssignmentCreateRequest`
+**Request body** (`application/json`): `CreateTaskAssignmentRequest`
 
 **Returns:** `TaskAssignment`
 
@@ -57,7 +57,7 @@ const result = await client.taskAssignments.get("TASK_ASSIGNMENT_ID");
 |---|---|---|---|
 | `task_assignment_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `TaskAssignmentUpdateRequest`
+**Request body** (`application/json`): `UpdateTaskAssignmentRequest`
 
 **Returns:** `TaskAssignment`
 

@@ -18,7 +18,7 @@ export class AvatarsManager {
     return runtime.responseStream(resp);
   }
 
-  async createUserAvatar(userId: string, body: models.schemas.UserAvatarCreateRequest): Promise<models.schemas.UserAvatar> {
+  async createUserAvatar(userId: string, body: models.schemas.CreateUserAvatarRequest): Promise<models.schemas.UserAvatar> {
     let url = this.session.baseUrl("api");
     url += "/users";
     url += '/' + pathEscape(userId);

@@ -14,7 +14,7 @@ Reach these methods through the `uploads` field on `Client`.
 | `fields` | query | `Array<string>` | no |
 | `content-md5` | header | `string` | no |
 
-**Request body** (`multipart/form-data`): `FileIdContentCreateRequest`
+**Request body** (`multipart/form-data`): `CreateFileIdContentRequest`
 
 **Returns:** `Files`
 
@@ -33,7 +33,7 @@ const result = await client.uploads.uploadFileVersion("FILE_ID", { /* … */ });
 | `fields` | query | `Array<string>` | no |
 | `content-md5` | header | `string` | no |
 
-**Request body** (`multipart/form-data`): `FileContentCreateRequest`
+**Request body** (`multipart/form-data`): `CreateFileContentRequest`
 
 **Returns:** `Files`
 

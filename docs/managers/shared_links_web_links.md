@@ -47,7 +47,7 @@ const result = await client.sharedLinksWebLinks.getWebLinkGetSharedLink("WEB_LIN
 | `web_link_id` | path | `string` | yes |
 | `fields` | query | `string` | yes |
 
-**Request body** (`application/json`): `FileUpdateRequest2`
+**Request body** (`application/json`): `UpdateFileAddSharedLinkRequest`
 
 **Returns:** `WebLink`
 
@@ -66,7 +66,7 @@ const result = await client.sharedLinksWebLinks.updateWebLinkAddSharedLink("WEB_
 | `web_link_id` | path | `string` | yes |
 | `fields` | query | `string` | yes |
 
-**Request body** (`application/json`): `FileUpdateRequest2`
+**Request body** (`application/json`): `UpdateFileAddSharedLinkRequest`
 
 **Returns:** `WebLink`
 
@@ -85,7 +85,7 @@ const result = await client.sharedLinksWebLinks.updateWebLinkUpdateSharedLink("W
 | `web_link_id` | path | `string` | yes |
 | `fields` | query | `string` | yes |
 
-**Request body** (`application/json`): `FileUpdateRequest3`
+**Request body** (`application/json`): `UpdateFileRemoveSharedLinkRequest`
 
 **Returns:** `WebLink`
 

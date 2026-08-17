@@ -7,7 +7,7 @@ Reach these methods through the `metadataTaxonomies` field on `Client`.
 
 `POST /metadata_taxonomies`
 
-**Request body** (`application/json`): `MetadataTaxonomyCreateRequest`
+**Request body** (`application/json`): `CreateMetadataTaxonomyRequest`
 
 **Returns:** `MetadataTaxonomy`
 
@@ -82,7 +82,7 @@ await client.metadataTaxonomies.delete_("NAMESPACE", "TAXONOMY_KEY");
 | `namespace` | path | `string` | yes |
 | `taxonomy_key` | path | `string` | yes |
 
-**Request body** (`application/json`): `MetadataTaxonomyUpdateRequest`
+**Request body** (`application/json`): `UpdateMetadataTaxonomyRequest`
 
 **Returns:** `MetadataTaxonomy`
 
@@ -121,7 +121,7 @@ const result = await client.metadataTaxonomies.createLevels("NAMESPACE", "TAXONO
 | `taxonomy_key` | path | `string` | yes |
 | `level_index` | path | `number` | yes |
 
-**Request body** (`application/json`): `LevelUpdateRequest`
+**Request body** (`application/json`): `UpdateLevelRequest`
 
 **Returns:** `MetadataTaxonomyLevel`
 
@@ -140,7 +140,7 @@ const result = await client.metadataTaxonomies.updateLevel("NAMESPACE", "TAXONOM
 | `namespace` | path | `string` | yes |
 | `taxonomy_key` | path | `string` | yes |
 
-**Request body** (`application/json`): `LevelUpdateRequest`
+**Request body** (`application/json`): `UpdateLevelRequest`
 
 **Returns:** `MetadataTaxonomyLevels`
 
@@ -204,7 +204,7 @@ Paginated — `listNodes(...)` is an async iterable that yields each entry acros
 | `namespace` | path | `string` | yes |
 | `taxonomy_key` | path | `string` | yes |
 
-**Request body** (`application/json`): `NodesCreateRequest`
+**Request body** (`application/json`): `CreateNodesRequest`
 
 **Returns:** `MetadataTaxonomyNode`
 
@@ -260,7 +260,7 @@ await client.metadataTaxonomies.deleteNode("NAMESPACE", "TAXONOMY_KEY", "NODE_ID
 | `taxonomy_key` | path | `string` | yes |
 | `node_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `NodeUpdateRequest`
+**Request body** (`application/json`): `UpdateNodeRequest`
 
 **Returns:** `MetadataTaxonomyNode`
 

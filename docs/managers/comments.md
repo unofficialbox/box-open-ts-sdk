@@ -52,7 +52,7 @@ const result = await client.comments.get("COMMENT_ID");
 | `comment_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `CommentUpdateRequest`
+**Request body** (`application/json`): `UpdateCommentRequest`
 
 **Returns:** `CommentFull`
 
@@ -86,7 +86,7 @@ await client.comments.delete_("COMMENT_ID");
 |---|---|---|---|
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `CommentCreateRequest`
+**Request body** (`application/json`): `CreateCommentRequest`
 
 **Returns:** `CommentFull`
 

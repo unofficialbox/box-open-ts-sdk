@@ -50,6 +50,7 @@ import { MetadataCascadePoliciesManager } from './managers/metadata_cascade_poli
 import { MetadataTaxonomiesManager } from './managers/metadata_taxonomies.js';
 import { MetadataTemplatesManager } from './managers/metadata_templates.js';
 import { NotesManager } from './managers/notes.js';
+import { QueryManager } from './managers/query.js';
 import { RecentItemsManager } from './managers/recent_items.js';
 import { RetentionPoliciesManager } from './managers/retention_policies.js';
 import { RetentionPolicyAssignmentsManager } from './managers/retention_policy_assignments.js';
@@ -138,6 +139,7 @@ export class Client {
   readonly metadataTaxonomies: MetadataTaxonomiesManager;
   readonly metadataTemplates: MetadataTemplatesManager;
   readonly notes: NotesManager;
+  readonly query: QueryManager;
   readonly recentItems: RecentItemsManager;
   readonly retentionPolicies: RetentionPoliciesManager;
   readonly retentionPolicyAssignments: RetentionPolicyAssignmentsManager;
@@ -227,6 +229,7 @@ export class Client {
     this.metadataTaxonomies = new MetadataTaxonomiesManager(session);
     this.metadataTemplates = new MetadataTemplatesManager(session);
     this.notes = new NotesManager(session);
+    this.query = new QueryManager(session);
     this.recentItems = new RecentItemsManager(session);
     this.retentionPolicies = new RetentionPoliciesManager(session);
     this.retentionPolicyAssignments = new RetentionPolicyAssignmentsManager(session);

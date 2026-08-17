@@ -33,7 +33,7 @@ const result = await client.files.get("FILE_ID");
 | `fields` | query | `Array<string>` | no |
 | `if-match` | header | `string` | no |
 
-**Request body** (`application/json`): `FileUpdateRequest`
+**Request body** (`application/json`): `UpdateFileRequest`
 
 **Returns:** `FileFull`
 
@@ -69,7 +69,7 @@ await client.files.delete_("FILE_ID");
 | `file_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `FileCopyRequest`
+**Request body** (`application/json`): `CopyFileRequest`
 
 **Returns:** `FileFull`
 

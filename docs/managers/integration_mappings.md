@@ -51,7 +51,7 @@ const result = await client.integrationMappings.createSlack({ /* … */ });
 |---|---|---|---|
 | `integration_mapping_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `SlackUpdateRequest`
+**Request body** (`application/json`): `UpdateSlackRequest`
 
 **Returns:** `IntegrationMapping`
 
@@ -118,7 +118,7 @@ const result = await client.integrationMappings.createTeams({ /* … */ });
 |---|---|---|---|
 | `integration_mapping_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `TeamUpdateRequest`
+**Request body** (`application/json`): `UpdateTeamRequest`
 
 **Returns:** `IntegrationMappingTeams`
 

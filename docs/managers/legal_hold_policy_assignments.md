@@ -32,7 +32,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 `POST /legal_hold_policy_assignments`
 
-**Request body** (`application/json`): `LegalHoldPolicyAssignmentCreateRequest`
+**Request body** (`application/json`): `CreateLegalHoldPolicyAssignmentRequest`
 
 **Returns:** `LegalHoldPolicyAssignment`
 

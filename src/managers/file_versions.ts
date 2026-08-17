@@ -83,7 +83,7 @@ export class FileVersionsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FileVersionFull;
   }
 
-  async updateFileVersion(fileId: string, fileVersionId: string, body: models.schemas.FileVersionUpdateRequest): Promise<models.schemas.FileVersionFull> {
+  async updateFileVersion(fileId: string, fileVersionId: string, body: models.schemas.UpdateFileVersionRequest): Promise<models.schemas.FileVersionFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -111,7 +111,7 @@ export class FileVersionsManager {
     await this.session.fetch(req);
   }
 
-  async createFileVersionCurrent(fileId: string, body: models.schemas.FileVersionCurrentCreateRequest, opts?: FileVersionsManagerCreateFileVersionCurrentOptions): Promise<models.schemas.FileVersionFull> {
+  async createFileVersionCurrent(fileId: string, body: models.schemas.CreateFileVersionCurrentRequest, opts?: FileVersionsManagerCreateFileVersionCurrentOptions): Promise<models.schemas.FileVersionFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);

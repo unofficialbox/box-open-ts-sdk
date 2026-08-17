@@ -27,7 +27,7 @@ const result = await client.folderWatermarks.getFolderWatermark("FOLDER_ID");
 |---|---|---|---|
 | `folder_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `FileWatermarkUpdateRequest`
+**Request body** (`application/json`): `UpdateFileWatermarkRequest`
 
 **Returns:** `Watermark`
 

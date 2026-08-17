@@ -21,7 +21,7 @@ export interface UploadsManagerUploadFileOptions {
 export class UploadsManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async uploadFileVersion(fileId: string, body: models.schemas.FileIdContentCreateRequest, opts?: UploadsManagerUploadFileVersionOptions): Promise<models.schemas.Files> {
+  async uploadFileVersion(fileId: string, body: models.schemas.CreateFileIdContentRequest, opts?: UploadsManagerUploadFileVersionOptions): Promise<models.schemas.Files> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -44,7 +44,7 @@ export class UploadsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Files;
   }
 
-  async uploadFile(body: models.schemas.FileContentCreateRequest, opts?: UploadsManagerUploadFileOptions): Promise<models.schemas.Files> {
+  async uploadFile(body: models.schemas.CreateFileContentRequest, opts?: UploadsManagerUploadFileOptions): Promise<models.schemas.Files> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += "/content";

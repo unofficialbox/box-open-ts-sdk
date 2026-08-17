@@ -18,7 +18,7 @@ export interface TrashedFilesManagerGetFileTrashOptions {
 export class TrashedFilesManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createFile(fileId: string, body: models.schemas.FileCreateRequest, opts?: TrashedFilesManagerCreateFileOptions): Promise<models.schemas.TrashFileRestored> {
+  async createFile(fileId: string, body: models.schemas.CreateFileRequest, opts?: TrashedFilesManagerCreateFileOptions): Promise<models.schemas.TrashFileRestored> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);

@@ -20,7 +20,7 @@ export interface ChunkedUploadsManagerCommitFileUploadSessionOptions {
 export class ChunkedUploadsManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createFileUploadSession(body: models.schemas.FileUploadSessionCreateRequest): Promise<models.schemas.UploadSession> {
+  async createFileUploadSession(body: models.schemas.CreateFileUploadSessionRequest): Promise<models.schemas.UploadSession> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += "/upload_sessions";
@@ -32,7 +32,7 @@ export class ChunkedUploadsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UploadSession;
   }
 
-  async createFileVersionUploadSession(fileId: string, body: models.schemas.FileVersionUploadSessionCreateRequest): Promise<models.schemas.UploadSession> {
+  async createFileVersionUploadSession(fileId: string, body: models.schemas.CreateFileVersionUploadSessionRequest): Promise<models.schemas.UploadSession> {
     let url = this.session.baseUrl("upload");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -115,7 +115,7 @@ export class ChunkedUploadsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UploadParts;
   }
 
-  async commitFileUploadSession(uploadSessionId: string, digest: string, body: models.schemas.FileUploadSessionCommitRequest, opts?: ChunkedUploadsManagerCommitFileUploadSessionOptions): Promise<models.schemas.Files> {
+  async commitFileUploadSession(uploadSessionId: string, digest: string, body: models.schemas.CommitFileUploadSessionRequest, opts?: ChunkedUploadsManagerCommitFileUploadSessionOptions): Promise<models.schemas.Files> {
     let url = this.session.baseUrl("upload_session");
     url += "/files";
     url += "/upload_sessions";

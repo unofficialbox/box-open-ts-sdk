@@ -19,7 +19,7 @@ const result = await client.classifications.get();
 
 `PUT /metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema`
 
-**Request body** (`application/json`): `Array<ClassificationUpdateRequest>`
+**Request body** (`application/json`): `Array<UpdateClassificationAddRequest>`
 
 **Returns:** `ClassificationTemplate`
 
@@ -33,7 +33,7 @@ const result = await client.classifications.updateAdd([]);
 
 `PUT /metadata_templates/enterprise/securityClassification-6VMVochwUWo/schema`
 
-**Request body** (`application/json-patch+json`): `Array<ClassificationUpdateRequest2>`
+**Request body** (`application/json-patch+json`): `Array<UpdateClassificationUpdateRequest>`
 
 **Returns:** `ClassificationTemplate`
 
@@ -47,7 +47,7 @@ const result = await client.classifications.updateUpdate([]);
 
 `POST /metadata_templates/schema`
 
-**Request body** (`application/json`): `MetadataTemplateSchemaCreateRequest`
+**Request body** (`application/json`): `CreateMetadataTemplateSchemaClassificationsRequest`
 
 **Returns:** `ClassificationTemplate`
 

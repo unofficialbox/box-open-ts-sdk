@@ -7,7 +7,7 @@ import type * as models from '../models/index.js';
 export class SessionTerminationManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createUserTerminateSessions(body: models.schemas.UserTerminateSessionsCreateRequest): Promise<models.schemas.SessionTerminationMessage> {
+  async createUserTerminateSessions(body: models.schemas.CreateUserTerminateSessionsRequest): Promise<models.schemas.SessionTerminationMessage> {
     let url = this.session.baseUrl("api");
     url += "/users";
     url += "/terminate_sessions";
@@ -19,7 +19,7 @@ export class SessionTerminationManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.SessionTerminationMessage;
   }
 
-  async createGroupTerminateSessions(body: models.schemas.GroupTerminateSessionsCreateRequest): Promise<models.schemas.SessionTerminationMessage> {
+  async createGroupTerminateSessions(body: models.schemas.CreateGroupTerminateSessionsRequest): Promise<models.schemas.SessionTerminationMessage> {
     let url = this.session.baseUrl("api");
     url += "/groups";
     url += "/terminate_sessions";

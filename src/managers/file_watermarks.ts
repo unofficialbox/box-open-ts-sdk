@@ -19,7 +19,7 @@ export class FileWatermarksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Watermark;
   }
 
-  async updateFileWatermark(fileId: string, body: models.schemas.FileWatermarkUpdateRequest): Promise<models.schemas.Watermark> {
+  async updateFileWatermark(fileId: string, body: models.schemas.UpdateFileWatermarkRequest): Promise<models.schemas.Watermark> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);

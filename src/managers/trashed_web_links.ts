@@ -18,7 +18,7 @@ export interface TrashedWebLinksManagerGetWebLinkTrashOptions {
 export class TrashedWebLinksManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async createWebLink(webLinkId: string, body: models.schemas.FileCreateRequest, opts?: TrashedWebLinksManagerCreateWebLinkOptions): Promise<models.schemas.TrashWebLinkRestored> {
+  async createWebLink(webLinkId: string, body: models.schemas.CreateFileRequest, opts?: TrashedWebLinksManagerCreateWebLinkOptions): Promise<models.schemas.TrashWebLinkRestored> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     url += '/' + pathEscape(webLinkId);

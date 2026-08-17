@@ -31,7 +31,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 | Parameter | In | Type | Required |
 |---|---|---|---|
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
 **Returns:** `MetadataTemplate`
@@ -48,10 +48,10 @@ const result = await client.metadataTemplates.getSchema("...", "TEMPLATE_KEY");
 
 | Parameter | In | Type | Required |
 |---|---|---|---|
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
-**Request body** (`application/json-patch+json`): `Array<SchemaUpdateRequest>`
+**Request body** (`application/json-patch+json`): `Array<UpdateSchemaRequest>`
 
 **Returns:** `MetadataTemplate`
 
@@ -67,7 +67,7 @@ const result = await client.metadataTemplates.updateSchema("...", "TEMPLATE_KEY"
 
 | Parameter | In | Type | Required |
 |---|---|---|---|
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
 **Returns:** `void`
@@ -140,7 +140,7 @@ Paginated — `listEnterprise(...)` is an async iterable that yields each entry 
 
 `POST /metadata_templates/schema`
 
-**Request body** (`application/json`): `SchemaCreateRequest`
+**Request body** (`application/json`): `CreateSchemaRequest`
 
 **Returns:** `MetadataTemplate`
 

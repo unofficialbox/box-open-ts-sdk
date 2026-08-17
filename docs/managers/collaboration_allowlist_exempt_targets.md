@@ -3,7 +3,7 @@
 
 Reach these methods through the `collaborationAllowlistExemptTargets` field on `Client`.
 
-## listCollaborationWhitelistExemptTargets
+## list
 
 `GET /collaboration_whitelist_exempt_targets`
 
@@ -17,28 +17,28 @@ Reach these methods through the `collaborationAllowlistExemptTargets` field on `
 **Example**
 
 ```ts
-for await (const item of client.collaborationAllowlistExemptTargets.listCollaborationWhitelistExemptTargets()) {
+for await (const item of client.collaborationAllowlistExemptTargets.list()) {
   // use item
 }
 ```
 
-Paginated — `listCollaborationWhitelistExemptTargets(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
+Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
-## createCollaborationWhitelistExemptTargets
+## create
 
 `POST /collaboration_whitelist_exempt_targets`
 
-**Request body** (`application/json`): `CollaborationWhitelistExemptTargetsCreateRequest`
+**Request body** (`application/json`): `CreateCollaborationAllowlistExemptTargetRequest`
 
 **Returns:** `CollaborationAllowlistExemptTarget`
 
 **Example**
 
 ```ts
-const result = await client.collaborationAllowlistExemptTargets.createCollaborationWhitelistExemptTargets({ /* … */ });
+const result = await client.collaborationAllowlistExemptTargets.create({ /* … */ });
 ```
 
-## getCollaborationWhitelistExemptTarget
+## get
 
 `GET /collaboration_whitelist_exempt_targets/{collaboration_whitelist_exempt_target_id}`
 
@@ -51,10 +51,10 @@ const result = await client.collaborationAllowlistExemptTargets.createCollaborat
 **Example**
 
 ```ts
-const result = await client.collaborationAllowlistExemptTargets.getCollaborationWhitelistExemptTarget("COLLABORATION_WHITELIST_EXEMPT_TARGET_ID");
+const result = await client.collaborationAllowlistExemptTargets.get("COLLABORATION_WHITELIST_EXEMPT_TARGET_ID");
 ```
 
-## deleteCollaborationWhitelistExemptTarget
+## delete_
 
 `DELETE /collaboration_whitelist_exempt_targets/{collaboration_whitelist_exempt_target_id}`
 
@@ -67,6 +67,6 @@ const result = await client.collaborationAllowlistExemptTargets.getCollaboration
 **Example**
 
 ```ts
-await client.collaborationAllowlistExemptTargets.deleteCollaborationWhitelistExemptTarget("COLLABORATION_WHITELIST_EXEMPT_TARGET_ID");
+await client.collaborationAllowlistExemptTargets.delete_("COLLABORATION_WHITELIST_EXEMPT_TARGET_ID");
 ```
 

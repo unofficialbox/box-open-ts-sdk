@@ -47,7 +47,7 @@ const result = await client.sharedLinksFolders.getFolderGetSharedLink("FOLDER_ID
 | `folder_id` | path | `string` | yes |
 | `fields` | query | `string` | yes |
 
-**Request body** (`application/json`): `FileUpdateRequest2`
+**Request body** (`application/json`): `UpdateFileAddSharedLinkRequest`
 
 **Returns:** `FolderFull`
 
@@ -66,7 +66,7 @@ const result = await client.sharedLinksFolders.updateFolderAddSharedLink("FOLDER
 | `folder_id` | path | `string` | yes |
 | `fields` | query | `string` | yes |
 
-**Request body** (`application/json`): `FolderUpdateRequest2`
+**Request body** (`application/json`): `UpdateFolderUpdateSharedLinkRequest`
 
 **Returns:** `FolderFull`
 
@@ -85,7 +85,7 @@ const result = await client.sharedLinksFolders.updateFolderUpdateSharedLink("FOL
 | `folder_id` | path | `string` | yes |
 | `fields` | query | `string` | yes |
 
-**Request body** (`application/json`): `FileUpdateRequest3`
+**Request body** (`application/json`): `UpdateFileRemoveSharedLinkRequest`
 
 **Returns:** `FolderFull`
 

@@ -53,7 +53,7 @@ const result = await client.fileVersions.getFileVersion("FILE_ID", "FILE_VERSION
 | `file_id` | path | `string` | yes |
 | `file_version_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `FileVersionUpdateRequest`
+**Request body** (`application/json`): `UpdateFileVersionRequest`
 
 **Returns:** `FileVersionFull`
 
@@ -90,7 +90,7 @@ await client.fileVersions.deleteFileVersion("FILE_ID", "FILE_VERSION_ID");
 | `file_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `FileVersionCurrentCreateRequest`
+**Request body** (`application/json`): `CreateFileVersionCurrentRequest`
 
 **Returns:** `FileVersionFull`
 

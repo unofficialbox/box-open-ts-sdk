@@ -27,7 +27,7 @@ const result = await client.emailAliases.listUser("USER_ID");
 |---|---|---|---|
 | `user_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `UserIdCreateRequest`
+**Request body** (`application/json`): `CreateUserIdRequest`
 
 **Returns:** `EmailAlias`
 

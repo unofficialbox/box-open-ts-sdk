@@ -66,7 +66,7 @@ export class ShieldInformationBarrierSegmentRestrictionsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ShieldInformationBarrierSegmentRestrictions;
   }
 
-  async create(body: models.schemas.ShieldInformationBarrierSegmentRestrictionCreateRequest): Promise<models.schemas.ShieldInformationBarrierSegmentRestriction> {
+  async create(body: models.schemas.CreateShieldInformationBarrierSegmentRestrictionRequest): Promise<models.schemas.ShieldInformationBarrierSegmentRestriction> {
     let url = this.session.baseUrl("api");
     url += "/shield_information_barrier_segment_restrictions";
     let req = this.session.newRequest("POST", url);

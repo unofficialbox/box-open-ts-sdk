@@ -19,7 +19,7 @@ export class ClassificationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ClassificationTemplate;
   }
 
-  async updateAdd(body: Array<models.schemas.ClassificationUpdateRequest>): Promise<models.schemas.ClassificationTemplate> {
+  async updateAdd(body: Array<models.schemas.UpdateClassificationAddRequest>): Promise<models.schemas.ClassificationTemplate> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += "/enterprise";
@@ -33,7 +33,7 @@ export class ClassificationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ClassificationTemplate;
   }
 
-  async updateUpdate(body: Array<models.schemas.ClassificationUpdateRequest2>): Promise<models.schemas.ClassificationTemplate> {
+  async updateUpdate(body: Array<models.schemas.UpdateClassificationUpdateRequest>): Promise<models.schemas.ClassificationTemplate> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += "/enterprise";
@@ -47,7 +47,7 @@ export class ClassificationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ClassificationTemplate;
   }
 
-  async createMetadataTemplateSchemaClassifications(body: models.schemas.MetadataTemplateSchemaCreateRequest): Promise<models.schemas.ClassificationTemplate> {
+  async createMetadataTemplateSchemaClassifications(body: models.schemas.CreateMetadataTemplateSchemaClassificationsRequest): Promise<models.schemas.ClassificationTemplate> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += "/schema";

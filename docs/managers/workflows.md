@@ -34,7 +34,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 |---|---|---|---|
 | `workflow_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `WorkflowStartRequest`
+**Request body** (`application/json`): `StartWorkflowRequest`
 
 **Returns:** `void`
 

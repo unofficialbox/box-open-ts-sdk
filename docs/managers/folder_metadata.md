@@ -27,7 +27,7 @@ const result = await client.folderMetadata.listFolderMetadata("FOLDER_ID");
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `folder_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
 **Returns:** `MetadataFull`
@@ -45,10 +45,10 @@ const result = await client.folderMetadata.getFolderMetadata("FOLDER_ID", "...",
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `folder_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
-**Request body** (`application/json-patch+json`): `Array<FileMetadataUpdateRequest>`
+**Request body** (`application/json-patch+json`): `Array<UpdateFileMetadataRequest>`
 
 **Returns:** `MetadataFull`
 
@@ -65,7 +65,7 @@ const result = await client.folderMetadata.updateFolderMetadata("FOLDER_ID", "..
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `folder_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
 **Request body** (`application/json`): `Record<string, unknown>`
@@ -85,7 +85,7 @@ const result = await client.folderMetadata.createFolderMetadata("FOLDER_ID", "..
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `folder_id` | path | `string` | yes |
-| `scope` | path | `GetFileIdMetadataIdIdScope` | yes |
+| `scope` | path | `GetFileIdMetadataIdScope` | yes |
 | `template_key` | path | `string` | yes |
 
 **Returns:** `void`

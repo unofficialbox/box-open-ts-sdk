@@ -19,7 +19,7 @@ export class TasksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Tasks;
   }
 
-  async create(body: models.schemas.TaskCreateRequest): Promise<models.schemas.Task> {
+  async create(body: models.schemas.CreateTaskRequest): Promise<models.schemas.Task> {
     let url = this.session.baseUrl("api");
     url += "/tasks";
     let req = this.session.newRequest("POST", url);
@@ -40,7 +40,7 @@ export class TasksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Task;
   }
 
-  async update(taskId: string, body: models.schemas.TaskUpdateRequest): Promise<models.schemas.Task> {
+  async update(taskId: string, body: models.schemas.UpdateTaskRequest): Promise<models.schemas.Task> {
     let url = this.session.baseUrl("api");
     url += "/tasks";
     url += '/' + pathEscape(taskId);

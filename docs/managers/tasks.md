@@ -23,7 +23,7 @@ const result = await client.tasks.listFile("FILE_ID");
 
 `POST /tasks`
 
-**Request body** (`application/json`): `TaskCreateRequest`
+**Request body** (`application/json`): `CreateTaskRequest`
 
 **Returns:** `Task`
 
@@ -57,7 +57,7 @@ const result = await client.tasks.get("TASK_ID");
 |---|---|---|---|
 | `task_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `TaskUpdateRequest`
+**Request body** (`application/json`): `UpdateTaskRequest`
 
 **Returns:** `Task`
 

@@ -88,7 +88,7 @@ export class IntegrationMappingsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.IntegrationMapping;
   }
 
-  async updateSlack(integrationMappingId: string, body: models.schemas.SlackUpdateRequest): Promise<models.schemas.IntegrationMapping> {
+  async updateSlack(integrationMappingId: string, body: models.schemas.UpdateSlackRequest): Promise<models.schemas.IntegrationMapping> {
     let url = this.session.baseUrl("api");
     url += "/integration_mappings";
     url += "/slack";
@@ -145,7 +145,7 @@ export class IntegrationMappingsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.IntegrationMappingTeams;
   }
 
-  async updateTeam(integrationMappingId: string, body: models.schemas.TeamUpdateRequest): Promise<models.schemas.IntegrationMappingTeams> {
+  async updateTeam(integrationMappingId: string, body: models.schemas.UpdateTeamRequest): Promise<models.schemas.IntegrationMappingTeams> {
     let url = this.session.baseUrl("api");
     url += "/integration_mappings";
     url += "/teams";

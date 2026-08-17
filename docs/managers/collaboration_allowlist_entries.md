@@ -3,7 +3,7 @@
 
 Reach these methods through the `collaborationAllowlistEntries` field on `Client`.
 
-## listCollaborationWhitelistEntries
+## list
 
 `GET /collaboration_whitelist_entries`
 
@@ -17,28 +17,28 @@ Reach these methods through the `collaborationAllowlistEntries` field on `Client
 **Example**
 
 ```ts
-for await (const item of client.collaborationAllowlistEntries.listCollaborationWhitelistEntries()) {
+for await (const item of client.collaborationAllowlistEntries.list()) {
   // use item
 }
 ```
 
-Paginated — `listCollaborationWhitelistEntries(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
+Paginated — `list(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
-## createCollaborationWhitelistEntries
+## create
 
 `POST /collaboration_whitelist_entries`
 
-**Request body** (`application/json`): `CollaborationWhitelistEntriesCreateRequest`
+**Request body** (`application/json`): `CreateCollaborationAllowlistEntryRequest`
 
 **Returns:** `CollaborationAllowlistEntry`
 
 **Example**
 
 ```ts
-const result = await client.collaborationAllowlistEntries.createCollaborationWhitelistEntries({ /* … */ });
+const result = await client.collaborationAllowlistEntries.create({ /* … */ });
 ```
 
-## getCollaborationWhitelistEntry
+## get
 
 `GET /collaboration_whitelist_entries/{collaboration_whitelist_entry_id}`
 
@@ -51,10 +51,10 @@ const result = await client.collaborationAllowlistEntries.createCollaborationWhi
 **Example**
 
 ```ts
-const result = await client.collaborationAllowlistEntries.getCollaborationWhitelistEntry("COLLABORATION_WHITELIST_ENTRY_ID");
+const result = await client.collaborationAllowlistEntries.get("COLLABORATION_WHITELIST_ENTRY_ID");
 ```
 
-## deleteCollaborationWhitelistEntry
+## delete_
 
 `DELETE /collaboration_whitelist_entries/{collaboration_whitelist_entry_id}`
 
@@ -67,6 +67,6 @@ const result = await client.collaborationAllowlistEntries.getCollaborationWhitel
 **Example**
 
 ```ts
-await client.collaborationAllowlistEntries.deleteCollaborationWhitelistEntry("COLLABORATION_WHITELIST_ENTRY_ID");
+await client.collaborationAllowlistEntries.delete_("COLLABORATION_WHITELIST_ENTRY_ID");
 ```
 

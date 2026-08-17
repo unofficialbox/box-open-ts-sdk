@@ -33,7 +33,7 @@ export class UserCollaborationsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Collaboration;
   }
 
-  async updateCollaboration(collaborationId: string, body: models.schemas.CollaborationUpdateRequest): Promise<models.schemas.Collaboration> {
+  async updateCollaboration(collaborationId: string, body: models.schemas.UpdateCollaborationRequest): Promise<models.schemas.Collaboration> {
     let url = this.session.baseUrl("api");
     url += "/collaborations";
     url += '/' + pathEscape(collaborationId);
@@ -53,7 +53,7 @@ export class UserCollaborationsManager {
     await this.session.fetch(req);
   }
 
-  async createCollaborations(body: models.schemas.CollaborationsCreateRequest, opts?: UserCollaborationsManagerCreateCollaborationsOptions): Promise<models.schemas.Collaboration> {
+  async createCollaborations(body: models.schemas.CreateCollaborationsRequest, opts?: UserCollaborationsManagerCreateCollaborationsOptions): Promise<models.schemas.Collaboration> {
     let url = this.session.baseUrl("api");
     url += "/collaborations";
     let req = this.session.newRequest("POST", url);

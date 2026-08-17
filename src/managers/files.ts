@@ -63,7 +63,7 @@ export class FilesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FileFull;
   }
 
-  async update(fileId: string, body: models.schemas.FileUpdateRequest, opts?: FilesManagerUpdateOptions): Promise<models.schemas.FileFull> {
+  async update(fileId: string, body: models.schemas.UpdateFileRequest, opts?: FilesManagerUpdateOptions): Promise<models.schemas.FileFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -94,7 +94,7 @@ export class FilesManager {
     await this.session.fetch(req);
   }
 
-  async copy(fileId: string, body: models.schemas.FileCopyRequest, opts?: FilesManagerCopyOptions): Promise<models.schemas.FileFull> {
+  async copy(fileId: string, body: models.schemas.CopyFileRequest, opts?: FilesManagerCopyOptions): Promise<models.schemas.FileFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);

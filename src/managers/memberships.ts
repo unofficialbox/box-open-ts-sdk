@@ -16,18 +16,18 @@ export interface MembershipsManagerListGroupOptions {
   offset?: number;
 }
 
-/** Optional parameters for MembershipsManager.createGroup. */
-export interface MembershipsManagerCreateGroupOptions {
+/** Optional parameters for MembershipsManager.createGroupMembership. */
+export interface MembershipsManagerCreateGroupMembershipOptions {
   fields?: Array<string>;
 }
 
-/** Optional parameters for MembershipsManager.getGroup. */
-export interface MembershipsManagerGetGroupOptions {
+/** Optional parameters for MembershipsManager.getGroupMembership. */
+export interface MembershipsManagerGetGroupMembershipOptions {
   fields?: Array<string>;
 }
 
-/** Optional parameters for MembershipsManager.updateGroup. */
-export interface MembershipsManagerUpdateGroupOptions {
+/** Optional parameters for MembershipsManager.updateGroupMembership. */
+export interface MembershipsManagerUpdateGroupMembershipOptions {
   fields?: Array<string>;
 }
 
@@ -103,7 +103,7 @@ export class MembershipsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.GroupMemberships;
   }
 
-  async createGroup(body: models.schemas.GroupCreateRequest2, opts?: MembershipsManagerCreateGroupOptions): Promise<models.schemas.GroupMembership> {
+  async createGroupMembership(body: models.schemas.CreateGroupMembershipRequest, opts?: MembershipsManagerCreateGroupMembershipOptions): Promise<models.schemas.GroupMembership> {
     let url = this.session.baseUrl("api");
     url += "/group_memberships";
     let req = this.session.newRequest("POST", url);
@@ -118,7 +118,7 @@ export class MembershipsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.GroupMembership;
   }
 
-  async getGroup(groupMembershipId: string, opts?: MembershipsManagerGetGroupOptions): Promise<models.schemas.GroupMembership> {
+  async getGroupMembership(groupMembershipId: string, opts?: MembershipsManagerGetGroupMembershipOptions): Promise<models.schemas.GroupMembership> {
     let url = this.session.baseUrl("api");
     url += "/group_memberships";
     url += '/' + pathEscape(groupMembershipId);
@@ -132,7 +132,7 @@ export class MembershipsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.GroupMembership;
   }
 
-  async updateGroup(groupMembershipId: string, body: models.schemas.GroupUpdateRequest2, opts?: MembershipsManagerUpdateGroupOptions): Promise<models.schemas.GroupMembership> {
+  async updateGroupMembership(groupMembershipId: string, body: models.schemas.UpdateGroupMembershipRequest, opts?: MembershipsManagerUpdateGroupMembershipOptions): Promise<models.schemas.GroupMembership> {
     let url = this.session.baseUrl("api");
     url += "/group_memberships";
     url += '/' + pathEscape(groupMembershipId);
@@ -148,7 +148,7 @@ export class MembershipsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.GroupMembership;
   }
 
-  async deleteGroup(groupMembershipId: string): Promise<void> {
+  async deleteGroupMembership(groupMembershipId: string): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/group_memberships";
     url += '/' + pathEscape(groupMembershipId);

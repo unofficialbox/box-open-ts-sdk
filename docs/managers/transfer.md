@@ -13,7 +13,7 @@ Reach these methods through the `transfer` field on `Client`.
 | `fields` | query | `Array<string>` | no |
 | `notify` | query | `boolean` | no |
 
-**Request body** (`application/json`): `UserFolder0UpdateRequest`
+**Request body** (`application/json`): `TransferFoldersRequest`
 
 **Returns:** `FolderFull`
 

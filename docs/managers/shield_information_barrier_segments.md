@@ -27,7 +27,7 @@ const result = await client.shieldInformationBarrierSegments.get("SHIELD_INFORMA
 |---|---|---|---|
 | `shield_information_barrier_segment_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `ShieldInformationBarrierSegmentUpdateRequest`
+**Request body** (`application/json`): `UpdateShieldInformationBarrierSegmentRequest`
 
 **Returns:** `ShieldInformationBarrierSegment`
 
@@ -79,7 +79,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 `POST /shield_information_barrier_segments`
 
-**Request body** (`application/json`): `ShieldInformationBarrierSegmentCreateRequest`
+**Request body** (`application/json`): `CreateShieldInformationBarrierSegmentRequest`
 
 **Returns:** `ShieldInformationBarrierSegment`
 

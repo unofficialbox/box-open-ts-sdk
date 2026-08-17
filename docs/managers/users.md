@@ -38,7 +38,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 |---|---|---|---|
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `UserCreateRequest`
+**Request body** (`application/json`): `CreateUserRequest`
 
 **Returns:** `UserFull`
 
@@ -90,7 +90,7 @@ const result = await client.users.get("USER_ID");
 | `user_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `UserUpdateRequest`
+**Request body** (`application/json`): `UpdateUserRequest`
 
 **Returns:** `UserFull`
 

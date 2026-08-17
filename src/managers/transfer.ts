@@ -14,7 +14,7 @@ export interface TransferManagerTransferFoldersOptions {
 export class TransferManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async transferFolders(userId: string, body: models.schemas.UserFolder0UpdateRequest, opts?: TransferManagerTransferFoldersOptions): Promise<models.schemas.FolderFull> {
+  async transferFolders(userId: string, body: models.schemas.TransferFoldersRequest, opts?: TransferManagerTransferFoldersOptions): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/users";
     url += '/' + pathEscape(userId);

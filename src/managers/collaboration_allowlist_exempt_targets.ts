@@ -4,8 +4,8 @@ import * as runtime from '../runtime.js';
 import type * as models from '../models/index.js';
 import { pathEscape } from '../internal.js';
 
-/** Optional parameters for CollaborationAllowlistExemptTargetsManager.listCollaborationWhitelistExemptTargets. */
-export interface CollaborationAllowlistExemptTargetsManagerListCollaborationWhitelistExemptTargetsOptions {
+/** Optional parameters for CollaborationAllowlistExemptTargetsManager.list. */
+export interface CollaborationAllowlistExemptTargetsManagerListOptions {
   marker?: string;
   limit?: number;
 }
@@ -15,10 +15,10 @@ export class CollaborationAllowlistExemptTargetsManager {
   constructor(private readonly session: runtime.Client) {}
 
   /** Iterate every `models.schemas.CollaborationAllowlistExemptTarget` across pages, threading the marker cursor. */
-  async *listCollaborationWhitelistExemptTargets(opts?: CollaborationAllowlistExemptTargetsManagerListCollaborationWhitelistExemptTargetsOptions): AsyncIterableIterator<models.schemas.CollaborationAllowlistExemptTarget> {
-    const options: CollaborationAllowlistExemptTargetsManagerListCollaborationWhitelistExemptTargetsOptions = { ...opts };
+  async *list(opts?: CollaborationAllowlistExemptTargetsManagerListOptions): AsyncIterableIterator<models.schemas.CollaborationAllowlistExemptTarget> {
+    const options: CollaborationAllowlistExemptTargetsManagerListOptions = { ...opts };
     for (;;) {
-      const page = await this.listCollaborationWhitelistExemptTargetsPage(options);
+      const page = await this.listPage(options);
       const items = page.entries ?? [];
       for (const item of items) {
         yield item;
@@ -31,7 +31,7 @@ export class CollaborationAllowlistExemptTargetsManager {
     }
   }
 
-  private async listCollaborationWhitelistExemptTargetsPage(opts?: CollaborationAllowlistExemptTargetsManagerListCollaborationWhitelistExemptTargetsOptions): Promise<models.schemas.CollaborationAllowlistExemptTargets> {
+  private async listPage(opts?: CollaborationAllowlistExemptTargetsManagerListOptions): Promise<models.schemas.CollaborationAllowlistExemptTargets> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_exempt_targets";
     let req = this.session.newRequest("GET", url);
@@ -47,7 +47,7 @@ export class CollaborationAllowlistExemptTargetsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.CollaborationAllowlistExemptTargets;
   }
 
-  async createCollaborationWhitelistExemptTargets(body: models.schemas.CollaborationWhitelistExemptTargetsCreateRequest): Promise<models.schemas.CollaborationAllowlistExemptTarget> {
+  async create(body: models.schemas.CreateCollaborationAllowlistExemptTargetRequest): Promise<models.schemas.CollaborationAllowlistExemptTarget> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_exempt_targets";
     let req = this.session.newRequest("POST", url);
@@ -58,7 +58,7 @@ export class CollaborationAllowlistExemptTargetsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.CollaborationAllowlistExemptTarget;
   }
 
-  async getCollaborationWhitelistExemptTarget(collaborationWhitelistExemptTargetId: string): Promise<models.schemas.CollaborationAllowlistExemptTarget> {
+  async get(collaborationWhitelistExemptTargetId: string): Promise<models.schemas.CollaborationAllowlistExemptTarget> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_exempt_targets";
     url += '/' + pathEscape(collaborationWhitelistExemptTargetId);
@@ -68,7 +68,7 @@ export class CollaborationAllowlistExemptTargetsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.CollaborationAllowlistExemptTarget;
   }
 
-  async deleteCollaborationWhitelistExemptTarget(collaborationWhitelistExemptTargetId: string): Promise<void> {
+  async delete_(collaborationWhitelistExemptTargetId: string): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/collaboration_whitelist_exempt_targets";
     url += '/' + pathEscape(collaborationWhitelistExemptTargetId);

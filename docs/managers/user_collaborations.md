@@ -28,7 +28,7 @@ const result = await client.userCollaborations.getCollaboration("COLLABORATION_I
 |---|---|---|---|
 | `collaboration_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `CollaborationUpdateRequest`
+**Request body** (`application/json`): `UpdateCollaborationRequest`
 
 **Returns:** `Collaboration`
 
@@ -63,7 +63,7 @@ await client.userCollaborations.deleteCollaboration("COLLABORATION_ID");
 | `fields` | query | `Array<string>` | no |
 | `notify` | query | `boolean` | no |
 
-**Request body** (`application/json`): `CollaborationsCreateRequest`
+**Request body** (`application/json`): `CreateCollaborationsRequest`
 
 **Returns:** `Collaboration`
 

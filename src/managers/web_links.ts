@@ -13,7 +13,7 @@ export interface WebLinksManagerGetOptions {
 export class WebLinksManager {
   constructor(private readonly session: runtime.Client) {}
 
-  async create(body: models.schemas.WebLinkCreateRequest): Promise<models.schemas.WebLink> {
+  async create(body: models.schemas.CreateWebLinkRequest): Promise<models.schemas.WebLink> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     let req = this.session.newRequest("POST", url);
@@ -38,7 +38,7 @@ export class WebLinksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.WebLink;
   }
 
-  async update(webLinkId: string, body: models.schemas.WebLinkUpdateRequest): Promise<models.schemas.WebLink> {
+  async update(webLinkId: string, body: models.schemas.UpdateWebLinkRequest): Promise<models.schemas.WebLink> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     url += '/' + pathEscape(webLinkId);

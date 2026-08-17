@@ -45,7 +45,7 @@ export class StoragePolicyAssignmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.StoragePolicyAssignments;
   }
 
-  async create(body: models.schemas.StoragePolicyAssignmentCreateRequest): Promise<models.schemas.StoragePolicyAssignment> {
+  async create(body: models.schemas.CreateStoragePolicyAssignmentRequest): Promise<models.schemas.StoragePolicyAssignment> {
     let url = this.session.baseUrl("api");
     url += "/storage_policy_assignments";
     let req = this.session.newRequest("POST", url);
@@ -66,7 +66,7 @@ export class StoragePolicyAssignmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.StoragePolicyAssignment;
   }
 
-  async update(storagePolicyAssignmentId: string, body: models.schemas.StoragePolicyAssignmentUpdateRequest): Promise<models.schemas.StoragePolicyAssignment> {
+  async update(storagePolicyAssignmentId: string, body: models.schemas.UpdateStoragePolicyAssignmentRequest): Promise<models.schemas.StoragePolicyAssignment> {
     let url = this.session.baseUrl("api");
     url += "/storage_policy_assignments";
     url += '/' + pathEscape(storagePolicyAssignmentId);

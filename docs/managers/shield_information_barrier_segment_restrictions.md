@@ -61,7 +61,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 `POST /shield_information_barrier_segment_restrictions`
 
-**Request body** (`application/json`): `ShieldInformationBarrierSegmentRestrictionCreateRequest`
+**Request body** (`application/json`): `CreateShieldInformationBarrierSegmentRestrictionRequest`
 
 **Returns:** `ShieldInformationBarrierSegmentRestriction`
 

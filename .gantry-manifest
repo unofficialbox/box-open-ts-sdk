@@ -53,6 +53,7 @@ docs/managers/metadata_cascade_policies.md
 docs/managers/metadata_taxonomies.md
 docs/managers/metadata_templates.md
 docs/managers/notes.md
+docs/managers/query.md
 docs/managers/recent_items.md
 docs/managers/retention_policies.md
 docs/managers/retention_policy_assignments.md
@@ -150,6 +151,7 @@ src/managers/metadata_cascade_policies.ts
 src/managers/metadata_taxonomies.ts
 src/managers/metadata_templates.ts
 src/managers/notes.ts
+src/managers/query.ts
 src/managers/recent_items.ts
 src/managers/retention_policies.ts
 src/managers/retention_policy_assignments.ts

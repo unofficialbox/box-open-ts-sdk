@@ -23,7 +23,7 @@ const result = await client.folderLocks.list("FOLDER_ID");
 
 `POST /folder_locks`
 
-**Request body** (`application/json`): `FolderLockCreateRequest`
+**Request body** (`application/json`): `CreateFolderLockRequest`
 
 **Returns:** `FolderLock`
 

@@ -48,7 +48,7 @@ export class ArchivesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Archives;
   }
 
-  async create(body: models.schemas.ArchiveCreateRequest): Promise<models.schemas.Archive> {
+  async create(body: models.schemas.CreateArchiveRequest): Promise<models.schemas.Archive> {
     let url = this.session.baseUrl("api");
     url += "/archives";
     let req = this.session.newRequest("POST", url);
@@ -60,7 +60,7 @@ export class ArchivesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Archive;
   }
 
-  async update(archiveId: string, body: models.schemas.ArchiveUpdateRequest): Promise<models.schemas.Archive> {
+  async update(archiveId: string, body: models.schemas.UpdateArchiveRequest): Promise<models.schemas.Archive> {
     let url = this.session.baseUrl("api");
     url += "/archives";
     url += '/' + pathEscape(archiveId);

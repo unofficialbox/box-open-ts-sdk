@@ -33,7 +33,7 @@ export class FileMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Metadatas;
   }
 
-  async getFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string, opts?: FileMetadataManagerGetFileMetadataOptions): Promise<models.schemas.MetadataFull> {
+  async getFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string, opts?: FileMetadataManagerGetFileMetadataOptions): Promise<models.schemas.MetadataFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -50,7 +50,7 @@ export class FileMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataFull;
   }
 
-  async updateFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string, body: Array<models.schemas.FileMetadataUpdateRequest>): Promise<models.schemas.MetadataFull> {
+  async updateFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string, body: Array<models.schemas.UpdateFileMetadataRequest>): Promise<models.schemas.MetadataFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -65,7 +65,7 @@ export class FileMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataFull;
   }
 
-  async createFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string, body: Record<string, unknown>): Promise<models.schemas.MetadataFull> {
+  async createFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string, body: Record<string, unknown>): Promise<models.schemas.MetadataFull> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);
@@ -80,7 +80,7 @@ export class FileMetadataManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.MetadataFull;
   }
 
-  async deleteFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdIdScope, templateKey: string): Promise<void> {
+  async deleteFileMetadata(fileId: string, scope: models.schemas.GetFileIdMetadataIdScope, templateKey: string): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/files";
     url += '/' + pathEscape(fileId);

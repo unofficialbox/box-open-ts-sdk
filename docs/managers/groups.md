@@ -34,7 +34,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 |---|---|---|---|
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `GroupCreateRequest`
+**Request body** (`application/json`): `CreateGroupRequest`
 
 **Returns:** `GroupFull`
 
@@ -70,7 +70,7 @@ const result = await client.groups.get("GROUP_ID");
 | `group_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `GroupUpdateRequest`
+**Request body** (`application/json`): `UpdateGroupRequest`
 
 **Returns:** `GroupFull`
 

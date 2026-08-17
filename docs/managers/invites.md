@@ -11,7 +11,7 @@ Reach these methods through the `invites` field on `Client`.
 |---|---|---|---|
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `InviteCreateRequest`
+**Request body** (`application/json`): `CreateInviteRequest`
 
 **Returns:** `Invite`
 

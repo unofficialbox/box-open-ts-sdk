@@ -55,7 +55,7 @@ export class LegalHoldPoliciesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.LegalHoldPolicies;
   }
 
-  async create(body: models.schemas.LegalHoldPolicyCreateRequest): Promise<models.schemas.LegalHoldPolicy> {
+  async create(body: models.schemas.CreateLegalHoldPolicyRequest): Promise<models.schemas.LegalHoldPolicy> {
     let url = this.session.baseUrl("api");
     url += "/legal_hold_policies";
     let req = this.session.newRequest("POST", url);
@@ -76,7 +76,7 @@ export class LegalHoldPoliciesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.LegalHoldPolicy;
   }
 
-  async update(legalHoldPolicyId: string, body: models.schemas.LegalHoldPolicyUpdateRequest): Promise<models.schemas.LegalHoldPolicy> {
+  async update(legalHoldPolicyId: string, body: models.schemas.UpdateLegalHoldPolicyRequest): Promise<models.schemas.LegalHoldPolicy> {
     let url = this.session.baseUrl("api");
     url += "/legal_hold_policies";
     url += '/' + pathEscape(legalHoldPolicyId);

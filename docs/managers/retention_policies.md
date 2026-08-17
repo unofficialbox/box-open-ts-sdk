@@ -32,7 +32,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 `POST /retention_policies`
 
-**Request body** (`application/json`): `RetentionPolicyCreateRequest`
+**Request body** (`application/json`): `CreateRetentionPolicyRequest`
 
 **Returns:** `RetentionPolicy`
 
@@ -67,7 +67,7 @@ const result = await client.retentionPolicies.get("RETENTION_POLICY_ID");
 |---|---|---|---|
 | `retention_policy_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `RetentionPolicyUpdateRequest`
+**Request body** (`application/json`): `UpdateRetentionPolicyRequest`
 
 **Returns:** `RetentionPolicy`
 

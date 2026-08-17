@@ -24,7 +24,7 @@ export class ShieldInformationBarrierSegmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ShieldInformationBarrierSegment;
   }
 
-  async update(shieldInformationBarrierSegmentId: string, body: models.schemas.ShieldInformationBarrierSegmentUpdateRequest): Promise<models.schemas.ShieldInformationBarrierSegment> {
+  async update(shieldInformationBarrierSegmentId: string, body: models.schemas.UpdateShieldInformationBarrierSegmentRequest): Promise<models.schemas.ShieldInformationBarrierSegment> {
     let url = this.session.baseUrl("api");
     url += "/shield_information_barrier_segments";
     url += '/' + pathEscape(shieldInformationBarrierSegmentId);
@@ -78,7 +78,7 @@ export class ShieldInformationBarrierSegmentsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ShieldInformationBarrierSegments;
   }
 
-  async create(body: models.schemas.ShieldInformationBarrierSegmentCreateRequest): Promise<models.schemas.ShieldInformationBarrierSegment> {
+  async create(body: models.schemas.CreateShieldInformationBarrierSegmentRequest): Promise<models.schemas.ShieldInformationBarrierSegment> {
     let url = this.session.baseUrl("api");
     url += "/shield_information_barrier_segments";
     let req = this.session.newRequest("POST", url);

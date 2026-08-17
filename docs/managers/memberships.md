@@ -47,7 +47,7 @@ for await (const item of client.memberships.listGroup("GROUP_ID")) {
 
 Paginated — `listGroup(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
-## createGroup
+## createGroupMembership
 
 `POST /group_memberships`
 
@@ -55,17 +55,17 @@ Paginated — `listGroup(...)` is an async iterable that yields each entry acros
 |---|---|---|---|
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `GroupCreateRequest2`
+**Request body** (`application/json`): `CreateGroupMembershipRequest`
 
 **Returns:** `GroupMembership`
 
 **Example**
 
 ```ts
-const result = await client.memberships.createGroup({ /* … */ });
+const result = await client.memberships.createGroupMembership({ /* … */ });
 ```
 
-## getGroup
+## getGroupMembership
 
 `GET /group_memberships/{group_membership_id}`
 
@@ -79,10 +79,10 @@ const result = await client.memberships.createGroup({ /* … */ });
 **Example**
 
 ```ts
-const result = await client.memberships.getGroup("GROUP_MEMBERSHIP_ID");
+const result = await client.memberships.getGroupMembership("GROUP_MEMBERSHIP_ID");
 ```
 
-## updateGroup
+## updateGroupMembership
 
 `PUT /group_memberships/{group_membership_id}`
 
@@ -91,17 +91,17 @@ const result = await client.memberships.getGroup("GROUP_MEMBERSHIP_ID");
 | `group_membership_id` | path | `string` | yes |
 | `fields` | query | `Array<string>` | no |
 
-**Request body** (`application/json`): `GroupUpdateRequest2`
+**Request body** (`application/json`): `UpdateGroupMembershipRequest`
 
 **Returns:** `GroupMembership`
 
 **Example**
 
 ```ts
-const result = await client.memberships.updateGroup("GROUP_MEMBERSHIP_ID", { /* … */ });
+const result = await client.memberships.updateGroupMembership("GROUP_MEMBERSHIP_ID", { /* … */ });
 ```
 
-## deleteGroup
+## deleteGroupMembership
 
 `DELETE /group_memberships/{group_membership_id}`
 
@@ -114,6 +114,6 @@ const result = await client.memberships.updateGroup("GROUP_MEMBERSHIP_ID", { /* 
 **Example**
 
 ```ts
-await client.memberships.deleteGroup("GROUP_MEMBERSHIP_ID");
+await client.memberships.deleteGroupMembership("GROUP_MEMBERSHIP_ID");
 ```
 

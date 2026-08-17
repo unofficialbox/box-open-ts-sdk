@@ -31,7 +31,7 @@ Paginated — `listRetentionPolicyAssignments(...)` is an async iterable that yi
 
 `POST /retention_policy_assignments`
 
-**Request body** (`application/json`): `RetentionPolicyAssignmentCreateRequest`
+**Request body** (`application/json`): `CreateRetentionPolicyAssignmentRequest`
 
 **Returns:** `RetentionPolicyAssignment`
 

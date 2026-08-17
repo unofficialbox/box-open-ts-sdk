@@ -27,7 +27,7 @@ const result = await client.folderClassifications.get("FOLDER_ID");
 |---|---|---|---|
 | `folder_id` | path | `string` | yes |
 
-**Request body** (`application/json-patch+json`): `Array<FileClassificationUpdateRequest>`
+**Request body** (`application/json-patch+json`): `Array<UpdateFileClassificationRequest>`
 
 **Returns:** `Classification`
 
@@ -45,7 +45,7 @@ const result = await client.folderClassifications.update("FOLDER_ID", []);
 |---|---|---|---|
 | `folder_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `FileClassificationCreateRequest`
+**Request body** (`application/json`): `CreateFileClassificationRequest`
 
 **Returns:** `Classification`
 

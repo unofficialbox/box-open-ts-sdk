@@ -7,7 +7,7 @@ Reach these methods through the `chunkedUploads` field on `Client`.
 
 `POST /files/upload_sessions`
 
-**Request body** (`application/json`): `FileUploadSessionCreateRequest`
+**Request body** (`application/json`): `CreateFileUploadSessionRequest`
 
 **Returns:** `UploadSession`
 
@@ -25,7 +25,7 @@ const result = await client.chunkedUploads.createFileUploadSession({ /* … */ }
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `FileVersionUploadSessionCreateRequest`
+**Request body** (`application/json`): `CreateFileVersionUploadSessionRequest`
 
 **Returns:** `UploadSession`
 
@@ -120,7 +120,7 @@ Paginated — `listFileUploadSessionParts(...)` is an async iterable that yields
 | `if-match` | header | `string` | no |
 | `if-none-match` | header | `string` | no |
 
-**Request body** (`application/json`): `FileUploadSessionCommitRequest`
+**Request body** (`application/json`): `CommitFileUploadSessionRequest`
 
 **Returns:** `Files`
 

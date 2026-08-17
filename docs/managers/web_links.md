@@ -7,7 +7,7 @@ Reach these methods through the `webLinks` field on `Client`.
 
 `POST /web_links`
 
-**Request body** (`application/json`): `WebLinkCreateRequest`
+**Request body** (`application/json`): `CreateWebLinkRequest`
 
 **Returns:** `WebLink`
 
@@ -42,7 +42,7 @@ const result = await client.webLinks.get("WEB_LINK_ID");
 |---|---|---|---|
 | `web_link_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `WebLinkUpdateRequest`
+**Request body** (`application/json`): `UpdateWebLinkRequest`
 
 **Returns:** `WebLink`
 

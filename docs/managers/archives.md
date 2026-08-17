@@ -28,7 +28,7 @@ Paginated — `list(...)` is an async iterable that yields each entry across pag
 
 `POST /archives`
 
-**Request body** (`application/json`): `ArchiveCreateRequest`
+**Request body** (`application/json`): `CreateArchiveRequest`
 
 **Returns:** `Archive`
 
@@ -46,7 +46,7 @@ const result = await client.archives.create({ /* … */ });
 |---|---|---|---|
 | `archive_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `ArchiveUpdateRequest`
+**Request body** (`application/json`): `UpdateArchiveRequest`
 
 **Returns:** `Archive`
 

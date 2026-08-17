@@ -27,7 +27,7 @@ const result = await client.avatars.getUserAvatar("USER_ID");
 |---|---|---|---|
 | `user_id` | path | `string` | yes |
 
-**Request body** (`multipart/form-data`): `UserAvatarCreateRequest`
+**Request body** (`multipart/form-data`): `CreateUserAvatarRequest`
 
 **Returns:** `UserAvatar`
 

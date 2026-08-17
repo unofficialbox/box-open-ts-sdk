@@ -42,7 +42,7 @@ export class SharedLinksFoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderFull;
   }
 
-  async updateFolderAddSharedLink(folderId: string, fields: string, body: models.schemas.FileUpdateRequest2): Promise<models.schemas.FolderFull> {
+  async updateFolderAddSharedLink(folderId: string, fields: string, body: models.schemas.UpdateFileAddSharedLinkRequest): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);
@@ -55,7 +55,7 @@ export class SharedLinksFoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderFull;
   }
 
-  async updateFolderUpdateSharedLink(folderId: string, fields: string, body: models.schemas.FolderUpdateRequest2): Promise<models.schemas.FolderFull> {
+  async updateFolderUpdateSharedLink(folderId: string, fields: string, body: models.schemas.UpdateFolderUpdateSharedLinkRequest): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);
@@ -68,7 +68,7 @@ export class SharedLinksFoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderFull;
   }
 
-  async updateFolderRemoveSharedLink(folderId: string, fields: string, body: models.schemas.FileUpdateRequest3): Promise<models.schemas.FolderFull> {
+  async updateFolderRemoveSharedLink(folderId: string, fields: string, body: models.schemas.UpdateFileRemoveSharedLinkRequest): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
     url += '/' + pathEscape(folderId);

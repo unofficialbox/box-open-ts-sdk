@@ -27,7 +27,7 @@ const result = await client.skills.get("FILE_ID");
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
 
-**Request body** (`application/json-patch+json`): `Array<SkillUpdateRequest>`
+**Request body** (`application/json-patch+json`): `Array<UpdateSkillRequest>`
 
 **Returns:** `SkillCardsMetadata`
 
@@ -45,7 +45,7 @@ const result = await client.skills.update("FILE_ID", []);
 |---|---|---|---|
 | `file_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `SkillCreateRequest`
+**Request body** (`application/json`): `CreateSkillRequest`
 
 **Returns:** `SkillCardsMetadata`
 
@@ -79,7 +79,7 @@ await client.skills.delete_("FILE_ID");
 |---|---|---|---|
 | `skill_id` | path | `string` | yes |
 
-**Request body** (`application/json`): `SkillInvocationUpdateRequest`
+**Request body** (`application/json`): `UpdateSkillInvocationRequest`
 
 **Returns:** `void`
 
