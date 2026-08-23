@@ -18,7 +18,7 @@ export interface ShieldInformationBarrierReport {
 }
 
 export interface ShieldInformationBarrierReportDetails {
-  details?: ShieldInformationBarrierReportDetailsDetails;
+  details?: ShieldInformationBarrierReportDetails2;
 }
 
 export interface ShieldInformationBarrierReports {
@@ -31,6 +31,6 @@ export type ShieldInformationBarrierReportType = "shield_information_barrier_rep
 
 export type ShieldInformationBarrierReportStatus = "pending" | "error" | "done" | "cancelled" | (string & {});
 
-export interface ShieldInformationBarrierReportDetailsDetails {
+export interface ShieldInformationBarrierReportDetails2 {
   folder_id?: string;
 }

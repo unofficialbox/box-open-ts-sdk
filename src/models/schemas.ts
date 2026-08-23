@@ -213,7 +213,7 @@ export interface Collection {
   id?: string;
   type?: CollectionType;
   name?: CollectionName;
-  collection_type?: CollectionCollectionType;
+  collection_type?: CollectionType2;
 }
 
 export interface Comment {
@@ -379,7 +379,7 @@ export interface Folder {
   content_modified_at?: string | null;
   owned_by?: UserMini;
   shared_link?: FileSharedLink | null;
-  folder_upload_email?: FolderFolderUploadEmail | null;
+  folder_upload_email?: FolderUploadEmail | null;
   parent?: FolderMini | null;
   item_status?: FileItemStatus;
   item_collection?: Items;
@@ -404,7 +404,7 @@ export interface FolderFull {
   content_modified_at?: string | null;
   owned_by?: UserMini;
   shared_link?: FileSharedLink | null;
-  folder_upload_email?: FolderFolderUploadEmail | null;
+  folder_upload_email?: FolderUploadEmail | null;
   parent?: FolderMini | null;
   item_status?: FileItemStatus;
   item_collection?: Items;
@@ -443,7 +443,7 @@ export interface Group {
   id: string;
   type: GroupType;
   name?: string;
-  group_type?: GroupGroupType;
+  group_type?: GroupType2;
   created_at?: string;
   modified_at?: string;
 }
@@ -452,7 +452,7 @@ export interface GroupMini {
   id: string;
   type: GroupType;
   name?: string;
-  group_type?: GroupGroupType;
+  group_type?: GroupType2;
 }
 
 export interface IntegrationMappingBase {
@@ -538,7 +538,7 @@ export interface OAuth2Error {
 export type Resource = (FolderMini & { type: "folder" }) | (FileMini & { type: "file" }) | { type: string; [key: string]: unknown };
 
 export interface ResourceScope {
-  scope?: ResourceScopeScope;
+  scope?: ResourceScope2;
   object?: Resource;
 }
 
@@ -609,51 +609,51 @@ export interface SignRequestBase {
 }
 
 export interface SignRequestSignerInputCustomValidation {
-  validation_type: SignRequestSignerInputCustomValidationValidationType;
+  validation_type: SignRequestSignerInputCustomValidationType;
   custom_regex: string | null;
   custom_error_message: string | null;
 }
 
 export interface SignRequestSignerInputDateAsiaValidation {
-  validation_type?: SignRequestSignerInputDateAsiaValidationValidationType;
+  validation_type?: SignRequestSignerInputDateAsiaValidationType;
 }
 
 export interface SignRequestSignerInputDateEUValidation {
-  validation_type?: SignRequestSignerInputDateEUValidationValidationType;
+  validation_type?: SignRequestSignerInputDateEUValidationType;
 }
 
 export interface SignRequestSignerInputDateISOValidation {
-  validation_type?: SignRequestSignerInputDateISOValidationValidationType;
+  validation_type?: SignRequestSignerInputDateISOValidationType;
 }
 
 export interface SignRequestSignerInputDateUSValidation {
-  validation_type?: SignRequestSignerInputDateUSValidationValidationType;
+  validation_type?: SignRequestSignerInputDateUSValidationType;
 }
 
 export interface SignRequestSignerInputEmailValidation {
-  validation_type: SignRequestSignerInputEmailValidationValidationType;
+  validation_type: SignRequestSignerInputEmailValidationType;
 }
 
 export interface SignRequestSignerInputNumberWithCommaValidation {
-  validation_type?: SignRequestSignerInputNumberWithCommaValidationValidationType;
+  validation_type?: SignRequestSignerInputNumberWithCommaValidationType;
 }
 
 export interface SignRequestSignerInputNumberWithPeriodValidation {
-  validation_type?: SignRequestSignerInputNumberWithPeriodValidationValidationType;
+  validation_type?: SignRequestSignerInputNumberWithPeriodValidationType;
 }
 
 export interface SignRequestSignerInputSSNValidation {
-  validation_type: SignRequestSignerInputSSNValidationValidationType;
+  validation_type: SignRequestSignerInputSSNValidationType;
 }
 
 export type SignRequestSignerInputValidation = unknown;
 
 export interface SignRequestSignerInputZIP4Validation {
-  validation_type: SignRequestSignerInputZIP4ValidationValidationType;
+  validation_type: SignRequestSignerInputZIP4ValidationType;
 }
 
 export interface SignRequestSignerInputZIPValidation {
-  validation_type: SignRequestSignerInputZIPValidationValidationType;
+  validation_type: SignRequestSignerInputZIPValidationType;
 }
 
 export interface TaskAssignment {
@@ -706,7 +706,7 @@ export interface UserMini {
 }
 
 export interface Watermark {
-  watermark?: WatermarkWatermark;
+  watermark?: Watermark2;
 }
 
 export interface WebLink {
@@ -749,7 +749,7 @@ export interface WorkflowMini {
   is_enabled?: boolean;
 }
 
-export type AccessTokenTokenType = "bearer" | (string & {});
+export type AccessTokenType = "bearer" | (string & {});
 
 export type AiAgentAskType = "ai_agent_ask" | (string & {});
 
@@ -828,7 +828,7 @@ export interface CollaborationAllowlistEntryEnterprise {
 
 export type VariableValueType = "user" | (string & {});
 
-export interface CollaboratorVariableVariableValue {
+export interface CollaboratorVariableValue {
   type: VariableValueType;
   id: string;
 }
@@ -837,7 +837,7 @@ export type CollectionType = "collection" | (string & {});
 
 export type CollectionName = "Favorites" | (string & {});
 
-export type CollectionCollectionType = "favorites" | (string & {});
+export type CollectionType2 = "favorites" | (string & {});
 
 export type OrderDirection = "ASC" | "DESC" | (string & {});
 
@@ -926,7 +926,7 @@ export interface FileFullLock {
 export interface FileFullExpiringEmbedLink {
   access_token?: string;
   expires_in?: number;
-  token_type?: AccessTokenTokenType;
+  token_type?: AccessTokenType;
   restricted_to?: Array<ResourceScope>;
   url?: string;
 }
@@ -985,7 +985,7 @@ export type FileVersionType = "file_version" | (string & {});
 
 export type FolderUploadEmailAccess = "open" | "collaborators" | (string & {});
 
-export interface FolderFolderUploadEmail {
+export interface FolderUploadEmail {
   access?: FolderUploadEmailAccess;
   email?: string;
 }
@@ -1005,7 +1005,7 @@ export interface FolderFullPermissions {
 
 export type GroupType = "group" | (string & {});
 
-export type GroupGroupType = "managed_group" | "all_users_group" | (string & {});
+export type GroupType2 = "managed_group" | "all_users_group" | (string & {});
 
 export type LegalHoldPolicyType = "legal_hold_policy" | (string & {});
 
@@ -1018,7 +1018,7 @@ export interface MetadataCascadePolicyParent {
   id?: string;
 }
 
-export type ResourceScopeScope = "annotation_edit" | "annotation_view_all" | "annotation_view_self" | "base_explorer" | "base_picker" | "base_preview" | "base_upload" | "item_delete" | "item_download" | "item_preview" | "item_rename" | "item_share" | "item_upload" | "item_read" | (string & {});
+export type ResourceScope2 = "annotation_edit" | "annotation_view_all" | "annotation_view_self" | "base_explorer" | "base_picker" | "base_preview" | "base_upload" | "item_delete" | "item_download" | "item_preview" | "item_rename" | "item_share" | "item_upload" | "item_read" | (string & {});
 
 export type RetentionPolicyType = "retention_policy" | (string & {});
 
@@ -1039,27 +1039,27 @@ export type SignRequestCreateSignerRole = "signer" | "approver" | "final_copy_re
 
 export type SignRequestSignerInputContentType = "signature" | "initial" | "stamp" | "date" | "checkbox" | "text" | "full_name" | "first_name" | "last_name" | "company" | "title" | "email" | "attachment" | "radio" | "dropdown" | (string & {});
 
-export type SignRequestSignerInputCustomValidationValidationType = "custom" | (string & {});
+export type SignRequestSignerInputCustomValidationType = "custom" | (string & {});
 
-export type SignRequestSignerInputDateAsiaValidationValidationType = "date_asia" | (string & {});
+export type SignRequestSignerInputDateAsiaValidationType = "date_asia" | (string & {});
 
-export type SignRequestSignerInputDateEUValidationValidationType = "date_eu" | (string & {});
+export type SignRequestSignerInputDateEUValidationType = "date_eu" | (string & {});
 
-export type SignRequestSignerInputDateISOValidationValidationType = "date_iso" | (string & {});
+export type SignRequestSignerInputDateISOValidationType = "date_iso" | (string & {});
 
-export type SignRequestSignerInputDateUSValidationValidationType = "date_us" | (string & {});
+export type SignRequestSignerInputDateUSValidationType = "date_us" | (string & {});
 
-export type SignRequestSignerInputEmailValidationValidationType = "email" | (string & {});
+export type SignRequestSignerInputEmailValidationType = "email" | (string & {});
 
-export type SignRequestSignerInputNumberWithCommaValidationValidationType = "number_with_comma" | (string & {});
+export type SignRequestSignerInputNumberWithCommaValidationType = "number_with_comma" | (string & {});
 
-export type SignRequestSignerInputNumberWithPeriodValidationValidationType = "number_with_period" | (string & {});
+export type SignRequestSignerInputNumberWithPeriodValidationType = "number_with_period" | (string & {});
 
-export type SignRequestSignerInputSSNValidationValidationType = "ssn" | (string & {});
+export type SignRequestSignerInputSSNValidationType = "ssn" | (string & {});
 
-export type SignRequestSignerInputZIP4ValidationValidationType = "zip_4" | (string & {});
+export type SignRequestSignerInputZIP4ValidationType = "zip_4" | (string & {});
 
-export type SignRequestSignerInputZIPValidationValidationType = "zip" | (string & {});
+export type SignRequestSignerInputZIPValidationType = "zip" | (string & {});
 
 export type StoragePolicyType = "storage_policy" | (string & {});
 
@@ -1093,7 +1093,7 @@ export interface UserNotificationEmail {
   is_confirmed?: boolean;
 }
 
-export interface WatermarkWatermark {
+export interface Watermark2 {
   created_at?: string;
   modified_at?: string;
 }
@@ -1155,12 +1155,12 @@ export interface UpdateFileMetadataRequest {
 
 export type WatermarkImprint = "default" | (string & {});
 
-export interface PutFileIdWatermarkWatermark {
+export interface PutFileIdWatermark {
   imprint: WatermarkImprint;
 }
 
 export interface UpdateFileWatermarkRequest {
-  watermark: PutFileIdWatermarkWatermark;
+  watermark: PutFileIdWatermark;
 }
 
 export type GetDirection = "DESC" | "ASC" | (string & {});
@@ -1171,7 +1171,7 @@ export interface UpdateFileAddSharedLinkRequestSharedLinkPermissions {
   can_edit?: boolean;
 }
 
-export interface PutFileIdAddSharedLinkSharedLink {
+export interface PutFileIdAddSharedLink {
   access?: SharedLinkAccess;
   password?: string | null;
   vanity_name?: string;
@@ -1180,7 +1180,7 @@ export interface PutFileIdAddSharedLinkSharedLink {
 }
 
 export interface UpdateFileAddSharedLinkRequest {
-  shared_link?: PutFileIdAddSharedLinkSharedLink;
+  shared_link?: PutFileIdAddSharedLink;
 }
 
 export interface UpdateFileRemoveSharedLinkRequest {

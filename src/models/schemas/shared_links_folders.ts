@@ -2,7 +2,7 @@
 
 import type { SharedLinkAccess, UpdateFileAddSharedLinkRequestSharedLinkPermissions } from '../schemas.js';
 
-export interface PutFolderIdUpdateSharedLinkSharedLink {
+export interface PutFolderIdUpdateSharedLink {
   access?: SharedLinkAccess;
   password?: string;
   vanity_name?: string;
@@ -11,5 +11,5 @@ export interface PutFolderIdUpdateSharedLinkSharedLink {
 }
 
 export interface UpdateFolderUpdateSharedLinkRequest {
-  shared_link?: PutFolderIdUpdateSharedLinkSharedLink;
+  shared_link?: PutFolderIdUpdateSharedLink;
 }

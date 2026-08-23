@@ -106,7 +106,7 @@ export interface SignRequestSigner {
   suppress_notifications?: boolean | null;
   language?: string | null;
   has_viewed_document?: boolean;
-  signer_decision?: SignRequestSignerSignerDecision | null;
+  signer_decision?: SignRequestSignerDecision | null;
   inputs?: Array<SignRequestSignerInput>;
   embed_url?: string | null;
   iframeable_embed_url?: string | null;
@@ -145,7 +145,7 @@ export type SignRequestCreateRequestSignatureColor = "blue" | "black" | "red" | 
 
 export type SignerDecisionType = "signed" | "declined" | (string & {});
 
-export interface SignRequestSignerSignerDecision {
+export interface SignRequestSignerDecision {
   type?: SignerDecisionType;
   finalized_at?: string;
   additional_info?: string | null;

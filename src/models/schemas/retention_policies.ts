@@ -16,7 +16,7 @@ export interface RetentionPolicy {
   disposition_action?: RetentionPolicyDispositionAction;
   max_extension_length?: RetentionPolicyMaxExtensionLengthResponse;
   description?: string;
-  policy_type?: RetentionPolicyPolicyType;
+  policy_type?: RetentionPolicyType2;
   retention_type?: RetentionPolicyRetentionType;
   status?: RetentionPolicyStatus;
   created_by?: UserMini;
@@ -30,7 +30,7 @@ export interface RetentionPolicy {
 
 export type RetentionPolicyMaxExtensionLengthRequest = unknown;
 
-export type RetentionPolicyPolicyType = "finite" | "indefinite" | (string & {});
+export type RetentionPolicyType2 = "finite" | "indefinite" | (string & {});
 
 export type RetentionPolicyRetentionType = "modifiable" | "non_modifiable" | (string & {});
 
@@ -47,7 +47,7 @@ export type PostRetentionLength = unknown;
 export interface CreateRetentionPolicyRequest {
   policy_name: string;
   description?: string;
-  policy_type: RetentionPolicyPolicyType;
+  policy_type: RetentionPolicyType2;
   disposition_action: RetentionPolicyDispositionAction;
   retention_length?: PostRetentionLength;
   retention_type?: RetentionPolicyRetentionType;

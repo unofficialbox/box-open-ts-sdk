@@ -5,8 +5,8 @@ import type { FileVersionType, PutOp, PutSkillInvocationIdFile } from '../schema
 export interface KeywordSkillCard {
   created_at?: string;
   type: KeywordSkillCardType;
-  skill_card_type: KeywordSkillCardSkillCardType;
-  skill_card_title?: KeywordSkillCardSkillCardTitle;
+  skill_card_type: KeywordSkillCardType2;
+  skill_card_title?: KeywordSkillCardTitle;
   skill: KeywordSkillCardSkill;
   invocation: KeywordSkillCardInvocation;
   entries: Array<KeywordSkillCardEntries>;
@@ -29,8 +29,8 @@ export interface SkillCardsMetadata {
 export interface StatusSkillCard {
   created_at?: string;
   type: KeywordSkillCardType;
-  skill_card_type: StatusSkillCardSkillCardType;
-  skill_card_title?: KeywordSkillCardSkillCardTitle;
+  skill_card_type: StatusSkillCardType;
+  skill_card_title?: KeywordSkillCardTitle;
   status: StatusSkillCardStatus;
   skill: KeywordSkillCardSkill;
   invocation: KeywordSkillCardInvocation;
@@ -39,8 +39,8 @@ export interface StatusSkillCard {
 export interface TimelineSkillCard {
   created_at?: string;
   type: KeywordSkillCardType;
-  skill_card_type: TimelineSkillCardSkillCardType;
-  skill_card_title?: KeywordSkillCardSkillCardTitle;
+  skill_card_type: TimelineSkillCardType;
+  skill_card_title?: KeywordSkillCardTitle;
   skill: KeywordSkillCardSkill;
   invocation: KeywordSkillCardInvocation;
   duration?: number;
@@ -50,8 +50,8 @@ export interface TimelineSkillCard {
 export interface TranscriptSkillCard {
   created_at?: string;
   type: KeywordSkillCardType;
-  skill_card_type: TranscriptSkillCardSkillCardType;
-  skill_card_title?: KeywordSkillCardSkillCardTitle;
+  skill_card_type: TranscriptSkillCardType;
+  skill_card_title?: KeywordSkillCardTitle;
   skill: KeywordSkillCardSkill;
   invocation: KeywordSkillCardInvocation;
   duration?: number;
@@ -60,9 +60,9 @@ export interface TranscriptSkillCard {
 
 export type KeywordSkillCardType = "skill_card" | (string & {});
 
-export type KeywordSkillCardSkillCardType = "keyword" | (string & {});
+export type KeywordSkillCardType2 = "keyword" | (string & {});
 
-export interface KeywordSkillCardSkillCardTitle {
+export interface KeywordSkillCardTitle {
   code?: string;
   message: string;
 }
@@ -85,7 +85,7 @@ export interface KeywordSkillCardEntries {
   text?: string;
 }
 
-export type StatusSkillCardSkillCardType = "status" | (string & {});
+export type StatusSkillCardType = "status" | (string & {});
 
 export type StatusCode = "invoked" | "processing" | "success" | "transient_failure" | "permanent_failure" | (string & {});
 
@@ -94,7 +94,7 @@ export interface StatusSkillCardStatus {
   message?: string;
 }
 
-export type TimelineSkillCardSkillCardType = "timeline" | (string & {});
+export type TimelineSkillCardType = "timeline" | (string & {});
 
 export interface EntriesAppears {
   start?: number;
@@ -107,7 +107,7 @@ export interface TimelineSkillCardEntries {
   image_url?: string;
 }
 
-export type TranscriptSkillCardSkillCardType = "transcript" | (string & {});
+export type TranscriptSkillCardType = "transcript" | (string & {});
 
 export interface TranscriptSkillCardEntriesAppears {
   start?: number;

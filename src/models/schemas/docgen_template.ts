@@ -4,7 +4,7 @@ import type { FileReference } from '../schemas.js';
 
 export interface DocGenTag {
   tag_content: string;
-  tag_type: DocGenTagTagType;
+  tag_type: DocGenTagType;
   json_paths: Array<string>;
 }
 
@@ -35,4 +35,4 @@ export interface DocGenTemplates {
   entries?: Array<DocGenTemplate>;
 }
 
-export type DocGenTagTagType = "text" | "arithmetic" | "conditional" | "for-loop" | "table-loop" | "image" | (string & {});
+export type DocGenTagType = "text" | "arithmetic" | "conditional" | "for-loop" | "table-loop" | "image" | (string & {});

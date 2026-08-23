@@ -5,7 +5,7 @@ import type { UserMini } from '../schemas.js';
 export interface AutomateWorkflowAction {
   id: string;
   type: AutomateWorkflowActionType;
-  action_type: AutomateWorkflowActionActionType;
+  action_type: AutomateWorkflowActionType2;
   description?: string;
   created_at?: string;
   updated_at?: string;
@@ -33,6 +33,6 @@ export interface AutomateWorkflowStartRequest {
 
 export type AutomateWorkflowActionType = "workflow_action" | (string & {});
 
-export type AutomateWorkflowActionActionType = "run_workflow" | (string & {});
+export type AutomateWorkflowActionType2 = "run_workflow" | (string & {});
 
 export type AutomateWorkflowReferenceType = "workflow" | (string & {});

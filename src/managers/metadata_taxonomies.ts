@@ -22,7 +22,7 @@ export interface MetadataTaxonomiesManagerListNodesOptions {
 }
 
 /** Optional parameters for MetadataTaxonomiesManager.listMetadataTemplateFieldOptions. */
-export interface MetadataTaxonomiesManagerListMetadataTemplateFieldOptionsOptions {
+export interface MetadataTaxonomiesManagerListMetadataTemplateFieldOptions {
   level?: Array<number>;
   parent?: Array<string>;
   ancestor?: Array<string>;
@@ -275,8 +275,8 @@ export class MetadataTaxonomiesManager {
   }
 
   /** Iterate every `models.schemas.MetadataTaxonomyNode` across pages, threading the marker cursor. */
-  async *listMetadataTemplateFieldOptions(namespace: string, templateKey: string, fieldKey: string, opts?: MetadataTaxonomiesManagerListMetadataTemplateFieldOptionsOptions): AsyncIterableIterator<models.schemas.MetadataTaxonomyNode> {
-    const options: MetadataTaxonomiesManagerListMetadataTemplateFieldOptionsOptions = { ...opts };
+  async *listMetadataTemplateFieldOptions(namespace: string, templateKey: string, fieldKey: string, opts?: MetadataTaxonomiesManagerListMetadataTemplateFieldOptions): AsyncIterableIterator<models.schemas.MetadataTaxonomyNode> {
+    const options: MetadataTaxonomiesManagerListMetadataTemplateFieldOptions = { ...opts };
     for (;;) {
       const page = await this.listMetadataTemplateFieldOptionsPage(namespace, templateKey, fieldKey, options);
       const items = page.entries ?? [];
@@ -291,7 +291,7 @@ export class MetadataTaxonomiesManager {
     }
   }
 
-  private async listMetadataTemplateFieldOptionsPage(namespace: string, templateKey: string, fieldKey: string, opts?: MetadataTaxonomiesManagerListMetadataTemplateFieldOptionsOptions): Promise<models.schemas.MetadataTaxonomyNodes> {
+  private async listMetadataTemplateFieldOptionsPage(namespace: string, templateKey: string, fieldKey: string, opts?: MetadataTaxonomiesManagerListMetadataTemplateFieldOptions): Promise<models.schemas.MetadataTaxonomyNodes> {
     let url = this.session.baseUrl("api");
     url += "/metadata_templates";
     url += '/' + pathEscape(namespace);

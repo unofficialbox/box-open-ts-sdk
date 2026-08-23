@@ -28,11 +28,11 @@ export interface ShieldInformationBarriers {
 
 export type ShieldInformationBarrierStatus = "draft" | "pending" | "disabled" | "enabled" | "invalid" | (string & {});
 
-export type PostChangeStatusStatus = "pending" | "disabled" | (string & {});
+export type PostChangeStatus = "pending" | "disabled" | (string & {});
 
 export interface CreateChangeStatusRequest {
   id: string;
-  status: PostChangeStatusStatus;
+  status: PostChangeStatus;
 }
 
 export interface CreateShieldInformationBarrierRequest {

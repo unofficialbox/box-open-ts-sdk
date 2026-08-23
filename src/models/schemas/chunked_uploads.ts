@@ -28,12 +28,12 @@ export interface UploadSession {
   part_size?: number;
   total_parts?: number;
   num_parts_processed?: number;
-  session_endpoints?: UploadSessionSessionEndpoints;
+  session_endpoints?: UploadSessionEndpoints;
 }
 
 export type UploadSessionType = "upload_session" | (string & {});
 
-export interface UploadSessionSessionEndpoints {
+export interface UploadSessionEndpoints {
   upload_part?: string;
   commit?: string;
   abort?: string;

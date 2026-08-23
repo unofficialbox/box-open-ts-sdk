@@ -7,7 +7,7 @@ import { pathEscape } from '../internal.js';
 /** Optional parameters for RetentionPoliciesManager.list. */
 export interface RetentionPoliciesManagerListOptions {
   policy_name?: string;
-  policy_type?: models.schemas.RetentionPolicyPolicyType;
+  policy_type?: models.schemas.RetentionPolicyType2;
   created_by_user_id?: string;
   fields?: Array<string>;
   limit?: number;
