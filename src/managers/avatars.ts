@@ -24,8 +24,8 @@ export class AvatarsManager {
     url += '/' + pathEscape(userId);
     url += "/avatar";
     let req = this.session.newRequest("POST", url);
-    const attributes = new TextEncoder().encode(JSON.stringify(body));
-    req = runtime.withMultipartBody(req, attributes, 'file', runtime.Stream.empty());
+    const fileBytes = new Uint8Array(await body.pic.arrayBuffer());
+    req = runtime.withMultipartBody(req, "", new Uint8Array(0), "pic", new runtime.Stream(fileBytes));
     const resp = await this.session.fetch(req);
     const data = runtime.responseBytes(resp);
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UserAvatar;

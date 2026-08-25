@@ -37,8 +37,9 @@ export class UploadsManager {
     if (options["content-md5"] !== undefined) {
       req = runtime.withHeader(req, "content-md5", options["content-md5"]);
     }
-    const attributes = new TextEncoder().encode(JSON.stringify(body));
-    req = runtime.withMultipartBody(req, attributes, 'file', runtime.Stream.empty());
+    const jsonBytes = new TextEncoder().encode(JSON.stringify(body.attributes));
+    const fileBytes = new Uint8Array(await body.file.arrayBuffer());
+    req = runtime.withMultipartBody(req, "attributes", jsonBytes, "file", new runtime.Stream(fileBytes));
     const resp = await this.session.fetch(req);
     const data = runtime.responseBytes(resp);
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Files;
@@ -56,8 +57,9 @@ export class UploadsManager {
     if (options["content-md5"] !== undefined) {
       req = runtime.withHeader(req, "content-md5", options["content-md5"]);
     }
-    const attributes = new TextEncoder().encode(JSON.stringify(body));
-    req = runtime.withMultipartBody(req, attributes, 'file', runtime.Stream.empty());
+    const jsonBytes = new TextEncoder().encode(JSON.stringify(body.attributes));
+    const fileBytes = new Uint8Array(await body.file.arrayBuffer());
+    req = runtime.withMultipartBody(req, "attributes", jsonBytes, "file", new runtime.Stream(fileBytes));
     const resp = await this.session.fetch(req);
     const data = runtime.responseBytes(resp);
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Files;
