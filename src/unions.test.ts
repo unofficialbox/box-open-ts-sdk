@@ -166,3 +166,45 @@ test('schemas.ShieldListContentRequest dispatches on type — known country, unk
   const unknown: models.schemas.ShieldListContentRequest = { "type": '__gantry_unknown__' };
   assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
 });
+
+test('schemas.DocumentSplitPageSelectionSegment dispatches on type — known single_page, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"single_page\"}") as models.schemas.DocumentSplitPageSelectionSegment;
+  assert.equal((known as Record<string, unknown>)["type"], "single_page");
+  const unknown: models.schemas.DocumentSplitPageSelectionSegment = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});
+
+test('schemas.ShuttleJobScheduleTrigger dispatches on type — known by_time, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"by_time\"}") as models.schemas.ShuttleJobScheduleTrigger;
+  assert.equal((known as Record<string, unknown>)["type"], "by_time");
+  const unknown: models.schemas.ShuttleJobScheduleTrigger = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});
+
+test('schemas.ShuttlePathEntryScope dispatches on type — known account, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"account\"}") as models.schemas.ShuttlePathEntryScope;
+  assert.equal((known as Record<string, unknown>)["type"], "account");
+  const unknown: models.schemas.ShuttlePathEntryScope = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});
+
+test('schemas.ShuttlePathMappingLocation dispatches on type — known account, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"account\"}") as models.schemas.ShuttlePathMappingLocation;
+  assert.equal((known as Record<string, unknown>)["type"], "account");
+  const unknown: models.schemas.ShuttlePathMappingLocation = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});
+
+test('schemas.ShuttlePathMappingLocationInput dispatches on type — known account, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"account\"}") as models.schemas.ShuttlePathMappingLocationInput;
+  assert.equal((known as Record<string, unknown>)["type"], "account");
+  const unknown: models.schemas.ShuttlePathMappingLocationInput = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});
+
+test('schemas.ShuttlePathMappingTargetLocationInput dispatches on type — known account, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"account\"}") as models.schemas.ShuttlePathMappingTargetLocationInput;
+  assert.equal((known as Record<string, unknown>)["type"], "account");
+  const unknown: models.schemas.ShuttlePathMappingTargetLocationInput = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});

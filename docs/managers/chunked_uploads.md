@@ -109,6 +109,24 @@ for await (const item of client.chunkedUploads.listFileUploadSessionParts("UPLOA
 
 Paginated — `listFileUploadSessionParts(...)` is an async iterable that yields each entry across pages (`for await (const item of ...)`), threading the cursor for you. See the [pagination guide](../pagination.md).
 
+## createFileUploadSessionPlan
+
+`POST /files/upload_sessions/{upload_session_id}/plan`
+
+| Parameter | In | Type | Required |
+|---|---|---|---|
+| `upload_session_id` | path | `string` | yes |
+
+**Request body** (`application/json`): `UploadSessionPlanRequest`
+
+**Returns:** `UploadSessionPlanResponse`
+
+**Example**
+
+```ts
+const result = await client.chunkedUploads.createFileUploadSessionPlan("UPLOAD_SESSION_ID", { /* … */ });
+```
+
 ## commitFileUploadSession
 
 `POST /files/upload_sessions/{upload_session_id}/commit`

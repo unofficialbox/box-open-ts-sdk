@@ -115,6 +115,20 @@ export class ChunkedUploadsManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UploadParts;
   }
 
+  async createFileUploadSessionPlan(uploadSessionId: string, body: models.schemas.UploadSessionPlanRequest): Promise<models.schemas.UploadSessionPlanResponse> {
+    let url = this.session.baseUrl("upload_session");
+    url += "/files";
+    url += "/upload_sessions";
+    url += '/' + pathEscape(uploadSessionId);
+    url += "/plan";
+    let req = this.session.newRequest("POST", url);
+    const payload = new TextEncoder().encode(JSON.stringify(body));
+    req = runtime.withJsonBody(req, payload);
+    const resp = await this.session.fetch(req);
+    const data = runtime.responseBytes(resp);
+    return JSON.parse(new TextDecoder().decode(data)) as models.schemas.UploadSessionPlanResponse;
+  }
+
   async commitFileUploadSession(uploadSessionId: string, digest: string, body: models.schemas.CommitFileUploadSessionRequest, opts?: ChunkedUploadsManagerCommitFileUploadSessionOptions): Promise<models.schemas.Files> {
     let url = this.session.baseUrl("upload_session");
     url += "/files";
