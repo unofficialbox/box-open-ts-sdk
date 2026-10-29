@@ -4,9 +4,10 @@
 Methods are `async` and surface failure by throwing — the return type only
 describes the success value. A thrown `BoxApiError` is either a transport
 failure or a non-2xx response after the network layer's retries (exponential
-backoff + jitter, `401` refresh, `Retry-After`). It carries the HTTP `status`
-when the failure came with a response, and the underlying `cause` for
-transport or decode failures:
+backoff + jitter, `401` refresh, `Retry-After`). For a non-2xx response it
+carries the HTTP `status`, Box's error `code`, `boxMessage`, and `requestId`,
+and the raw `body`; transport and decode failures carry the underlying
+`cause` instead:
 
 ```ts
 import { runtime } from '@unofficialbox/box-open-sdk';
@@ -14,7 +15,7 @@ try {
 await client.files.getFileById(fileId);
 } catch (err) {
 if (err instanceof runtime.BoxApiError) {
-// err.status (number | undefined), err.cause
+// err.status, err.code, err.boxMessage, err.requestId, err.body, err.cause
 }
 }
 ```

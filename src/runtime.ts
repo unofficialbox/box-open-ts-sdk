@@ -14,7 +14,7 @@
 // it runs on any modern JavaScript runtime.
 
 import type { Auth } from './auth.js';
-import { BoxApiError } from './errors.js';
+import { BoxApiError, apiErrorFromResponse } from './errors.js';
 
 export { BoxApiError } from './errors.js';
 export * from './auth.js';
@@ -175,6 +175,9 @@ export class Client {
       if (shouldRetry(response.status, idempotent) && attempt < this.maxRetries) {
         await sleep(retryDelay(response, attempt), signal);
         continue;
+      }
+      if (response.status < 200 || response.status >= 300) {
+        throw apiErrorFromResponse(response.status, bodyBytes);
       }
       return response;
     }
