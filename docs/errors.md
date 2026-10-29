@@ -26,22 +26,20 @@ Files and folders carry an `etag`. Send it back to stay in sync with Box
 (Box's [Ensure consistency](https://developer.box.com/guides/api-calls/ensure-consistency/)
 guide):
 
-- **Reads** — pass the stored etag as `if-none-match` on a file or folder
-  `get` (or a shared-item lookup). Box answers `304 Not Modified` when
-  nothing changed, and the SDK raises it as the error above with status
-  `304`: keep your cached copy.
-- **Writes** — pass it as `if-match` on a file or folder update or delete,
-  or a new file version upload. Box answers `412 Precondition Failed`
-  (code `precondition_failed`) when the item changed since you read it:
-  read it again, reapply your change, retry. `If-Match` can't block a move.
+- **Reads** — a file or folder `get`, and each shared-item lookup, has an
+  `…IfModified` variant that takes the stored etag, sends it as
+  `If-None-Match`, and returns `undefined` when Box answers `304 Not Modified`:
+  keep your cached copy. (The plain method surfaces that 304 as the error
+  above if you set `if-none-match` on it yourself.)
+- **Writes** — pass the etag as `'if-match'` on a file or folder update or
+  delete, or a new file version upload. Box answers `412 Precondition
+  Failed` (code `precondition_failed`) when the item changed since you read
+  it: read it again, reapply your change, retry. `If-Match` can't block a move.
 
 ```ts
-try {
-  await client.files.get(fileId, { 'if-none-match': etag });
-} catch (err) {
-  if (err instanceof runtime.BoxApiError && err.status === 304) {
-    // unchanged since etag
-  }
+const file = await client.files.getIfModified(fileId, etag);
+if (file === undefined) {
+  // unchanged since etag
 }
 try {
   await client.files.update(fileId, body, { 'if-match': etag });

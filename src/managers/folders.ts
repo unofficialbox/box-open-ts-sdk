@@ -85,6 +85,19 @@ export class FoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderFull;
   }
 
+  /** `get` with `If-None-Match` set to `etag`: resolves `undefined` when
+   * the item is unchanged since `etag` (Box answers 304 Not Modified). */
+  async getIfModified(folderId: string, etag: string, opts?: FoldersManagerGetOptions): Promise<models.schemas.FolderFull | undefined> {
+    try {
+      return await this.get(folderId, { ...opts, "if-none-match": etag });
+    } catch (err) {
+      if (err instanceof runtime.BoxApiError && err.status === 304) {
+        return undefined;
+      }
+      throw err;
+    }
+  }
+
   async update(folderId: string, body: models.schemas.UpdateFolderRequest, opts?: FoldersManagerUpdateOptions): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";

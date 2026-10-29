@@ -63,6 +63,19 @@ export class FilesManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FileFull;
   }
 
+  /** `get` with `If-None-Match` set to `etag`: resolves `undefined` when
+   * the item is unchanged since `etag` (Box answers 304 Not Modified). */
+  async getIfModified(fileId: string, etag: string, opts?: FilesManagerGetOptions): Promise<models.schemas.FileFull | undefined> {
+    try {
+      return await this.get(fileId, { ...opts, "if-none-match": etag });
+    } catch (err) {
+      if (err instanceof runtime.BoxApiError && err.status === 304) {
+        return undefined;
+      }
+      throw err;
+    }
+  }
+
   async update(fileId: string, body: models.schemas.UpdateFileRequest, opts?: FilesManagerUpdateOptions): Promise<models.schemas.FileFull> {
     let url = this.session.baseUrl("api");
     url += "/files";

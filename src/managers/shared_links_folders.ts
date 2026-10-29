@@ -31,6 +31,19 @@ export class SharedLinksFoldersManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.FolderFull;
   }
 
+  /** `getSharedItemsFolders` with `If-None-Match` set to `etag`: resolves `undefined` when
+   * the item is unchanged since `etag` (Box answers 304 Not Modified). */
+  async getSharedItemsIfModifiedFolders(boxapi: string, etag: string, opts?: SharedLinksFoldersManagerGetSharedItemsFoldersOptions): Promise<models.schemas.FolderFull | undefined> {
+    try {
+      return await this.getSharedItemsFolders(boxapi, { ...opts, "if-none-match": etag });
+    } catch (err) {
+      if (err instanceof runtime.BoxApiError && err.status === 304) {
+        return undefined;
+      }
+      throw err;
+    }
+  }
+
   async getFolderGetSharedLink(folderId: string, fields: string): Promise<models.schemas.FolderFull> {
     let url = this.session.baseUrl("api");
     url += "/folders";
