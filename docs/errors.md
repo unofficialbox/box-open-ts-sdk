@@ -34,18 +34,24 @@ guide):
 - **Writes** — pass the etag as `'if-match'` on a file or folder update or
   delete, or a new file version upload. Box answers `412 Precondition
   Failed` (code `precondition_failed`) when the item changed since you read
-  it: read it again, reapply your change, retry. `If-Match` can't block a move.
+  it, and `runtime.isPreconditionFailed(err)` reports it: read it again,
+  reapply your change, retry. `If-Match` can't block a move.
 
 ```ts
 const file = await client.files.getIfModified(fileId, etag);
 if (file === undefined) {
   // unchanged since etag
 }
-try {
-  await client.files.update(fileId, body, { 'if-match': etag });
-} catch (err) {
-  if (err instanceof runtime.BoxApiError && err.status === 412) {
-    // changed since etag: re-read and retry
+
+// Re-read and retry: the update lands only on the version it was made from.
+for (let attempt = 1; ; attempt++) {
+  try {
+    await client.files.update(fileId, body, { 'if-match': etag });
+    break;
+  } catch (err) {
+    if (!runtime.isPreconditionFailed(err) || attempt === 3) throw err;
+    const current = await client.files.get(fileId);
+    etag = current.etag ?? undefined; // reapply your change to current here
   }
 }
 ```
