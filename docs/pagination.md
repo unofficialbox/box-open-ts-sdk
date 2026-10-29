@@ -15,3 +15,19 @@ It walks every page until the response has no next cursor (or an empty page, for
 offset pagination), and owns a private copy of the options you pass, so your
 value is never mutated. The wire cursor (`next_marker` / `offset`, verbatim per
 TR-TS.2) is threaded through the options for you.
+
+## Events
+
+`client.events.stream` follows Box's long-poll event stream: it yields the events
+after `stream_position` (`'now'` when unset), each once — Box may deliver an
+event twice — then waits on a real-time server until Box reports a change. It
+lists a fresh server when Box asks it to reconnect, and retries a long poll that
+times out. It rejects when a call fails; `break` or an `AbortSignal` stops it.
+Stream positions keep every digit, even past `Number.MAX_SAFE_INTEGER`:
+
+```ts
+const controller = new AbortController();
+for await (const event of client.events.stream({}, controller.signal)) {
+  // use event
+}
+```

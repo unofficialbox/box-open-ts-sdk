@@ -25,6 +25,7 @@ const result = await client.webLinks.create({ /* … */ });
 |---|---|---|---|
 | `web_link_id` | path | `string` | yes |
 | `boxapi` | header | `string` | no |
+| `if-none-match` | header | `string` | no |
 
 **Returns:** `WebLink`
 
@@ -41,6 +42,7 @@ const result = await client.webLinks.get("WEB_LINK_ID");
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `web_link_id` | path | `string` | yes |
+| `if-match` | header | `string` | no |
 
 **Request body** (`application/json`): `UpdateWebLinkRequest`
 
@@ -59,6 +61,7 @@ const result = await client.webLinks.update("WEB_LINK_ID", { /* … */ });
 | Parameter | In | Type | Required |
 |---|---|---|---|
 | `web_link_id` | path | `string` | yes |
+| `if-match` | header | `string` | no |
 
 **Returns:** `void`
 

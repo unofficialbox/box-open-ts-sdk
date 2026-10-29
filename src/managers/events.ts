@@ -43,7 +43,7 @@ export class EventsManager {
     }
     const resp = await this.session.fetch(req);
     const data = runtime.responseBytes(resp);
-    return JSON.parse(new TextDecoder().decode(data)) as models.schemas.Events;
+    return runtime.parseJsonExact(new TextDecoder().decode(data)) as models.schemas.Events;
   }
 
   async options(): Promise<models.schemas.RealtimeServers> {
@@ -53,5 +53,37 @@ export class EventsManager {
     const resp = await this.session.fetch(req);
     const data = runtime.responseBytes(resp);
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.RealtimeServers;
+  }
+
+  /** Box's long-poll event stream from `opts.stream_position` (`'now'` when
+   * unset): yields each event once, then waits on a real-time server for the
+   * next change. It rejects when a call fails; aborting `signal` stops it. */
+  stream(opts?: EventsManagerListOptions, signal?: AbortSignal): AsyncGenerator<models.schemas.Event, void, undefined> {
+    const options = { ...opts };
+    return runtime.eventStream(
+      this.session,
+      options.stream_position ?? 'now',
+      {
+        server: async () => {
+          const listed = await this.options();
+          for (const s of listed.entries ?? []) {
+            if (s.url !== undefined) {
+              return {
+                url: s.url,
+                maxRetries: s.max_retries === undefined ? undefined : Number(s.max_retries),
+                retryTimeoutSeconds: s.retry_timeout,
+              };
+            }
+          }
+          throw new runtime.BoxApiError('box: no real-time server to long-poll');
+        },
+        page: async (position) => {
+          const page = await this.list({ ...options, stream_position: position });
+          return { events: page.entries ?? [], next: runtime.streamPosition(page.next_stream_position) };
+        },
+        id: (event) => event.event_id,
+      },
+      signal,
+    );
   }
 }

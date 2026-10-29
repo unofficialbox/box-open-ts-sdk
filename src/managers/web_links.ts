@@ -7,6 +7,17 @@ import { pathEscape } from '../internal.js';
 /** Optional parameters for WebLinksManager.get. */
 export interface WebLinksManagerGetOptions {
   boxapi?: string;
+  "if-none-match"?: string;
+}
+
+/** Optional parameters for WebLinksManager.update. */
+export interface WebLinksManagerUpdateOptions {
+  "if-match"?: string;
+}
+
+/** Optional parameters for WebLinksManager.delete_. */
+export interface WebLinksManagerDeleteOptions {
+  "if-match"?: string;
 }
 
 /** Operations for the "web_links" API area. */
@@ -33,16 +44,36 @@ export class WebLinksManager {
     if (options.boxapi !== undefined) {
       req = runtime.withHeader(req, "boxapi", options.boxapi);
     }
+    if (options["if-none-match"] !== undefined) {
+      req = runtime.withHeader(req, "if-none-match", options["if-none-match"]);
+    }
     const resp = await this.session.fetch(req);
     const data = runtime.responseBytes(resp);
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.WebLink;
   }
 
-  async update(webLinkId: string, body: models.schemas.UpdateWebLinkRequest): Promise<models.schemas.WebLink> {
+  /** `get` with `If-None-Match` set to `etag`: resolves `undefined` when
+   * the item is unchanged since `etag` (Box answers 304 Not Modified). */
+  async getIfModified(webLinkId: string, etag: string, opts?: WebLinksManagerGetOptions): Promise<models.schemas.WebLink | undefined> {
+    try {
+      return await this.get(webLinkId, { ...opts, "if-none-match": etag });
+    } catch (err) {
+      if (err instanceof runtime.BoxApiError && err.status === 304) {
+        return undefined;
+      }
+      throw err;
+    }
+  }
+
+  async update(webLinkId: string, body: models.schemas.UpdateWebLinkRequest, opts?: WebLinksManagerUpdateOptions): Promise<models.schemas.WebLink> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     url += '/' + pathEscape(webLinkId);
     let req = this.session.newRequest("PUT", url);
+    const options = opts ?? {};
+    if (options["if-match"] !== undefined) {
+      req = runtime.withHeader(req, "if-match", options["if-match"]);
+    }
     const payload = new TextEncoder().encode(JSON.stringify(body));
     req = runtime.withJsonBody(req, payload);
     const resp = await this.session.fetch(req);
@@ -50,11 +81,15 @@ export class WebLinksManager {
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.WebLink;
   }
 
-  async delete_(webLinkId: string): Promise<void> {
+  async delete_(webLinkId: string, opts?: WebLinksManagerDeleteOptions): Promise<void> {
     let url = this.session.baseUrl("api");
     url += "/web_links";
     url += '/' + pathEscape(webLinkId);
     let req = this.session.newRequest("DELETE", url);
+    const options = opts ?? {};
+    if (options["if-match"] !== undefined) {
+      req = runtime.withHeader(req, "if-match", options["if-match"]);
+    }
     await this.session.fetch(req);
   }
 }

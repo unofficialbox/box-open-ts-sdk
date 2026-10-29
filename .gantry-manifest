@@ -93,6 +93,7 @@ docs/managers/webhooks.md
 docs/managers/workflows.md
 docs/managers/zip_downloads.md
 docs/pagination.md
+docs/webhooks.md
 package.json
 scripts/postbuild.mjs
 src/auth.ts
@@ -278,6 +279,7 @@ src/runtime.ts
 src/serialization.test.ts
 src/tokens.ts
 src/unions.test.ts
+src/webhooks.ts
 tsconfig.build.json
 tsconfig.cjs.json
 tsconfig.json
