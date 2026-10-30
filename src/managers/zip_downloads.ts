@@ -39,4 +39,17 @@ export class ZipDownloadsManager {
     const data = runtime.responseBytes(resp);
     return JSON.parse(new TextDecoder().decode(data)) as models.schemas.ZipDownloadStatus;
   }
+
+  /** Pack the items in `body` into one zip archive (`create`) and stream it
+   * from the download URL Box answers with, through this session (auth,
+   * retries, As-User). `getContent` fetches the same archive by id. */
+  async downloadZip(body: models.schemas.ZipDownloadRequest): Promise<runtime.Stream> {
+    const zip = await this.create(body);
+    const url = zip.download_url;
+    if (url === undefined) {
+      throw new runtime.BoxApiError('box: the zip download has no download_url');
+    }
+    const resp = await this.session.fetch(this.session.newRequest('GET', url));
+    return runtime.responseStream(resp);
+  }
 }

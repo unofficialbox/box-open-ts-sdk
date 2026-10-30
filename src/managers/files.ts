@@ -148,4 +148,20 @@ export class FilesManager {
     const resp = await this.session.fetch(req);
     return runtime.responseStream(resp);
   }
+
+  /** Download a representation of the item — a PDF, its extracted text, page
+   * images. `repHints` names it as `X-Rep-Hints` does (`'[pdf]'`,
+   * `'[extracted_text]'`, `'[jpg?dimensions=320x320]'`); `assetPath` picks one
+   * asset of a multi-asset representation (`'1.png'`) and is `''` for a
+   * single-file one. It waits while Box generates the representation, up to
+   * `options.maxWaitMs` (`runtime.DEFAULT_REPRESENTATION_WAIT_MS`). */
+  async getRepresentationContent(fileId: string, repHints: string, assetPath: string = '', options?: runtime.RepresentationOptions): Promise<runtime.Stream> {
+    let url = this.session.baseUrl("api");
+    url += "/files";
+    url += '/' + pathEscape(fileId);
+    let req = this.session.newRequest("GET", url);
+    req = runtime.withQuery(req, "fields", "representations");
+    req = runtime.withHeader(req, "x-rep-hints", repHints);
+    return runtime.representationContent(this.session, req, "representations", assetPath, options);
+  }
 }

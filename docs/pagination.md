@@ -31,3 +31,18 @@ for await (const event of client.events.stream({}, controller.signal)) {
   // use event
 }
 ```
+
+## Representations (PDF, text, thumbnails)
+
+`client.files.getRepresentationContent` downloads a rendering of a file that Box
+generates on demand — a PDF, its extracted text, page images. `repHints` names it
+as Box's `X-Rep-Hints` header does; `assetPath` picks one asset of a multi-asset
+representation (`'1.png'` for a page) and is `''` for a single-file one. It waits
+while Box generates the representation, up to `maxWaitMs`
+(`runtime.DEFAULT_REPRESENTATION_WAIT_MS`), and rejects if Box fails to:
+
+```ts
+const text = await client.files.getRepresentationContent(fileId, '[extracted_text]', '', {
+  maxWaitMs: 60_000,
+});
+```
