@@ -120,4 +120,20 @@ export class AuthorizationManager {
     req = runtime.withFormBody(req, new TextEncoder().encode(formEncode(form)));
     await this.session.fetch(req);
   }
+
+  /** Exchange the session's current access token for one limited to `scopes`
+   * and, when given, to one item (`resource`: its API URL, e.g.
+   * `https://api.box.com/2.0/files/123`) or a shared link. The result is a plain
+   * access token with no refresh token: build a client from it with
+   * `auth.developerToken`. */
+  async downscopeToken(scopes: readonly string[], resource?: string, sharedLink?: string): Promise<models.schemas.AccessToken> {
+    return this.createOauth2Token({
+      grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
+      subject_token: await this.session.accessToken(),
+      subject_token_type: "urn:ietf:params:oauth:token-type:access_token",
+      scope: scopes.join(' '),
+      ...(resource === undefined ? {} : { resource: resource }),
+      ...(sharedLink === undefined ? {} : { box_shared_link: sharedLink }),
+    });
+  }
 }

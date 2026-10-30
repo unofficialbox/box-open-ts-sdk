@@ -7,7 +7,7 @@ that yields one entry at a time, threading the cursor for you — the list metho
 
 ```ts
 for await (const item of client.folders.listItems(folderId)) {
-// use item
+  // use item
 }
 ```
 

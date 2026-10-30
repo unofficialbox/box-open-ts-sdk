@@ -180,11 +180,14 @@ export class Client {
   readonly webhooks: WebhooksManager;
   readonly workflows: WorkflowsManager;
   readonly zipDownloads: ZipDownloadsManager;
+  readonly #session: Session;
 
   /** Build a client for an authentication flow; `options` configures the
-   * runtime session (retries, `fetch`, default headers, base URLs). */
-  constructor(auth: Auth, options: ClientOptions = {}) {
-    const session = new Session(auth, options);
+   * runtime session (retries, `fetch`, default headers, base URLs). An
+   * already configured runtime session is used as is. */
+  constructor(auth: Auth | Session, options: ClientOptions = {}) {
+    const session = auth instanceof Session ? auth : new Session(auth, options);
+    this.#session = session;
     this.ai = new AiManager(session);
     this.aiStudio = new AiStudioManager(session);
     this.appItemAssociations = new AppItemAssociationsManager(session);
@@ -273,5 +276,12 @@ export class Client {
     this.webhooks = new WebhooksManager(session);
     this.workflows = new WorkflowsManager(session);
     this.zipDownloads = new ZipDownloadsManager(session);
+  }
+
+  /** A new client whose every API call acts as the user `userId` (Box's
+   * `As-User` header). It shares this client's auth and configuration;
+   * this client is unchanged. */
+  withAsUserHeader(userId: string): Client {
+    return new Client(this.#session.withAsUserHeader(userId));
   }
 }

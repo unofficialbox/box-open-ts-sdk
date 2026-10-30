@@ -23,9 +23,9 @@ to act as a managed user:
 ```ts
 import { auth } from '@unofficialbox/box-open-sdk';
 const client = new Client(auth.clientCredentials({
-clientId: 'CLIENT_ID',
-clientSecret: 'CLIENT_SECRET',
-enterpriseId: 'ENTERPRISE_ID',
+  clientId: 'CLIENT_ID',
+  clientSecret: 'CLIENT_SECRET',
+  enterpriseId: 'ENTERPRISE_ID',
 }));
 ```
 
@@ -38,11 +38,11 @@ imported from the runtime's `./jwt` entry point and returns a promise:
 ```ts
 import { jwtAuth } from '@unofficialbox/box-open-sdk/jwt';
 const auth = await jwtAuth({
-clientId: 'CLIENT_ID',
-clientSecret: 'CLIENT_SECRET',
-publicKeyId: 'PUBLIC_KEY_ID',
-privateKeyPem: privateKeyPem, // optionally encrypted; set passphrase
-enterpriseId: 'ENTERPRISE_ID',
+  clientId: 'CLIENT_ID',
+  clientSecret: 'CLIENT_SECRET',
+  publicKeyId: 'PUBLIC_KEY_ID',
+  privateKeyPem: privateKeyPem, // optionally encrypted; set passphrase
+  enterpriseId: 'ENTERPRISE_ID',
 });
 const client = new Client(auth);
 ```
@@ -57,4 +57,31 @@ import { auth } from '@unofficialbox/box-open-sdk';
 // later runs: resume from the stored refresh token.
 const source = auth.oauth({ clientId: 'CLIENT_ID', clientSecret: 'CLIENT_SECRET' }, storedRefreshToken);
 const client = new Client(source);
+```
+
+## Acting as another user
+
+An admin, or a service account whose app may *make API calls using the as-user
+header*, can act as another user. `withAsUserHeader` returns a new client whose
+every call sends Box's `As-User` header; it shares the original's auth (and
+token cache) and configuration, and the original is unchanged:
+
+```ts
+const userClient = client.withAsUserHeader('USER_ID');
+const me = await userClient.users.getMe(); // the user USER_ID
+```
+
+## Downscoping a token
+
+Exchange the session's access token for one limited to `scopes` and,
+optionally, to one item (its API URL) or shared link — e.g. to hand a
+browser-side preview a narrow token. The result has no refresh token; build
+a client from it as a developer token:
+
+```ts
+const down = await client.authorization.downscopeToken(
+  ['item_preview'],
+  'https://api.box.com/2.0/files/123',
+);
+const preview = new Client(auth.developerToken(down.access_token!));
 ```
