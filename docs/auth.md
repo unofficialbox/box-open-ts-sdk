@@ -59,6 +59,22 @@ const source = auth.oauth({ clientId: 'CLIENT_ID', clientSecret: 'CLIENT_SECRET'
 const client = new Client(source);
 ```
 
+## Revoking a token
+
+For logout or uninstall, `revokeToken()` revokes the token a CCG, JWT, or OAuth
+flow holds — with the flow's own client credentials, at the revoke endpoint
+beside its token URL, through its `fetch` — and clears it from the cache:
+
+```ts
+await source.revokeToken();
+```
+
+A CCG or JWT flow acquires a fresh token on its next use. OAuth revokes the
+whole grant: every later call rejects, so discard the stored refresh token and
+run the authorization-code flow again. A developer token has no client
+credentials to revoke with — pass them yourself to
+`client.authorization.revokeOauth2`.
+
 ## Acting as another user
 
 An admin, or a service account whose app may *make API calls using the as-user
