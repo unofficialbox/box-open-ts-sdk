@@ -132,6 +132,20 @@ test('schemas.SearchResultWithSharedLinkItem dispatches on type — known file, 
   assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
 });
 
+test('schemas.SignRequestSignerVerificationMethod dispatches on type — known login, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"login\"}") as models.schemas.SignRequestSignerVerificationMethod;
+  assert.equal((known as Record<string, unknown>)["type"], "login");
+  const unknown: models.schemas.SignRequestSignerVerificationMethod = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});
+
+test('schemas.TemplateSignerVerificationMethod dispatches on type — known login, unknown retained', () => {
+  const known = JSON.parse("{\"type\":\"login\"}") as models.schemas.TemplateSignerVerificationMethod;
+  assert.equal((known as Record<string, unknown>)["type"], "login");
+  const unknown: models.schemas.TemplateSignerVerificationMethod = { "type": '__gantry_unknown__' };
+  assert.equal((unknown as Record<string, unknown>)["type"], '__gantry_unknown__');
+});
+
 test('schemas.HubAccessGrantee dispatches on type — known user, unknown retained', () => {
   const known = JSON.parse("{\"type\":\"user\"}") as models.schemas.HubAccessGrantee;
   assert.equal((known as Record<string, unknown>)["type"], "user");
